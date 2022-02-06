@@ -1,0 +1,19 @@
+---
+- hosts: todeploy
+
+  tasks:
+  - name: chrome key
+    become: yes
+    apt_key: 
+     url: 'https://dl-ssl.google.com/linux/linux_signing_key.pub' 
+     state: present
+
+  - name: chrome repo
+    become: yes
+    apt_repository: 
+     repo: 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main'
+     state: present
+
+  - name: chrome install
+    become: yes
+    apt: name=google-chrome-stable state=latest

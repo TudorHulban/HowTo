@@ -1,0 +1,3 @@
+---
+- include: 02_installs.yml
+- include: 03_golangenv.yml

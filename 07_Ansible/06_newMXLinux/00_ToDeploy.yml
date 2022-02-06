@@ -1,0 +1,5 @@
+# mx linux installation
+---
+- include: 01_Installs.yml
+- include: 02_Lazarus_headless.yml  
+- include: 03_GolangEnv.yml

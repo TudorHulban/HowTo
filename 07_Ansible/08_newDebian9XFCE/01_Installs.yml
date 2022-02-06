@@ -1,0 +1,42 @@
+---
+- hosts: todeploy
+  tasks:
+  - name: update packages
+    become: yes
+    apt: update_cache=yes
+    
+  - name: miscellaneous install
+    become: yes
+    apt: name={{item}} state=latest
+    with_items:
+    - "build-essential"
+    - "git"
+    - "p7zip-full"
+    - "ffmpeg"
+    - "gpick"
+    - "k3b"
+    - "smartmontools"
+    - "vim"
+    - "scite"
+    - "shutter"
+    - "qpdfview"
+    - "gthumb"
+    - "sudo"
+    - "mpv"
+    - "pcmanfm"
+    
+  - name: apps optimization
+    become: yes
+    apt: name={{item}} state=absent
+    with_items:
+            - "qlipper"
+            - "audacious"
+            - "vlc"
+            - "qps"
+            - "smtube"
+            - "xscreensaver"
+            - "reportbug"
+            - "sugar-browse-activity"
+            - "xfburn"
+            - "xterm"
+            - "thunar"

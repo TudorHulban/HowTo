@@ -1,0 +1,3 @@
+---
+- include: postgres_install.yml
+- include: gogs_install.yml  

@@ -1,0 +1,33 @@
+---
+- hosts: todeploy
+  tasks:
+   - name: update packages
+     become: yes
+     apt: update_cache=yes
+
+   - name: prerequisites
+     become: yes
+     apt: name={{item}} state=latest
+     with_items:
+       - "vim"
+       - "git"
+
+   - name: create user git
+     become: yes
+     user: name="git"
+
+
+   - name: git folders
+     become: yes
+     file:
+                   path: "/var/git/{{item}}"
+                   group: "git"
+                   owner: "git"
+                   state: directory
+                   mode: 0744
+     with_items:
+                   - 'www.twobirdsjs.org'
+                   - 'api.twobirdsjs.org'
+                   - 'adapter.twobirdsjs.org'
+                   - 'proxy.twobirdsjs.org'
+                   - 'ansible'

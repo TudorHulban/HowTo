@@ -1,0 +1,13 @@
+---
+ - hosts: 192.168.1.44
+   tasks:
+   - name: get release info in JSON
+     local_action:
+       module: uri              
+       url: https://api.github.com/repos/newpascal/fpcupdeluxe/releases/latest
+       return_content: yes
+       method: GET
+     register: json_info
+
+   - debug:
+       var: json_info.json.assets[16].browser_download_url

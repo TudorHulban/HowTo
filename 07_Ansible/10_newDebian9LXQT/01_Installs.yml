@@ -1,0 +1,75 @@
+---
+- hosts: todeploy
+  tasks:
+  - name: update packages
+    become: yes
+    apt: update_cache=yes
+
+  - name: miscellaneous install
+    become: yes
+    apt: name={{item}} state=latest
+    with_items:
+    - "build-essential"
+    - "git"
+    - "p7zip-full"
+    - "ffmpeg"
+    - "gpick"
+    - "k3b"
+    - "smartmontools"
+    - "vim"
+    - "scite"
+    - "shutter"
+    - "qpdfview"
+    - "gthumb"
+    - "sudo"
+
+  - name: apps optimization
+    become: yes
+    apt: name={{item}} state=absent
+    with_items:
+            - "qlipper"
+            - "audacious"
+            - "mpv"
+            - "qps"
+            - "smtube"
+            - "xscreensaver"
+            - "reportbug"
+            - "sugar-browse-activity"
+    
+  - name: disable lid for laptops
+    become: yes
+    blockinfile:
+     dest: "/etc/systemd/logind.conf"
+     block: |
+       HandleLidSwitch=ignore
+       HandleLidSwitchDocked=ignore
+       
+  - name: restart service so that lid actions are ignore
+    become: yes
+    service:
+     name: systemd-logind
+     state: restarted     
+
+  - name: skype install
+    become: yes
+    apt:
+     deb: https://go.skype.com/skypeforlinux-64.deb
+
+  - name: decrease swapiness
+    become: yes
+    lineinfile:
+     dest: /etc/sysctl.conf
+     line: 'vm.swappiness=5'
+
+  - name: entrypoint ramdisk
+    become: yes
+    file:
+       path: /mnt/tmpfs.ramdisk
+       state: directory
+       mode: 0777
+
+  - name: ram disk
+    become: yes
+    lineinfile:
+     dest: /etc/fstab
+     line: 'tmpfs /ramcache tmpfs   nodev,nosuid,nodiratime,size=256M   0 0'

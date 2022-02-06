@@ -1,0 +1,32 @@
+---
+- hosts: apache
+  become: yes
+  vars:
+    theDomain: "testing"
+
+  tasks:
+  - name: Ubuntu install - prerequisites
+    apt: 
+      pkg:
+       - openssl
+
+  - name: install apache2
+    apt: name=apache2 update_cache=yes state=latest
+
+  - name: enable ssl module
+    apache2_module: 
+        name: ssl
+        state: present
+
+  - name: Set up Apache virtuahHost
+    template:
+        src: "apache.conf.j2"
+        dest: "/etc/apache2/sites-available/apache.conf"
+
+
+  - name: generate rsa and csr
+    shell: |
+      cd /etc/apache2 
+      openssl genrsa -out {{theDomain}}.key 1024
+      openssl req -new -key {{theDomain}}.key -out {{theDomain}}.csr
+    

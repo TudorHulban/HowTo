@@ -1,0 +1,56 @@
+# sudo vi /etc/ansible/ansible.cfg , allow_world_readable_tmpfiles = True
+
+- hosts: postgres
+  tasks:
+  - name: update packages
+    become: yes
+    apt: "update_cache=yes"
+
+  - name: postgres install
+    become: yes
+    apt: name={{item}} state=latest
+    with_items:
+     - "python-psycopg2"
+     - "postgresql"
+     - "postgresql-contrib"
+ 
+  - name: check service status
+    command: /usr/sbin/service postgresql status
+    changed_when: false
+ 
+  - name: update pg_hba.conf
+    become: yes
+    become_user: postgres
+    vars:
+     ansible_ssh_pipelining: true
+    template:
+     src: postgres_pg_hba_conf.j2
+     dest: "/etc/postgresql/10/main/pg_hba.conf"
+     owner: postgres
+     group: postgres
+     mode: 0640
+  
+  - name: update postgresql.conf
+    become: yes
+    lineinfile:
+     dest: /etc/postgresql/10/main/postgresql.conf
+     line: "listen_addresses = '*'"
+  
+  - name: restart postgres
+    become: yes
+    become_user: root
+    command: /usr/sbin/service postgresql restart
+  
+  - name: create working database
+    postgresql_db: name=devops
+
+  - name: create db user
+    postgresql_user: db=devops name=develop expires=infinity priv="ALL"
+    notify:
+    - alter password
+
+  handlers:
+  - name: alter password
+    become: yes
+    become_user: postgres
+    shell: psql -c "alter user develop with password 'develop'"

@@ -1,0 +1,3 @@
+---
+postgres_version: "10"
+postgres_config_path: "/etc/postgresql/{{postgres_version}}/main"

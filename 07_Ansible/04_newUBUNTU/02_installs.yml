@@ -1,0 +1,127 @@
+---
+- hosts: todeploy
+  vars_files:
+   - deploy_vars.yml
+
+  tasks:
+  - name: upgrade packages
+    become: yes
+    apt: upgrade=dist
+
+  - name: update packages
+    become: yes
+    apt: update_cache=yes
+
+  - name: miscellaneous
+    become: yes
+    apt: name={{item}} state=latest
+    with_items:
+    - "build-essential"
+    - "git"
+    - "mc"
+    - "gstreamer1.0-libav"
+    - "vlc"
+    - "p7zip-full"
+    - "p7zip-rar"
+    - "ffmpeg"
+    - "gpick"
+    - "gthumb"
+    - "k3b"
+    - "doublecmd-qt"
+    - "libreoffice"
+    - "deluge"
+
+  - name: team viewer
+    become: yes
+    apt:
+     deb: https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
+
+  - name: brackets
+    become: yes
+    apt:
+     deb: https://github.com/adobe/brackets/releases/download/release-1.13/Brackets.Release.1.13.64-bit.deb
+
+  - name: chrome key
+    become: yes
+    apt_key: 
+     url: 'https://dl-ssl.google.com/linux/linux_signing_key.pub' 
+     state: present
+
+  - name: chrome repo
+    become: yes
+    apt_repository: 
+     repo: 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main'
+     state: present
+
+  - name: chrome install
+    become: yes
+    apt: name=google-chrome-stable state=latest
+
+  - name: skype install
+    become: yes
+    apt:
+     deb: https://go.skype.com/skypeforlinux-64.deb
+
+  - name: clipgrab repo
+    become: yes
+    shell: add-apt-repository ppa:clipgrab-team/ppa
+
+  - name: update packages
+    become: yes
+    apt: update_cache=yes
+
+  - name: clipgrab install
+    become: yes
+    shell: apt-get install -y clipgrab 
+
+  - name: insomnia install
+    become: yes
+    shell: snap install insomnia
+
+  - name: download waterfox tarball
+    become: yes
+    become_user: "{{os_user}}"
+    get_url:
+     url: 'https://storage-waterfox.netdna-ssl.com/releases/linux64/installer/waterfox-56.2.1.en-US.linux-x86_64.tar.bz2'
+     dest: "/home/{{os_user}}/waterfox-56.2.1.en-US.linux-x86_64.tar.bz2"
+
+  - name: extract
+    become: yes
+    become_user: "{{os_user}}"
+    unarchive:
+     copy: no
+     dest: "/home/{{os_user}}/"
+     src: "/home/{{os_user}}/waterfox-56.2.1.en-US.linux-x86_64.tar.bz2"
+
+  - name: dbeaver
+    become: yes
+    apt:
+      deb: https://dbeaver.io/files/dbeaver-ce_latest_amd64.deb
+
+  - name: download mikrotik admin
+    become: yes
+    become_user: "{{os_user}}"
+    get_url:
+     url: 'http://www.mikrotik.com/download/winbox.exe'
+     dest: "/home/{{os_user}}/winbox.exe"
+
+# optimization section
+ 
+  - name: decrease swapiness
+    become: yes
+    lineinfile:
+     dest: /etc/sysctl.conf
+     line: 'vm.swappiness=5'
+
+  - name: entrypoint ramdisk
+    become: yes
+    file:
+       path: /ramcache
+       state: directory
+       mode: 0766
+
+  - name: ram disk
+    become: yes
+    lineinfile:
+     dest: /etc/fstab
+     line: 'tmpfs    /ramcache tmpfs   nodev,nosuid,noexec,nodiratime,size=2048M   0 0'

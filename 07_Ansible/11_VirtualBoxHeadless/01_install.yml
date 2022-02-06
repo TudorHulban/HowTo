@@ -1,0 +1,32 @@
+---
+- hosts: todeploy
+  vars:
+   vbox_version: "2.2.24"
+   
+  tasks:
+  - name: bring system up to date
+    become: yes
+    apt: update_cache=yes
+    
+  - name: prerequisites
+    become: yes
+    apt: name={{item}} state=latest
+    with_items:
+    - "build-essential"
+    - "dkms"
+    - "unzip"
+    
+  #add oracle virtual box repo
+  - apt_repository:
+    repo: deb http://download.virtualbox.org/virtualbox/debian stretch contrib
+    state: present
+    
+ #add oracle public key
+  - apt_key:
+    url: https://www.virtualbox.org/download/oracle_vbox_2016.asc
+    state: present
+    
+  - name: fetch new repo info
+    become: yes
+    apt: update_cache=yes
+    
