@@ -81,6 +81,10 @@ http://www.xfce.org/projects/xfburn
 ```html
 https://launchpad.net/qpdfview
 ```
+### Scan software
+```html
+sudo apt install simple-scan
+```
 ### wine
 ```bash
 sudo apt update
