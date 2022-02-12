@@ -129,6 +129,11 @@ https://leochavez.org/index.php/2020/11/16/disabling-intel-and-amd-cpu-vulnerabi
 ```sh
 https://www.simplified.guide/ubuntu/remove-apparmor
 ```
+### Prompt Colors
+Tested on Ubuntu GNOME
+```sh
+PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;37m\]\w\[\033[00m\]\$ '
+```
 ## Linux MX
 Clear unused apps.
 ```
