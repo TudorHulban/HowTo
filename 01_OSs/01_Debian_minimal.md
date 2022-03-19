@@ -44,6 +44,10 @@ ls /etc/rc*.d
 ### Systemd
 ```bash
 service --status-all | grep '\[ + \]'
+# disable with
+sudo systemctl disable bluetooth.service
+# verify with
+sudo systemctl status bluetooth.service
 ```
 ## Optimizations <a name="optim"></a>  ([Up](#top))
 ```bash
