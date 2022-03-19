@@ -36,9 +36,14 @@ sudo apt install wine wine32 wine64 libwine libwine:i386 fonts-wine
 ```
 wine --version
 ```
-## Check services per run level <a name="check"></a>  ([Up](#top))
+## Check services <a name="check"></a>  ([Up](#top))
+### Per Run Level
 ```bash
 ls /etc/rc*.d
+```
+### Systemd
+```bash
+service --status-all | grep '\[ + \]'
 ```
 ## Optimizations <a name="optim"></a>  ([Up](#top))
 ```bash
