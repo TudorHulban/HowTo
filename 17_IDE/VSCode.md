@@ -2,9 +2,13 @@
 ## zoomLevel
 For 43` with 2k: 2.4.
 
+## Bracket colorization
+```yaml
+"editor.bracketPairColorization.enabled": true
+```
 ## Default Emmet enabling
 Append to `settings.json`:
-```
+```yaml
 {
     "emmet.triggerExpansionOnTab": true,
     "files.associations": {
