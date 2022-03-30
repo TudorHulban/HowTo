@@ -1,3 +1,12 @@
+## Remove SSH message
+```sh
+sudo vi etc/pam.d/sshd
+
+# comment below entries:
+#session    optional     pam_motd.so  motd=/run/motd.dynamic
+#session    optional     pam_motd.so noupdate
+```
+
 ## Set static IP
 ### Configure card
 With admin rights in /etc/network/interfaces:
