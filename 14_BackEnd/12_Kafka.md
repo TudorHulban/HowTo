@@ -44,9 +44,51 @@ bin/kafka-console-consumer.sh --topic quickstart-events --from-beginning --boots
 ```sh
 rm -rf /tmp/kafka-logs /tmp/zookeeper
 ```
+## Services
+For zookeeper:
+```sh
+vi /etc/systemd/system/zookeeper.service
+```
+File contents:
+```yaml
+[Unit]
+Requires=network.target remote-fs.target
+After=network.target remote-fs.target
+
+[Service]
+Type=simple
+User=root
+ExecStart=/home/root/kafka/bin/zookeeper-server-start.sh /home/root/kafka/config/zookeeper.properties
+ExecStop=/home/root/kafka/bin/zookeeper-server-stop.sh
+Restart=on-abnormal
+
+[Install]
+WantedBy=multi-user.target
+```
+For server:
+```sh
+vi /etc/systemd/system/kafka.service
+```
+File contents:
+```yaml
+[Unit]
+Requires=zookeeper.service
+After=zookeeper.service
+
+[Service]
+Type=simple
+User=root
+ExecStart=/bin/sh -c '/home/root/kafka/bin/kafka-server-start.sh /home/root/kafka/config/server.properties > /home/root/kafka/kafka.log 2>&1'
+ExecStop=/home/root/kafka/bin/kafka-server-stop.sh
+Restart=on-abnormal
+
+[Install]
+WantedBy=multi-user.target
+```
 ## Resources
 ```html
 https://kafka.apache.org/quickstart
+https://www.digitalocean.com/community/tutorials/how-to-install-apache-kafka-on-debian-10
 ```
 
 
