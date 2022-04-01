@@ -14,7 +14,8 @@ tar -xzf kafka_2.13-3.1.0.tgz
 cd kafka_2.13-3.1.0
 ```
 ## Start-up
-One ssh connection needed for each of the below.
+One ssh connection needed for each of the below.  
+Exit in reverse order with Ctrl-C.
 ### Zookeper
 ```sh
 bin/zookeeper-server-start.sh config/zookeeper.properties
@@ -38,6 +39,14 @@ bin/kafka-console-producer.sh --topic quickstart-events --bootstrap-server local
 ### Read Events
 ```sh
 bin/kafka-console-consumer.sh --topic quickstart-events --from-beginning --bootstrap-server localhost:9092
+```
+## Clean up
+```sh
+rm -rf /tmp/kafka-logs /tmp/zookeeper
+```
+## Resources
+```html
+https://kafka.apache.org/quickstart
 ```
 
 
