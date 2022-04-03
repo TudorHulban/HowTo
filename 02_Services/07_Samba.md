@@ -22,6 +22,7 @@ Add share in the end of the file:
 sudo service smbd restart
 ```
 ## Add Samba user
+Samba does not use the system account password.
 ```sh
 sudo smbpasswd -a username
 ```
