@@ -11,7 +11,7 @@ vi /etc/samba/smb.conf
 ```
 Add share in the end of the file:
 ```sh
-[sambashare]
+[sharename]
     comment = description of share
     path = /home/user/path
     read only = no
