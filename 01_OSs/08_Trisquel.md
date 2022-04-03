@@ -1,6 +1,6 @@
 ## Remove SSH message
 ```sh
-sudo vi etc/pam.d/sshd
+sudo vi /etc/pam.d/sshd
 
 # comment below entries:
 #session    optional     pam_motd.so  motd=/run/motd.dynamic
