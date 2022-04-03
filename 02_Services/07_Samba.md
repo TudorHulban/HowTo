@@ -1,6 +1,8 @@
-## Check if installed
+## Install Samba
 ```sh
-whereis samba
+sudo apt-get install samba
+# check
+sudo service smbd status
 ```
 ## Add new folder to share
 Edit configuration file:
@@ -18,6 +20,10 @@ Add share in the end of the file:
 ## Restart Samba service so the new configuration takes effect
 ```sh
 sudo service smbd restart
+```
+## Add Samba user
+```sh
+sudo smbpasswd -a username
 ```
 ## Resources
 ```
