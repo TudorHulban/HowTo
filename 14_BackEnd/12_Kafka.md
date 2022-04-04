@@ -79,7 +79,7 @@ After=zookeeper.service
 [Service]
 Type=simple
 User=root
-ExecStart=/bin/sh -c '/root/kafka/bin/kafka-server-start.sh /home/root/kafka/config/server.properties > /root/kafka/kafka.log 2>&1'
+ExecStart=/bin/sh -c '/root/kafka/bin/kafka-server-start.sh /root/kafka/config/server.properties > /root/kafka/kafka.log 2>&1'
 ExecStop=/root/kafka/bin/kafka-server-stop.sh
 Restart=on-abnormal
 
