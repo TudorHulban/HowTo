@@ -29,7 +29,7 @@ sudo mkdir /mnt/tmpfs.docker
 sudo vi /etc/fstab
 tmpfs   /mnt/tmpfs.ramdisk  tmpfs  nodev,nosuid,nodiratime,size=100M 0  0
 tmpfs   /mnt/tmpfs.docker tmpfs  nodev,nosuid,nodiratime,size=9100M 0  0
-ln -s /mnt/tmpfs.ramdisk $HOME/ram
+ln -s /mnt/tmpfs.ramdisk $HOME/ram  # can be removed later on with rm ram
 ```
 Make terminal shortcut open in RAM disk:
 ```bash
