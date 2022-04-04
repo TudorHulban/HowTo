@@ -59,8 +59,8 @@ After=network.target remote-fs.target
 [Service]
 Type=simple
 User=root
-ExecStart=/home/root/kafka/bin/zookeeper-server-start.sh /home/root/kafka/config/zookeeper.properties
-ExecStop=/home/root/kafka/bin/zookeeper-server-stop.sh
+ExecStart=/root/kafka/bin/zookeeper-server-start.sh /root/kafka/config/zookeeper.properties
+ExecStop=/root/kafka/bin/zookeeper-server-stop.sh
 Restart=on-abnormal
 
 [Install]
@@ -79,8 +79,8 @@ After=zookeeper.service
 [Service]
 Type=simple
 User=root
-ExecStart=/bin/sh -c '/home/root/kafka/bin/kafka-server-start.sh /home/root/kafka/config/server.properties > /home/root/kafka/kafka.log 2>&1'
-ExecStop=/home/root/kafka/bin/kafka-server-stop.sh
+ExecStart=/bin/sh -c '/root/kafka/bin/kafka-server-start.sh /home/root/kafka/config/server.properties > /root/kafka/kafka.log 2>&1'
+ExecStop=/root/kafka/bin/kafka-server-stop.sh
 Restart=on-abnormal
 
 [Install]
