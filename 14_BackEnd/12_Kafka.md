@@ -86,6 +86,17 @@ Restart=on-abnormal
 [Install]
 WantedBy=multi-user.target
 ```
+### Start service
+```sh
+systemctl start kafka
+# verify with
+journalctl -u kafka
+service kafka status
+```
+### Enable service on reboot
+```sh
+systemctl enable kafka
+```
 ## Resources
 ```html
 https://kafka.apache.org/quickstart
