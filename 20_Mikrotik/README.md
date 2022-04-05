@@ -26,5 +26,6 @@ https://mikrotik.com/download#
 ## Add shutdown event
 From ssh:
 ```sh
-/system scheduler add name=”shutdown-tuesday” start-date=”apr/05/2022″ start-time=”18:01:00″ interval=”7d” on-event=”/system shutdown”
+/system scheduler 
+add name=”shutdown-tuesday” start-date=”apr/05/2022″ start-time=”18:01:00″ interval=”7d” on-event=”/system shutdown”
 ```
