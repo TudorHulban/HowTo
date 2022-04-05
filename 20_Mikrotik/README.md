@@ -23,3 +23,8 @@ add name=checkaverage target=192.168.1.0/24 max-limit=128K/128K
 ```html
 https://mikrotik.com/download#
 ```
+## Add shutdown event
+From ssh:
+```sh
+/system scheduler add name=”shutdown-tuesday” start-date=”apr/05/2022″ start-time=”18:01:00″ interval=”7d” on-event=”/system shutdown”
+```
