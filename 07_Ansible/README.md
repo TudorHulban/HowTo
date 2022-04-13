@@ -7,7 +7,7 @@ sudo adduser ansible # with password ansible
 ```
 #### 2. Add ansible user in sudo group and do not request password
 ```bash
-sudo visudo
+sudo visudo # equivalent to sudo vi /etc/sudoers
 root    ALL=(ALL:ALL) ALL
 ansible ALL=(ALL:ALL) NOPASSWD:ALL
 ```
