@@ -14,6 +14,17 @@ Destroy with:
 ```sh
 sudo zpool destroy <pool-name>
 ```
+### Benchmark zfs pool
+Enter container created on pool. Stop other VMs or containers.
+```sh
+# WRITE Speed
+sync; dd if=/dev/zero of=tempfile bs=1M count=1024; sync
+# READ speed from buffer
+dd if=tempfile of=/dev/null bs=1M count=1024
+# READ speed directly from the zpool
+# flush cache on host before below: /sbin/sysctl -w vm.drop_caches=3
+dd if=tempfile of=/dev/null bs=1M count=1024
+```
 
 ## Install LXD
 LXD comes installed.
