@@ -84,6 +84,10 @@ After IP address change regenerate self signed certificate:
 ```
 pvecm updatecerts --force
 ```
+## 12. Rename host
+```sh
+sudo hostnamectl set-hostname <new-hostname>
+```
 ### Resources
 ```
 https://pve.proxmox.com/wiki/Network_Configuration
