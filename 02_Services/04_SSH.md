@@ -32,6 +32,14 @@ sudo systemctl restart sshd
 sudo vim /etc/motd
 ```
 Restart service.
+## Custom MOTD
+Modify script(s) in `/etc/update-motd.d`. Sample script below:
+```sh
+ #!/bin/sh
+ echo "Hostname: $( hostname)"
+ echo "Uptime:  $( uptime )"
+```
+Restart host.
 ## Resources
 ```
 https://www.ssh.com/ssh/sshd_config/
