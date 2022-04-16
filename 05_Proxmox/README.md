@@ -88,6 +88,10 @@ pvecm updatecerts --force
 ```sh
 sudo hostnamectl set-hostname <new-hostname>
 ```
+Update also the hosts file:
+```sh
+sudo vi /etc/hosts
+```
 ### Resources
 ```
 https://pve.proxmox.com/wiki/Network_Configuration
