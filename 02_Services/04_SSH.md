@@ -23,6 +23,10 @@ Banner /etc/mybanner
 ```sh
 sudo vi /etc/mybanner
 ```
+### Restart SSH service
+```sh
+sudo systemctl restart sshd
+```
 ## Resources
 ```
 https://www.ssh.com/ssh/sshd_config/
