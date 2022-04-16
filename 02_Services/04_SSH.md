@@ -12,7 +12,17 @@ Works also for transfer to local host. Run on remote host (SSH enabled on local 
 ```bash
 scp /path/to/file user@targethost:/path/to/place/file
 ```
-
+## Add SSH banner
+### Enable banner in SSH configuration
+```sh
+sudo vim /etc/ssh/sshd_config
+# uncomment show banner option, set path to message file
+Banner /etc/mybanner
+```
+### Set banner text in banner path
+```sh
+sudo vi /etc/mybanner
+```
 ## Resources
 ```
 https://www.ssh.com/ssh/sshd_config/
