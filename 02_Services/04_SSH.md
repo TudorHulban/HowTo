@@ -59,6 +59,7 @@ systemctl restart sshd
 ## Resources
 ```html
 https://www.digitalocean.com/community/tutorials/how-to-configure-ssh-key-based-authentication-on-a-linux-server
+https://www.freecodecamp.org/news/scp-linux-command-example-how-to-ssh-file-transfer-from-remote-to-local/
 https://www.ssh.com/ssh/sshd_config/
 https://www.youtube.com/watch?v=N8f5zv9UUMI&t=363s
 https://adminhacks.com/scp-not-port-22.html
