@@ -40,8 +40,25 @@ Modify script(s) in `/etc/update-motd.d`. Sample script below:
  echo "Uptime:  $( uptime )"
 ```
 Restart host.
-## Resources
+## Enable root login without password
+Add SSH key of user to login as root:
+```sh
+mkdir -p ~/.ssh
+# add the desired key to trusted keys
+vi ~/.ssh/authorized_keys
 ```
+```sh
+vim /etc/ssh/sshd_config
+# update entry to the below
+PermitRootLogin without-password
+```
+Restart service
+```sh
+systemctl restart sshd
+```
+## Resources
+```html
+https://www.digitalocean.com/community/tutorials/how-to-configure-ssh-key-based-authentication-on-a-linux-server
 https://www.ssh.com/ssh/sshd_config/
 https://www.youtube.com/watch?v=N8f5zv9UUMI&t=363s
 https://adminhacks.com/scp-not-port-22.html
