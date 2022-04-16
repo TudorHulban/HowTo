@@ -27,6 +27,11 @@ sudo vi /etc/mybanner
 ```sh
 sudo systemctl restart sshd
 ```
+## Update MOTD
+```sh
+sudo vim /etc/motd
+```
+Restart service.
 ## Resources
 ```
 https://www.ssh.com/ssh/sshd_config/
