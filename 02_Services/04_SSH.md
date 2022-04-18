@@ -8,9 +8,9 @@ Run on source host, file to send to target host:
 ```bash
 scp file-to-send user@targethost:/path/to/place/file  # if custom port use -P port_number
 ```
-Works also for transfer to local host. Run on remote host (SSH enabled on local host):
+Works also for transfer to local host. 
 ```bash
-scp /path/to/file user@targethost:/path/to/place/file
+scp user@targethost:/path/to/place/file /local-path/to/file
 ```
 ## Add SSH banner
 ### Enable banner in SSH configuration
@@ -59,6 +59,7 @@ systemctl restart sshd
 ## Resources
 ```html
 https://www.digitalocean.com/community/tutorials/how-to-configure-ssh-key-based-authentication-on-a-linux-server
+https://www.ionos.com/digitalguide/server/configuration/linux-scp-command/
 https://www.freecodecamp.org/news/scp-linux-command-example-how-to-ssh-file-transfer-from-remote-to-local/
 https://www.ssh.com/ssh/sshd_config/
 https://www.youtube.com/watch?v=N8f5zv9UUMI&t=363s
