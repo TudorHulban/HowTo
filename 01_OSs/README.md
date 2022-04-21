@@ -49,6 +49,10 @@ vi /etc/fstab
 cat /proc/sys/vm/swappiness
 sudo sysctl vm.swappiness=10
 ```
+#### Resources
+```html
+https://linuxhint.com/change_swap_size_ubuntu/
+```
 ## SSH <a name="ssh"></a> ([Up](#top))
 ```bash
 ssh-keygen -t rsa -C "your.email@example.com" -b 4096
