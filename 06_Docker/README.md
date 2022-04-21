@@ -227,4 +227,5 @@ https://docs.docker.com/engine/install/ubuntu/
 ## Resources
 ```
 https://github.com/gvilarino/docker-workshop
+https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-20-04
 ```
