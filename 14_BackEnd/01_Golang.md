@@ -10,8 +10,8 @@ export PATH=$PATH:/usr/local/go/bin # for test system: export PATH=$PATH:$HOME/g
 ## GO download and install
 From https://golang.org/dl/ .
 ```bash
-wget https://go.dev/dl/go1.18.linux-amd64.tar.gz
-sudo tar -C /usr/local -xzf go1.18.linux-amd64.tar.gz
+wget https://go.dev/dl/go1.18.1.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzf go1.18.1.linux-amd64.tar.gz
 # for test system local install: tar -xzf go1.18.linux-amd64.tar.gz
 ```
 Verify:
