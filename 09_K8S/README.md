@@ -10,7 +10,8 @@ https://linuxhint.com/install-minikube-ubuntu/
 
 ## Resources
 ### Cheat Sheet
-```
+```html
+https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
 https://kubernetes.io/docs/reference/kubectl/cheatsheet/
 ```
 ### Example of Kubernetes deployment manifest file
