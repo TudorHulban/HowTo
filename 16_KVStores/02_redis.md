@@ -4,7 +4,7 @@ Download image:
 ```sh
 docker pull redis
 ```
-Create continer:
+Create container:
 ```sh
 docker run --name redis-test -p 6379:6379  -d redis 
 ```
