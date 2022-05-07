@@ -17,6 +17,10 @@ Add share in the end of the file:
     read only = no
     browsable = yes
 ```
+### Check shares
+```sh
+smbstatus --shares
+```
 ## Restart Samba service so the new configuration takes effect
 ```sh
 sudo service smbd restart
