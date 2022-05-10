@@ -21,4 +21,5 @@ git diff HEAD^ HEAD Makefile
 https://www.toptal.com/front-end/guide-to-monorepos
 https://www.devroom.io/2009/10/26/how-to-create-and-apply-a-patch-with-git/
 https://www.devroom.io/2020/03/09/the-git-submodule-cheat-sheet/
+https://www.youtube.com/watch?v=__cR7uPBOIk
 ```
