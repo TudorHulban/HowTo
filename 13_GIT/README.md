@@ -23,4 +23,5 @@ https://www.devroom.io/2009/10/26/how-to-create-and-apply-a-patch-with-git/
 https://www.devroom.io/2020/03/09/the-git-submodule-cheat-sheet/
 https://www.youtube.com/watch?v=__cR7uPBOIk
 https://phoenixnap.com/kb/how-to-resolve-merge-conflicts-in-git
+https://www.w3docs.com/snippets/git/how-to-change-commit-message.html
 ```
