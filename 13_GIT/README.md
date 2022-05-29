@@ -18,6 +18,7 @@ git diff HEAD^ HEAD Makefile
 ```
 ## Resources
 ```
+https://nitayneeman.com/posts/understanding-semantic-commit-messages-using-git-and-angular/
 https://www.toptal.com/front-end/guide-to-monorepos
 https://www.devroom.io/2009/10/26/how-to-create-and-apply-a-patch-with-git/
 https://www.devroom.io/2020/03/09/the-git-submodule-cheat-sheet/
