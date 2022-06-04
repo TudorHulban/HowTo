@@ -144,6 +144,16 @@ Clear unused apps.
 ```
 sudo apt autoremove gnome-mahjongg lbreakout2 peg-e swell-foop
 ```
+## Slimjet
+Missing `libappindicator1`
+```
+curl -p --insecure "http://ftp.de.debian.org/debian/pool/main/liba/libappindicator/libappindicator1_0.4.92-7_amd64.deb" --output libappindicator1_0.4.92-8_amd64.deb \
+    && curl -p --insecure "http://ftp.de.debian.org/debian/pool/main/libi/libindicator/libindicator7_0.5.0-4_amd64.deb" --output libindicator7_0.5.0-4_amd64.deb \
+    && dpkg -i libindicator7_0.5.0-4_amd64.deb \
+    && dpkg -i libappindicator1_0.4.92-8_amd64.deb \
+    && rm libindicator7_0.5.0-4_amd64.deb \
+    && rm libappindicator1_0.4.92-8_amd64.deb
+```
 
 ## Resources
 ```
