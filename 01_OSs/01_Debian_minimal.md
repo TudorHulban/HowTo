@@ -16,7 +16,7 @@ Mandatory set mirror - mirror would enable all options for install. Check only s
 ```bash
 apt install lxqt
 # or for minimal
-apt install -y lxqt-core      # LXQT
+apt install -y lxqt-core      # LXQT, display manager needed: apt install lightdm
 apt install -y lxde-core      # LXDE
 ```
 ## NEOVIM <a name="vim"></a>  ([Up](#top))
