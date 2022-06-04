@@ -47,7 +47,7 @@ vi /etc/fstab
 ### Decrease Swappiness
 ```bash
 cat /proc/sys/vm/swappiness
-sudo sysctl vm.swappiness=10
+sudo sysctl vm.swappiness=1
 ```
 #### Resources
 ```html
