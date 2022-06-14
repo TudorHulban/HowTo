@@ -16,7 +16,7 @@ alias glo='git log --pretty=format:"%h - %an, %ar : %s" -10'
 
 alias mvmp4='find -name *.mp4 -exec mv {} . \;'
 alias mvsrt='find -name *.srt -exec mv {} . \;'
-alias r2='rm -rf *'
+alias r2='cd ~/ram && rm -rf *'
 alias ra='cd ~/ram'
 alias sec='gosec -no-fail ./... 2>&1 | tee ~/ram/sast-gosec.log'
 alias wp='cd ~/ram && git clone git@github.com:TudorHulban/WP.git && cd WP'
