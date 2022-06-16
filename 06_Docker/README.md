@@ -72,11 +72,11 @@ Change will take place after full logout / log off.
 sudo usermod -aG docker $USER  # $USER is environment variable holding current user
  ```
 ### Move data folder to RAM disk
-Check existing RAM disks (ex. https://github.com/TudorHulban/Deploy2020/tree/master/01_OSs#ram).<br/>
+Check existing RAM disks (ex. https://github.com/TudorHulban/HowTo/tree/main/01_OSs#ram).<br/>
 Set Docker data folder location by editing /etc/docker/daemon.json:
 ```json
 {
-    "data-root": "/mnt/tmpfs.docker",
+    "data-root": "/mnt/tmpfs.ramdisk/Docker",
     "storage-driver": "overlay2"
 }
 ```
