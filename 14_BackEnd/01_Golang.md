@@ -4,7 +4,7 @@ Add environment variables for default bash shell in.
 ```bash
 vi $HOME/.bashrc
 # export GO111MODULE=on - not needed with 1.16+
-export PATH=$PATH:/usr/local/go/bin # for test system: export PATH=$PATH:$HOME/go/bin
+export PATH=$PATH:/usr/local/go/bin:~/go/bin # for test system: export PATH=$PATH:$HOME/go/bin
 # if not working try $HOME/.profile
 ```
 ## GO download and install
@@ -30,7 +30,7 @@ Verify:
 ```bash
 mount |grep /tmp
 ```
-### Download IDE
+## LiteIDE
 ```sh
 wget https://github.com/visualfc/liteide/releases/download/x37.4/liteidex37.4.linux64-qt5.5.1.tar.gz
 ```
@@ -43,7 +43,14 @@ sudo rm -r /usr/local/go
 ```bash
 tar -C $HOME -xzf <new version>
 ```
-### Godoc
+## Golangci linter
+```sh
+# binary will be $(go env GOPATH)/bin/golangci-lint
+curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.46.2
+
+golangci-lint --version
+```
+## Godoc
 See 
 ```html
 https://blog.golang.org/godoc-documenting-go-code
@@ -55,7 +62,7 @@ go get golang.org/x/tools/cmd/godoc
 godoc -http=:6060
 # Navigate to http://localhost:6060/pkg/package name/?m=all  # will present also data of unexported 
 ```
-### Resources
+## Resources
 ```html
 https://github.com/golang/go/wiki/Modules
 https://www.youtube.com/watch?v=F8nrpe0XWRg&list=PLq2Nv-Sh8EbbIjQgDzapOFeVfv5bGOoPE&index=3&t=0s
