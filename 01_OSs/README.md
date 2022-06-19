@@ -33,6 +33,7 @@ ln -s /mnt/tmpfs.ramdisk $HOME/ram  # can be removed later on with rm ram
 ```
 Make terminal shortcut open in RAM disk:
 ```bash
+/usr/bin/gnome-terminal --working-directory="/home/user/ram" 
 xfce4-terminal --default-working-directory=/home/user/ram
 ```
 ### Disable swap
