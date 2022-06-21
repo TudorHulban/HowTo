@@ -2,6 +2,10 @@
 ```sh
 sudo docker run -d --name=co-postgres -p 5432:5432 -v postgres-volume:/var/lib/postgresql/data -e POSTGRES_PASSWORD=thepassword postgres
 ```
+## Locks
+```html
+https://www.netguru.com/blog/advisory-locks
+```
 ### Resources
 ```html
 https://linuxiac.com/postgresql-docker/
