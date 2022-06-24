@@ -3,6 +3,16 @@
 ```html
 https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow
 ```
+
+## Rebase
+Rebase `main` onto `feature`:
+```sh
+git checkout feature
+git rebase main
+git pull --rebase
+git push
+```
+
 ## Revert to commit:
 ```bash
 git revert --no-commit 0766c053..HEAD
