@@ -26,6 +26,13 @@ http://www.scootersoftware.com/download.php?zz=kb_linux_install
 ```bash
 git diff HEAD^ HEAD Makefile
 ```
+## Dependencies access
+In file `~/.gitconfig`:
+```yaml
+[url "git@github.com:"]
+        insteadOf = https://github.com/
+```
+
 ## Resources
 ```
 https://nitayneeman.com/posts/understanding-semantic-commit-messages-using-git-and-angular/
