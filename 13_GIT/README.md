@@ -9,7 +9,7 @@ Rebase `main` onto `feature`:
 ```sh
 git checkout feature
 git rebase main
-git pull --rebase
+git pull --rebase # or git push -f
 git push
 ```
 
