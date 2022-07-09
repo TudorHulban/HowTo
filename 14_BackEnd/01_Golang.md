@@ -62,6 +62,22 @@ go get golang.org/x/tools/cmd/godoc
 godoc -http=:6060
 # Navigate to http://localhost:6060/pkg/package name/?m=all  # will present also data of unexported 
 ```
+## Script for creating test folder
+```sh
+#!/bin/bash
+output_folder="test"
+output_file="main.go"
+
+mkdir ${output_folder}
+cd ${output_folder}
+
+touch ${output_file}
+echo "package main" > ${output_file}
+echo "" >> ${output_file}
+echo "func main() {}" >> ${output_file}
+
+go mod init test 
+```
 ## Resources
 ```html
 https://github.com/golang/go/wiki/Modules
