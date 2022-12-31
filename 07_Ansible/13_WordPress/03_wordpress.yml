@@ -1,0 +1,71 @@
+---
+  - hosts: wordpress
+    become: yes
+    vars:
+      wp_mysql_db: "wordpress"
+      wp_mysql_user: "wordpress"
+      wp_mysql_password: "admin"
+  
+    tasks:
+    - name: download Wordpress
+      get_url:
+       url: https://wordpress.org/latest.tar.gz
+       dest: /tmp/wordpress.tar.gz
+       validate_certs: no
+  
+    - name: extract Wordpress
+      unarchive: src=/tmp/wordpress.tar.gz dest=/var/www/ copy=no
+  
+    - name: update Apache configuration
+      lineinfile:
+       dest=/etc/apache2/apache2.conf
+       line="DocumentRoot /var/www/wordpress"
+  
+    - name: copy Wordpress sample config file
+      command: cp /var/www/wordpress/wp-config-sample.php /var/www/wordpress/wp-config.php 
+  
+    - name: update Wordpress config file
+      template:
+        src: "05_wordpress_php_config.j2"
+        dest: "/var/www/wordpress/wp-config.php"
+
+    - name: update Apache 2 php.ini - delete upload_max_filesize
+      lineinfile: dest=/etc/php/7.2/apache2/php.ini
+                  state=absent
+                  regexp='upload_max_filesize'
+  
+    - name: update Apache 2 php.ini - delete post_max_size 
+      lineinfile: dest=/etc/php/7.2/apache2/php.ini
+                  state=absent
+                  regexp='post_max_size'
+    
+    - name: update Apache 2 php.ini - add new configuration values
+      lineinfile: 
+          dest: "/etc/php/7.2/apache2/php.ini"
+          create: yes
+          insertafter: EOF
+          line: "{{item}}" 
+      with_items:
+            - "post_max_size = 32M"
+            - "upload_max_filesize = 32M"
+  
+    - name: create folders for theme upload
+      file:
+       path: "/var/www/wordpress/wp-content/{{item}}"
+       state: directory
+       mode: 0777
+      with_items:
+          - "uploads"
+          - "upgrade"
+          - "themes"
+          - "plugins"
+          - "languages/woocommerce"
+  
+    - name: configure FTP server for theme upload
+      lineinfile:
+         dest: "/etc/vsftpd.conf"
+         create: yes
+         insertafter: EOF
+         line: "write_enable=YES"
+  
+  

@@ -1,0 +1,19 @@
+---
+- hosts: k8s-node-02
+  become: yes
+  remote_user: root
+  tasks:
+
+  - name: set hostname
+    shell: hostnamectl set-hostname worker-node-02
+
+  - name: DNS
+    copy: 
+      dest: /etc/hosts
+      content: |
+          192.168.1.137 master-node
+          192.168.1.136 worker-node-01
+          192.168.1.135 worker-node-02
+
+  - name: reboot
+    shell: reboot

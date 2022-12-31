@@ -1,0 +1,139 @@
+---
+- hosts: laptop
+  become: yes
+  remote_user: tudi
+
+  vars:
+    os_user: tudi
+
+  tasks:
+  - name: ping host
+    ping:
+
+  - name: update packages
+    apt: update_cache=yes
+
+  - name: timezone
+    timezone: 
+      name: Europe/Bucharest
+
+  - name: decrease swapiness
+    lineinfile:
+     dest: /etc/sysctl.conf
+     line: 'vm.swappiness=1'
+
+  - name: tweak colors
+    replace:
+       path: "/home/{{os_user}}/.bashrc"
+       regexp: '01;34m'
+       replace: '01;37m'
+
+  - name: directory colors
+    lineinfile:
+     dest: "/home/{{os_user}}/.bashrc"
+     line: "LS_COLORS=$LS_COLORS:'di=0;37:' ; export LS_COLORS"
+
+  - name: ram disk
+    lineinfile:
+     dest: /etc/fstab
+     line: 'tmpfs    /ramcache tmpfs   nodev,nosuid,noexec,nodiratime,size=512M   0 0'
+
+  - name: entrypoint ramdisk
+    file:
+       path: /home/{{os_user}}/ram
+       state: directory
+       mode: 0777
+
+  - name: prerequisites 1
+    apt: 
+      name: 
+        - mc
+        - net-tools   
+        - telnet
+        - build-essential
+        - git
+        - vlc
+        - xfburn
+        - wget
+        - curl
+        - gthumb
+        - gpick
+        - vim
+        - smartmontools
+        - evince
+        - sqlitebrowser
+        - gdebi
+        - gpg
+        - apt-transport-https
+        - python-apt
+      state: present
+
+  - name: prerequisites 2
+    apt: 
+      name: 
+        - nano
+        - iptables
+      state: absent
+
+  - name: skype install
+    apt:
+     deb: https://go.skype.com/skypeforlinux-64.deb
+
+  - name: dbeaver
+    apt:
+      deb: https://dbeaver.io/files/dbeaver-ce_latest_amd64.deb
+
+  - name: brave install 1
+    shell: |
+       curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+       echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+       
+  - name: brave install 2 - update packages
+    apt: update_cache=yes
+
+  - name: brave install 3
+    apt: 
+      name: 
+        - brave-browser
+      state: present
+
+  - name: tweak mitigations off
+    replace:
+       path: "/etc/default/grub"
+       regexp: 'GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"'
+       replace: 'GRUB_CMDLINE_LINUX_DEFAULT="quiet mitigations=off"'
+
+  - name: tweak pass to grub changes
+    shell: update-grub
+
+  - name: tweak lid 1
+    lineinfile:
+     dest: /etc/systemd/logind.conf
+     line: 'HandleLidSwitch=ignore'
+
+  - name: tweak lid 2
+    lineinfile:
+     dest: /etc/systemd/logind.conf
+     line: 'HandleLidSwitchDocked=ignore'
+
+  - name: tweak bash aliases
+    blockinfile:
+      path: "/home/{{os_user}}/.bash_aliases"
+      block: |
+          alias ba='git branch -a'
+          alias bb='git branch'
+          alias glo='git log --pretty=format:"%h - %an, %ar : %s" -10'
+          alias r2='cd ~/ram && rm -rf *'
+          alias ra='cd ~/ram'
+      create: true
+
+  - name: slimjet download
+    get_url:
+     url: 'http://www.slimjetbrowser.com/release/archive/37.0.2.0/slimjet_amd64.deb'
+     dest: "/home/{{os_user}}/ram/slimjet_amd64.deb"
+
+  - name: slimjet install
+    apt: 
+      deb: "/home/{{os_user}}/ram/slimjet_amd64.deb"
+
+     

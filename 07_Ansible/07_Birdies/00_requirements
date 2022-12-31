@@ -1,0 +1,8 @@
+*prerequisites:
+
+- NodeJS from PPA , version 10.x
+- Git
+- MemCached
+- vim
+
+*user needed: tbsv (in sudoers)

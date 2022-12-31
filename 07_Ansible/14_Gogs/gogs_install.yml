@@ -1,0 +1,47 @@
+---
+
+- hosts: gogs
+  vars_files:
+          - gogs_vars.yml 
+
+  tasks: 
+
+ # prerequisites
+
+  - name: deploy git
+    become: yes
+    apt: name=git state=present
+
+  - name: create gogs service user
+    become: yes
+    user: name="{{gogs_user}}"
+
+ # download and install gogs   
+ 
+  - name: download latest
+    become: yes
+    become-user: "{{gogs_user}}"
+    get_url:
+     url: https://github.com/gogs/gogs/releases/download/v0.11.53/linux_amd64.tar.gz
+     dest: "/home/{{gogs_user}}/linux_amd64.tar.gz"
+
+  - name: unpack gogs
+    become: yes
+    become-user: "{{gogs_user}}"
+    unarchive: 
+     copy: no
+     src: "/home/{{gogs_user}}/linux_amd64.tar.gz"
+     dest: "/home/{{gogs_user}}/"
+     owner: "{{gogs_user}}"
+
+  - name: systemd gogs service
+    become: yes
+    template: src=gogs_systemd.j2 dest=/etc/systemd/system/gogs.service
+
+  - name: register and start gogs service at boot
+    become: yes
+    shell: systemctl enable gogs.service
+
+  - name: start now gogs service
+    become: yes
+    shell: systemctl start gogs 

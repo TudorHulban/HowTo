@@ -1,0 +1,35 @@
+---
+- hosts: wordpress
+  become: yes
+  vars:
+    wp_mysql_db: "wordpress"
+    wp_mysql_user: "wordpress"
+    wp_mysql_password: "admin"
+
+  tasks:
+  - name: install Maria DB on Ubuntu 20.04
+    apt:
+      pkg:
+        - mariadb-server
+        - mariadb-client
+
+  - name: allow remote connections
+    lineinfile: dest=/etc/mysql/mariadb.conf.d/50-server.cnf regexp="^bind-address" line="bind-address=0.0.0.0"
+    
+  - name: restart mariadb
+    command: /usr/sbin/service mariadb restart   
+    
+  - name: check service status
+    command: /usr/sbin/service mysql status
+    changed_when: false
+
+  - name: create database for wordpress
+    shell: /usr/bin/mysql -u root -e "create database IF NOT EXISTS wordpress default character set utf8 default collate utf8_bin"
+
+  - name: create user wordpress for wordpress
+    shell: /usr/bin/mysql -u root -e "CREATE USER 'wordpress' IDENTIFIED BY 'admin'"
+     
+  - name: grant rights to user wordpress
+    shell: /usr/bin/mysql -u root -e "GRANT ALL PRIVILEGES ON wordpress.* to wordpress"
+
+

@@ -1,0 +1,45 @@
+---
+- hosts: todeploy
+  vars_files:
+   - deploy_vars.yml
+
+  tasks:
+  - name: download golang tarball
+    become: yes
+    get_url:
+     url: 'https://dl.google.com/go/go1.10.3.linux-amd64.tar.gz'
+     dest: '/usr/local/src/go1.10.3.linux-amd64.tar.gz'
+
+  - name: extract
+    become: yes
+    unarchive:
+     copy: no
+     dest: /usr/local
+     src: '/usr/local/src/go1.10.3.linux-amd64.tar.gz'
+
+  - name: folders for workspace
+    become: yes
+    file:
+     path: "/home/{{os_user}}/{{item}}"
+     group: "{{os_user}}"
+     owner: "{{os_user}}"
+     state: directory
+     mode: 0755
+    with_items:
+     - 'go'
+     - 'go/bin'
+     - 'go/pkg'
+     - 'go/src'
+
+  - name: variables for workspace
+    become: yes
+    become_user: "{{os_user}}"
+    lineinfile:
+     create: yes
+     dest: "/home/{{os_user}}/.bashrc"
+     insertafter: EOF
+     line: "{{item}}"
+    with_items:
+     - "export GOPATH=/home/{{os_user}}/go"
+     - 'export PATH=$GOPATH/bin:$PATH'
+     - 'export PATH=$PATH:/usr/local/go/bin'

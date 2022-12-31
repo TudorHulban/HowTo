@@ -1,0 +1,92 @@
+---
+- hosts: todeploy
+  become: yes
+  vars_files:
+   - deploy_vars.yml
+
+  tasks:
+  - name: update packages
+    apt: update_cache=yes
+
+  - name: miscellaneous install
+    apt: name={{item}} state=latest
+    with_items:
+    - "build-essential"
+    - "git"
+    - "gstreamer1.0-libav"
+    - "p7zip-full"
+    - "p7zip-rar"
+    - "ffmpeg"
+    - "gpick"
+    - "k3b"
+    - "doublecmd-qt"
+    - "rdesktop"
+    - "smartmontools"
+    - "vim"
+    - "telnet"
+    - "xclip"
+    - "scite"
+    - "shutter"
+    - "clipgrab"
+    
+  - name: apps optimization
+    apt: name={{item}} state=absent
+    with_items:
+            - "gnome-hearts"
+            - "gnome-mahjongg"
+            - "peg-e"
+            - "swell-foop"
+            - "lbreakout2"
+            - "aisleriot"
+            - "chromium-bsu"
+            - "chromium-bsu-data"
+            - "orage"
+            - "fbreader"
+            - "gnome-ppp"
+            - "xfburn"
+            - "leafpad"
+
+  - name: chrome key
+    apt_key: 
+     url: 'https://dl-ssl.google.com/linux/linux_signing_key.pub' 
+     state: present
+
+  - name: chrome repo
+    apt_repository: 
+     repo: 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main'
+     state: present
+
+  - name: chrome install
+    apt: name=google-chrome-stable state=latest
+
+  - name: skype install
+    apt:
+     deb: https://go.skype.com/skypeforlinux-64.deb
+
+  - name: dbeaver
+    apt:
+      deb: https://dbeaver.io/files/dbeaver-ce_latest_amd64.deb
+
+  - name: download mikrotik admin
+    become_user: "{{os_user}}"
+    get_url:
+     url: 'http://www.mikrotik.com/download/winbox.exe'
+     dest: "/home/{{os_user}}/winbox.exe"
+
+# optimization section
+ 
+  - name: decrease swapiness
+    lineinfile:
+     dest: /etc/sysctl.conf
+     line: 'vm.swappiness=1'
+
+  - name: entrypoint ramdisk
+    file:
+       path: /ramcache
+       state: directory
+       mode: 0766
+
+  - name: ram disk
+    lineinfile:
+     dest: /etc/fstab
+     line: 'tmpfs    /ramcache tmpfs   nodev,nosuid,nodiratime,size=512M   0 0'

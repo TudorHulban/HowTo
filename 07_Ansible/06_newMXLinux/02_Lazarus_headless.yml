@@ -1,0 +1,56 @@
+---
+- hosts: todeploy
+  vars_files:
+          - deploy_vars.yml
+
+  tasks:
+
+# prerequisites
+  - name: update packages
+    become: yes
+    apt: "update_cache=yes"
+
+  - name: install dependencies
+    become: yes
+    apt: name={{item}} state=latest
+    with_items:
+          - "make"
+          - "binutils"
+          - "build-essential"
+          - "gdb"
+          - "subversion"
+          - "zip"
+          - "unzip"
+          - "libx11-dev"
+          - "libgtk2.0-dev"
+          - "libgdk-pixbuf2.0-dev"
+          - "libcairo2-dev"
+          - "libpango1.0-dev"
+          - "unrar"
+          - "libxtst-dev"
+          - "libgl1-mesa-dev"
+          - "libatk-adaptor"  
+
+  - name: create user for Lazarus installation
+    become: yes
+    user: name="{{os_user}}"          
+          
+  - name: get url for latest fpclazup
+    local_action:
+       module: uri              
+       url: https://api.github.com/repos/LongDirtyAnimAlf/Reiniero-fpcup/releases/latest
+       return_content: yes
+       method: GET
+    register: json_info 
+
+  - name: download latest fpclazup
+    become: yes
+    become_user: "{{os_user}}"
+    get_url:
+      url: "{{json_info.json.assets[10].browser_download_url}}"
+      dest: "/home/{{os_user}}/"
+
+  - name: make downloaded executable
+    become: yes
+    become_user: "{{os_user}}"
+    shell: chmod +x /home/{{os_user}}/fpclazup-x86_64-linux

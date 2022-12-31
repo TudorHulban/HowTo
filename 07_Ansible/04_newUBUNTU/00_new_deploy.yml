@@ -1,0 +1,4 @@
+---
+- include: 01_xfce.yml
+- include: 02_installs.yml
+- include: 03_golangenv.yml

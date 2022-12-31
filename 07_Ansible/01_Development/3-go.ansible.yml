@@ -1,0 +1,37 @@
+---
+- hosts: laptop
+  become: yes
+  remote_user: tudi
+
+  vars:
+    os_user: tudi
+
+  tasks:
+  - name: ping host
+    ping:
+
+  - name: golang download
+    become_user: "{{os_user}}"
+    get_url:
+     url: 'https://go.dev/dl/go1.19.4.linux-amd64.tar.gz'
+     dest: "/home/{{os_user}}/ram"
+
+  - name: golang extract
+    unarchive:
+     copy: no
+     dest: /usr/local
+     src: '/home/{{os_user}}/ram/go1.19.4.linux-amd64.tar.gz'
+
+  - name: golang OS variables
+    blockinfile:
+      path: "/home/{{os_user}}/.bashrc"
+      block: |
+          export PATH=$PATH:/usr/local/go/bin:~/go/bin
+      create: true
+
+  - name: golang-ci lint
+    shell: |
+      curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.50.1
+
+
+  

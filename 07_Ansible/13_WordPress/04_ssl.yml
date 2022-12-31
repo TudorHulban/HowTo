@@ -1,0 +1,21 @@
+---
+- hosts: wordpress
+  become: yes
+  tasks:
+  - name: generate self signed certificate
+    command: openssl req -nodes -newkey rsa:2048 -keyout /etc/apache2/thesite.key -out /etc/apache2/thesite.crt -x509 -days 365 -subj "/C=RO/L=Iasi/O=testing/CN=www.testing.eu" -passout pass:""
+
+  - name: update apache config file
+    template:
+     src: "06_apache_default.config.j2"
+     dest: "/etc/apache2/sites-available/000-default.conf"
+
+
+  - name: update apache ports file
+    template:
+     src: "07_apache_ports.config.j2"
+     dest: "/etc/apache2/ports.conf"
+
+  - name: restart container
+    shell: reboot
+

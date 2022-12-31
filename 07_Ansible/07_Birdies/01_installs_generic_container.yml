@@ -1,0 +1,29 @@
+---
+- hosts: todeploy
+
+  tasks:
+  - name: update packages
+    become: yes
+    apt: update_cache=yes
+
+  - name: prerequisites
+    become: yes
+    apt: name={{item}} state=latest
+    with_items:
+    - "git"
+    - "vim"
+    - "nodejs"
+    - "npm"
+    - "memcached"
+
+  - name: install nodejs latest
+    become: yes
+    shell: npm install -g n && n latest
+
+  - name: create os user tbsv with sudo without password rights
+
+  - name: create /var/tbsv/ - will hold service code
+
+  - name: install the tbsv command. run a shell command (supervisor)
+
+  - name: 

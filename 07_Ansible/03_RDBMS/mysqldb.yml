@@ -1,0 +1,30 @@
+
+- hosts: mysql
+  become: yes
+  tasks:
+  - name: update packages
+    apt: update_cache=yes
+
+  - name: install mysql on Ubuntu  20.04
+    apt: 
+     pkg:
+      - mysql-server
+
+  - name: allow remote connections
+    lineinfile: dest=/etc/mysql/mysql.conf.d/mysqld.cnf regexp="^bind-address" line="bind-address=0.0.0.0"
+
+  - name: load new configuration
+    command: /usr/sbin/service mysql restart   
+
+  - name: check service status
+    command: /usr/sbin/service mysql status
+    changed_when: false
+
+  - name: create database for development
+    shell: /usr/bin/mysql -u root -e "create database IF NOT EXISTS devops default character set utf8 default collate utf8_bin"
+ 
+  - name: create user develop for development
+    shell: /usr/bin/mysql -u root -e "CREATE USER 'develop' IDENTIFIED BY 'develop'"
+
+  - name: grant rights to user develop
+    shell: /usr/bin/mysql -u root -e "GRANT ALL PRIVILEGES ON devops.* to develop"

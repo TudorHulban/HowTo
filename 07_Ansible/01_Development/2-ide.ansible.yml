@@ -1,0 +1,51 @@
+---
+- hosts: laptop
+  become: yes
+  remote_user: tudi
+
+  vars:
+    os_user: tudi
+
+  tasks:
+  - name: ping host
+    ping:
+
+  - name: check if vs code is installed
+    shell: |
+      which code
+    register: vs_code_path
+
+  - name: print vs code path
+    debug:
+      msg: vs code path is {{ vs_code_path.stdout }}
+
+  - name: download
+    get_url:
+     url: 'https://go.microsoft.com/fwlink/?LinkID=760868'
+     dest: "/home/{{os_user}}/ram/code.deb"
+    when: vs_code_path.stdout == ""
+
+  - name: install
+    apt: 
+      deb: "/home/{{os_user}}/ram/code.deb"
+    when: vs_code_path.stdout == ""
+
+  - name: install extensions
+    become_user: "{{os_user}}"
+    shell: |
+      code --install-extension golang.go
+      code --install-extension casualjim.gotemplate
+      code --install-extension eamodio.gitlens
+      code --install-extension ms-azuretools.vscode-docker
+      code --install-extension ms-vscode.makefile-tools
+      code --install-extension davidanson.vscode-markdownlint
+      code --install-extension humao.rest-client
+      code --install-extension gruntfuggly.todo-tree
+      code --install-extension redhat.vscode-yaml
+      code --install-extension graphql.vscode-graphql-execution
+      code --install-extension graphql.vscode-graphql
+      code --install-extension graphql.vscode-graphql-syntax
+      code --install-extension ms-vscode-remote.remote-containers
+      code --install-extension ms-kubernetes-tools.vscode-kubernetes-tools
+      code --install-extension mtxr.sqltools
+

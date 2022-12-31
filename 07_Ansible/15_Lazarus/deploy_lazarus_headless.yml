@@ -1,0 +1,55 @@
+---
+- hosts: 192.168.1.48
+  become: yes
+
+  vars:
+    lazarus_user: "lazar"
+
+  tasks:
+  - name: update packages
+    apt: "update_cache=yes"
+
+  - name: install dependencies
+    apt: name={{item}} state=latest
+    with_items:
+          - "make"
+          - "binutils"
+          - "build-essential"
+          - "gdb"
+          - "subversion"
+          - "zip"
+          - "unzip"
+          - "libx11-dev"
+          - "libgtk2.0-dev"
+          - "libgdk-pixbuf2.0-dev"
+          - "libcairo2-dev"
+          - "libpango1.0-dev"
+          - "unrar"
+          - "libxtst-dev"
+          - "libgl1-mesa-dev"
+          - "libatk-adaptor"  
+
+  - name: create user for Lazarus installation
+    user: name="{{lazarus_user}}"          
+          
+  - name: get url for latest fpclazup
+    local_action:
+       module: uri              
+       url: https://api.github.com/repos/LongDirtyAnimAlf/Reiniero-fpcup/releases/latest
+       return_content: yes
+       method: GET
+    register: json_info 
+
+  - name: download latest fpclazup
+    become-user: "{{lazarus_user}}"
+    get_url:
+      url: "{{json_info.json.assets[10].browser_download_url}}"
+      dest: "/home/{{lazarus_user}}/"
+
+  - name: make downloaded executable
+    become-user: "{{lazarus_user}}"
+    shell: chmod +x /home/{{lazarus_user}}/fpclazup-x86_64-linux
+
+  - name: install 64bit
+    become-user: "{{lazarus_user}}"
+    shell: /home/{{lazarus_user}}/fpclazup-x86_64-linux --fpcURL="stable" --lazURL="stable" --installdir=usr/share/fpclazstable --fpcsplit --noconfirm 

@@ -1,0 +1,20 @@
+# https://linuxconfig.org/install-gui-on-ubuntu-server-18-04-bionic-beaver
+---
+- hosts: todeploy
+  become: yes
+  
+  tasks:
+  - name: upgrade packages
+    apt: upgrade=dist
+
+  - name: update packages
+    apt: update_cache=yes
+    
+  - name: install GUI installer
+    apt: name=tasksel state=present
+    
+  - name: install xfce
+    shell: tasksel install xubuntu-core
+    
+  - name: start display manager
+    shell: service lightdm start
