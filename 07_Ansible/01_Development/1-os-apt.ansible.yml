@@ -61,11 +61,12 @@
         - vim
         - smartmontools
         - evince
-        - sqlitebrowser
         - gdebi
         - gpg
         - apt-transport-https
         - python-apt
+        - protobuf-compiler
+        - golang-goprotobuf-dev
       state: present
 
   - name: prerequisites 2
