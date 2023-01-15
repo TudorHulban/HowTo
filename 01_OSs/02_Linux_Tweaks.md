@@ -130,6 +130,14 @@ https://leochavez.org/index.php/2020/11/16/disabling-intel-and-amd-cpu-vulnerabi
 ```sh
 https://www.simplified.guide/ubuntu/remove-apparmor
 ```
+### GRUB timeout not working
+```sh
+sudo vi /etc/default/grub
+# add at the end of file
+GRUB_RECORDFAIL_TIMEOUT=$GRUB_TIMEOUT
+sudo update-grub
+```
+see more in https://www.shellhacks.com/grub_timeout-change-not-working/ .
 ## Terminal Colors <a name="colors"></a> ([Up](#top))
 Tested on Ubuntu GNOME (.bashrc)
 ### Prompt Colors
