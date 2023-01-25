@@ -158,6 +158,10 @@ docker start <container ID>
 # get logs
 docker logs <container ID>
 ```
+#### Check container logs
+```sh
+docker container logs <container ID>
+```
 #### Stop container
 ```bash
 docker stop <container ID>
