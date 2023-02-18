@@ -231,6 +231,11 @@ vi ~/.bash_aliases
 alias r2='rm -rf *'
 ```
 Load new entries with bash or open new terminal window.
+#### Terminal shortcut
+For Ubuntu use below for opening at desired location:
+```sh
+gnome-terminal --working-directory=/your/path/here
+```
 ### Calculator
 ```bash
 sudo apt install galculator
