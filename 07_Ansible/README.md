@@ -8,7 +8,7 @@ Prerequisites:
 sudo apt install software-properties-common
 ```
 
-### User Management
+### A. User Management
 
 #### 1. Create user ansible, owner of installation
 
@@ -38,7 +38,7 @@ check it is working with:
 ansible all -m ping -u user-connecting
 ```
 
-### Install Ansible binaries
+### B. Install Ansible binaries
 
 Switch to ansible user, no password should be requested on sudo:
 
@@ -48,15 +48,15 @@ sudo apt install ansible
 ansible --version
 ```
 
-### Configure hosts to control
+### C. Configure hosts to control
 
-As ansible user create hosts file:
+1. As ansible user create hosts file:
 
 ```sh
 touch ~/hosts
 ```
 
-Add the hosts file to the ansible configuration:
+2. Add the hosts file to the ansible configuration:
 
 ```sh
 vi .ansible.cfg 
@@ -65,7 +65,7 @@ vi .ansible.cfg
 inventory      = ./hosts
 ```
 
-Add hosts to control IPs in the newly created file:
+3. Add hosts to control IPs in the newly created file:
 
 ```sh
 [local]
@@ -103,7 +103,7 @@ ansible --version
 
 Repeat steps **1**, **2**.
 
-### Create SSH folder and files
+### D. Create SSH folder and files
 
 ```sh
 mkdir ~/.ssh
