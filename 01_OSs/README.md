@@ -27,7 +27,7 @@ One disk for general purpose and one for Docker images. Consider changing mode t
 sudo mkdir /mnt/tmpfs.ramdisk
 
 sudo vi /etc/fstab
-tmpfs   /mnt/tmpfs.ramdisk  tmpfs  nodev,nosuid,nodiratime,size=100M 0  0
+tmpfs   /mnt/tmpfs.ramdisk  tmpfs  nodev,nosuid,nodiratime,size=500M 0  0
 
 ln -s /mnt/tmpfs.ramdisk $HOME/ram  # can be removed later on with rm ram
 ```
