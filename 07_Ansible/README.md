@@ -68,6 +68,10 @@ inventory      = ./hosts
 Add hosts to control IPs in the newly created file:
 
 ```sh
+[local]
+127.0.0.1
+
+[dev]
 192.168.1.23
 192.168.1.24
 ```
