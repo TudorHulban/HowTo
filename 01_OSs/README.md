@@ -22,7 +22,7 @@ sudo timedatectl set-timezone Europe/Bucharest
 
 ## RAM and Disk <a name="ram"></a> ([Up](#top))
 ### RAM Disk
-One disk for general purpose and one for Docker images. Consider changing mode to 777 for the created directories.
+One disk for general purpose which can be used also for Docker images. Consider changing mode to 777 for the created directories.
 ```bash
 sudo mkdir /mnt/tmpfs.ramdisk
 
