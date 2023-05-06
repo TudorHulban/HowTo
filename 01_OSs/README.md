@@ -196,8 +196,8 @@ sudo apt install soundconverter
 ```
 ### Youtube downloader
 ```bash
-sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl
-sudo chmod a+rx /usr/local/bin/youtube-dl
+sudo wget https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -O /usr/local/bin/yt-dlp
+sudo chmod a+rx /usr/local/bin/yt-dlp
 ```
 If any issues related to Python:
 ```bash
@@ -205,7 +205,7 @@ sudo ln -s /usr/bin/python3 /usr/bin/python
 ```
 Resources
 ```html
-https://ytdl-org.github.io/youtube-dl/download.html
+https://www.makeuseof.com/download-youtube-videos-yt-dlp-linux-terminal/
 ```
 
 ## Office <a name="office"></a> ([Up](#top))
