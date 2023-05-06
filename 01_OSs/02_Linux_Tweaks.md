@@ -168,6 +168,19 @@ curl -p --insecure "http://ftp.de.debian.org/debian/pool/main/liba/libappindicat
     && rm libappindicator1_0.4.92-8_amd64.deb
 ```
 
+## Renaming parts of files
+Old file: SvelteKit Tutorial - 1 - Introduction [UOMLvxfrTCA].mp4   
+New file: SvelteKit Tutorial - 1 - Introduction .mp4
+```sh
+#!/bin/bash
+for i in *; do
+    echo "Old file: $i"
+    new=$(echo "$i" | sed -e 's/\[[^]]*\]//g')
+    echo "New file: $new"
+    mv "$i" "$new"
+done
+```
+
 ## Resources
 ```
 https://askubuntu.com/questions/62858/turn-off-monitor-using-command-line
