@@ -20,6 +20,7 @@ kubectl get all
 
 ## Resources
 ```html
+https://semaphoreci.com/blog/kubernetes-ingress?utm_source=Blog+Newsletter&utm_campaign=2a4817d90d-Jun_8_2023&utm_medium=email&utm_term=0_2c1357b8be-2a4817d90d-115994679
 https://thenewstack.io/kubernetes-ingress-for-beginners/
 https://devopscube.com/setup-ingress-kubernetes-nginx-controller/
 ```
