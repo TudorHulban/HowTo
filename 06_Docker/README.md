@@ -187,10 +187,22 @@ Detach with ctrl + D. Container will stop at detach:
 ```bash
 docker attach <container ID>
 ```
-#### Delete all containers
+#### Clean Up
+##### Delete all containers
 ```bash
 docker rm -f `docker ps --no-trunc -aq`
 ```
+##### Delete Volumes
+```sh
+docker volume ls
+docker volume rm volume_name volume_name
+docker volume prune
+```
+##### Delete container and volume
+```sh
+docker rm -v container_name
+```
+
 Notes:
 - -d , Run container in background and print container ID
 - -p , Publish a container’s port(s) to the host
