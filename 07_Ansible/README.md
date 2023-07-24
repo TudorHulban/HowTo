@@ -99,7 +99,7 @@ sudo -H pip install --upgrade ansible
 ansible --version
 ```
 
-## On hosts to control
+## On hosts to control (as ansible user)
 
 Repeat steps **1**, **2**.
 
@@ -108,6 +108,11 @@ Repeat steps **1**, **2**.
 ```sh
 mkdir ~/.ssh
 touch ~/.ssh/authorized_keys
+```
+any issues:
+```sh
+chmod 700 ~/.ssh
+chmod 600 ~/.ssh/authorized_keys
 ```
 
 Edit authorized keys file and add the SSH key of the ansible user.
