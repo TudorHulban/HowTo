@@ -99,7 +99,7 @@ sudo -H pip install --upgrade ansible
 ansible --version
 ```
 
-## On hosts to control (as ansible user)
+## On hosts to control (as root)
 
 Repeat steps **1**, **2**.
 
