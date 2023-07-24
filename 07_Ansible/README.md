@@ -126,6 +126,7 @@ sudo apt-get install -y python3
 ## Resources
 
 ```html
+https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-ansible-on-rocky-linux-8
 https://galaxy.ansible.com/
 https://www.safaribooksonline.com/library/view/ansible-up-and/9781491915318/ch04.html
 ```
