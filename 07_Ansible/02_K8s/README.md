@@ -11,6 +11,7 @@ Use Intel E1000 as network card.
 Authorized SSH keys should be present on master and nodes.
 
 ## Hosts
+On Rocky 8.7 switch remote user to `rocky`.
 
 See [hosts](hosts).
 
