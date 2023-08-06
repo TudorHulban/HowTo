@@ -37,10 +37,17 @@ Add ZFS pool from Datacenter / Storage / Add.
 sudo dpkg-reconfigure tzdata
 ```
 ## 6. Move to no subscription repo
+### PVE
 ```bash
 vi /etc/apt/sources.list.d/pve-enterprise.list # change to pve-no-subscription
 # change line to
 deb http://download.proxmox.com/debian/pve buster pve-no-subscription
+```
+### Ceph
+```
+vi /etc/apt/sources.list.d/ceph.list
+# add
+deb https://enterprise.proxmox.com/debian/ceph-quincy bookworm enterprise
 ```
 ### To upgrade
 ```
