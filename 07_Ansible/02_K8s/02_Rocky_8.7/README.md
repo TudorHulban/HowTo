@@ -1,4 +1,4 @@
-# K8s installation on Rocky Linux 8.8
+# K8s installation on Rocky Linux 8.7
 
 Installation for Proxmox.  
 ISO:

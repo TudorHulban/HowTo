@@ -1,4 +1,6 @@
-# Ansible: Installation on Ubuntu and first steps
+# Ansible: Installation on Linux and first steps
+
+Installation commands for `apt` and `dnf` package managers.
 
 ## On Ansible commander
 
@@ -6,6 +8,13 @@ Prerequisites:
 
 ```sh
 sudo apt install software-properties-common
+# or as root
+dnf update -y
+uname -r
+5.14.0-70.13.1.el9_0.x86_64
+
+dnf install -y epel-release
+dnf install -y python3 python3-pip
 ```
 
 ### A. User Management
@@ -44,8 +53,12 @@ Switch to ansible user, no password should be requested on sudo:
 
 ```bash
 sudo apt install ansible
+# or
+dnf install -y ansible
+
 # verify
 ansible --version
+ansible [core 2.14.2]
 ```
 
 ### C. Configure hosts to control
