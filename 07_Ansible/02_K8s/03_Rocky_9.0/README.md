@@ -35,6 +35,7 @@ chown $(id -u):$(id -g) $HOME/.kube/config
 ## Resources
 
 ```html
+https://www.howtoforge.com/how-to-setup-kubernetes-cluster-with-kubeadm-on-rocky-linux/
 https://idroot.us/install-kubernetes-rocky-linux-9/
 https://www.centlinux.com/2022/11/install-kubernetes-master-node-rocky-linux.html
 ```
