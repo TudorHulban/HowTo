@@ -28,7 +28,6 @@
       rm -rf /var/cache/yum/*
       yum makecache
     
-
   - name: uninstall the installed Docker
     yum: 
       name:
@@ -55,7 +54,6 @@
   - name: add a software source
     shell: |
       yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
-
 
   - name: install Docker version
     # yum list available | grep docker
