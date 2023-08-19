@@ -1,0 +1,30 @@
+---
+- hosts: node-master
+  become: yes
+  remote_user: root
+  tasks:
+
+  - name: set hostname
+    shell: hostnamectl set-hostname node-master
+
+  - name: DNS
+    copy: 
+      dest: /etc/hosts
+      content: |
+          192.168.1.5 node-master
+          192.168.1.136 node-01
+          192.168.1.135 node-02
+
+  - name: master optimizations
+    yum: 
+      name: 
+        - wget
+      state: present
+
+  - name: adding KUBECONFI
+    lineinfile: 
+      path: ~/.bashrc 
+      line: export KUBECONFIG=/etc/kubernetes/admin.conf
+
+  - name: reboot
+    shell: reboot

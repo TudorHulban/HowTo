@@ -1,0 +1,19 @@
+---
+- hosts: node-02
+  become: yes
+  remote_user: root
+  tasks:
+
+  - name: set hostname
+    shell: hostnamectl set-hostname node-02
+
+  - name: DNS
+    copy: 
+      dest: /etc/hosts
+      content: |
+          192.168.1.5 node-master
+          192.168.1.136 node-01
+          192.168.1.135 node-02
+
+  - name: reboot
+    shell: reboot
