@@ -1,8 +1,70 @@
 ---
-- hosts: k8s-all
+- hosts: k8sall
   become: yes
   remote_user: root
+  gather_facts: false
+  
+  vars:
+    dnsEntries: "\n192.168.1.55 k8s-master\n192.168.1.56 k8s-node1\n192.168.1.57 k8s-node2\n\n" 
+    kernelModules: "overlay\nbr_netfilter\n"
+    networkBridge: "net.bridge.bridge-nf-call-iptables = 1\nnet.ipv4.ip_forward = 1\nnet.bridge.bridge-nf-call-ip6tables = 1\n"
+  
   tasks:
-
   - name: ping host
     ping:
+
+  - name: timezone
+    timezone: 
+      name: Europe/Bucharest
+
+  - name: prerequisites
+    apt:
+      name:
+        - qemu-guest-agent
+        - mc    
+        - curl
+        - gnupg2
+        - software-properties-common
+        - apt-transport-https
+        - ca-certificates 
+      state: present
+
+  - name: /etc/hosts
+    blockinfile: 
+      path: /etc/hosts
+      block: "{{dnsEntries}}"
+
+  - name: /etc/modules
+    blockinfile: 
+      path: /etc/modules-load.d/containerd.conf
+      block: "{{kernelModules}}"
+
+  - name: /etc/sysctl.d/99-kubernetes-cri.conf
+    blockinfile: 
+      path: /etc/sysctl.d/99-kubernetes-cri.conf
+      block: "{{networkBridge}}"
+
+  - name: disable swap
+    shell: |
+      swapoff -a
+      sed -i 's/.*swap.*/#&/' /etc/fstab #   
+
+  - name: uninstall the installed Docker
+    apt: 
+      name:
+       - docker-ce
+       - docker-ce-cli
+       - containerd.io
+      state: absent   
+
+  - name: configurations
+    shell: |
+      modprobe overlay
+      modprobe br_netfilter
+      sysctl --system
+
+  - name: add software source
+    shell: |
+      curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmour -o /etc/apt/trusted.gpg.d/docker.gpg
+      add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+ 
