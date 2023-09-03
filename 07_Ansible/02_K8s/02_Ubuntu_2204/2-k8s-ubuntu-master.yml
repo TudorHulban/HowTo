@@ -8,7 +8,7 @@
     shell: hostnamectl set-hostname k8s-master
 
   - name: master optimizations
-    yum: 
+    apt: 
       name: 
         - wget
       state: present
@@ -17,6 +17,3 @@
     lineinfile: 
       path: ~/.bashrc 
       line: export KUBECONFIG=/etc/kubernetes/admin.conf
-
-  - name: reboot
-    shell: reboot
