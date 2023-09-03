@@ -1,0 +1,9 @@
+---
+- hosts: node1
+  become: yes
+  remote_user: root
+  gather_facts: false
+  
+  tasks:
+  - name: set hostname
+    shell: hostnamectl set-hostname k8s-node1

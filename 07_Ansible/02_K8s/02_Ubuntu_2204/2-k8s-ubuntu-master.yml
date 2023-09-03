@@ -1,0 +1,22 @@
+---
+- hosts: nodemaster
+  become: yes
+  remote_user: root
+  tasks:
+
+  - name: set hostname
+    shell: hostnamectl set-hostname k8s-master
+
+  - name: master optimizations
+    yum: 
+      name: 
+        - wget
+      state: present
+
+  - name: adding KUBECONFI
+    lineinfile: 
+      path: ~/.bashrc 
+      line: export KUBECONFIG=/etc/kubernetes/admin.conf
+
+  - name: reboot
+    shell: reboot

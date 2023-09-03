@@ -123,6 +123,14 @@ Can use try before:
 ```sh
 sudo netplan try
 ```
+
+## 16. Disable MOTD
+Ubuntu 22.04:
+```sh
+sudo chmod -x /etc/update-motd.d/*
+# re-enable
+sudo chmod o+rx /etc/update-motd.d/*
+```
 ### Resources
 ```
 https://pve.proxmox.com/wiki/Network_Configuration

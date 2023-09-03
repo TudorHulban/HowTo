@@ -49,13 +49,13 @@
       swapoff -a
       sed -i 's/.*swap.*/#&/' /etc/fstab #   
 
-  # - name: uninstall the installed Docker
-  #   apt: 
-  #     name:
-  #      - docker-ce
-  #      - docker-ce-cli
-  #      - containerd.io
-  #     state: absent   
+  - name: uninstall the installed Docker
+    apt: 
+      name:
+       - docker-ce
+       - docker-ce-cli
+       - containerd.io
+      state: absent   
 
   - name: configurations
     shell: |
