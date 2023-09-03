@@ -34,16 +34,6 @@
       path: /etc/hosts
       block: "{{dnsEntries}}"
 
-  - name: /etc/modules
-    blockinfile: 
-      path: /etc/modules-load.d/containerd.conf
-      block: "{{kernelModules}}"
-
-  - name: /etc/sysctl.d/99-kubernetes-cri.conf
-    blockinfile: 
-      path: /etc/sysctl.d/99-kubernetes-cri.conf
-      block: "{{networkBridge}}"
-
   - name: disable swap
     shell: |
       swapoff -a
@@ -56,12 +46,6 @@
        - docker-ce-cli
        - containerd.io
       state: absent   
-
-  - name: configurations
-    shell: |
-      modprobe overlay
-      modprobe br_netfilter
-      sysctl --system
 
   - name: Add Docker GPG apt Key
     apt_key:
@@ -86,14 +70,29 @@
       containerd config default | tee /etc/containerd/config.toml >/dev/null 2>&1
       sed -i 's/SystemdCgroup \= false/SystemdCgroup \= true/g' /etc/containerd/config.toml
 
+  - name: configurations
+    shell: |
+      modprobe overlay
+      modprobe br_netfilter
+      sysctl --system
+
   - name: add K8s key and repo
     shell: |
         curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.26/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg --yes
         echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.26/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list
-
 
   - name: install K8s
     shell: |
           sudo apt-get update
           sudo apt-get install -y kubelet=1.26.8-1.1 kubeadm=1.26.8-1.1 kubectl=1.26.8-1.1
           sudo apt-mark hold kubelet kubeadm kubectl
+
+  - name: /etc/sysctl.conf 
+    blockinfile: 
+      path: /etc/sysctl.conf 
+      block: "{{networkBridge}}"
+
+  - name: /etc/modules
+    blockinfile: 
+      path: /etc/modules
+      block: "{{kernelModules}}"
