@@ -35,7 +35,7 @@ See [worker node 1](3-k8s-ubuntu-node-01.yml) and [worker node 2](4-k8s-ubuntu-n
 
 ## Initialization
 
-On master node:
+On master node (needs reboot):
 
 ```sh
 kubeadm init --pod-network-cidr 10.10.0.0/16 --kubernetes-version 1.26.8 --node-name k8s-master
@@ -47,6 +47,12 @@ Create k8s configuration:
 mkdir -p $HOME/.kube
 cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 chown $(id -u):$(id -g) $HOME/.kube/config
+```
+
+or as root:
+
+```sh
+  export KUBECONFIG=/etc/kubernetes/admin.conf
 ```
 
 ### Install pod network (Flannel)
@@ -73,7 +79,7 @@ kubectl get pods --all-namespaces
 
 ## Add nodes
 
-Execute on master:
+Reboot node prior to joining the cluster. Execute on master:
 
 ```sh
 kubeadm token create --print-join-command
