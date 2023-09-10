@@ -100,6 +100,12 @@ df -h /
 tail  /var/log/messages
 ```
 
+### Sockets  
+
+```sh
+ ncat -k -l 4444 |bash
+```
+
 ## Resources
 ```html
 https://buildvirtual.net/deploy-a-kubernetes-cluster-using-ansible/
