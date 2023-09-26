@@ -6,7 +6,7 @@
 * [File Management](#file)
 * [Comms](#comms)
 * [Media](#media)
-* [Browser].(#browser)
+* [Browser](#browser)
 * [Office](#office)
 * [Development](#dev)
 
