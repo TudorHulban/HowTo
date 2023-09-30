@@ -1,4 +1,6 @@
-# Static IP
+# CentOS Tuning
+
+## Static IP
 ```sh
 cd /etc/sysconfig/network-scripts
 ls
@@ -35,5 +37,4 @@ UUID=39da15fa-1921-4b87-98b1-d46ec16ee0ee
 DEVICE=ens18
 
 ONBOOT=yes
-
 ```

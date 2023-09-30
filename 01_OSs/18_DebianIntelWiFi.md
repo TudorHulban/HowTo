@@ -10,6 +10,7 @@ Add wireless support:
 apt-get update && apt-get install firmware-iwlwifi
 modprobe -r iwlwifi ; modprobe iwlwifi
 ```
+
 #### 3. Install wicd
 ```bash
 apt install wicd

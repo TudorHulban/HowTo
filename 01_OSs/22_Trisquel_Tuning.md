@@ -1,4 +1,6 @@
-## Remove SSH message
+# Trisquel Tuning
+
+## Remove SSH message MOTD
 ```sh
 sudo vi /etc/pam.d/sshd
 
@@ -8,8 +10,10 @@ sudo vi /etc/pam.d/sshd
 ```
 
 ## Set static IP
+
 ### Configure card
 With admin rights:
+
 ```sh
 cd /etc/netplan/
 sudo vi 00-installer-config.yaml 
@@ -28,31 +32,34 @@ network:
       nameservers:
         addresses: [8.8.8.8,8.8.4.4]
 ```
-apply newly added content
+
+apply newly added content:
+
 ```sh
-# test firs
+# test first
 sudo netplan --debug apply
 sudo netplan apply
 ```
 
-### dnsmasq
-#### Install
-```
+## dnsmasq
+### Install
+
+```sh
 apt-get update
 apt-get install dnsmasq
 ```
 
-Resources:
-```
-https://wiki.debian.org/dnsmasq
-```
-
-#### Run in debug mode first
+### Run in debug mode first
 ```
 dnsmasq --no-daemon --log-queries
 ```
 
-#### Test configuration
+### Test configuration
 ```
 dnsmasq --test
+```
+
+### Resources
+```
+https://wiki.debian.org/dnsmasq
 ```

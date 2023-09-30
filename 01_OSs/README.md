@@ -1,5 +1,4 @@
-# Debian: OS Optimizations <a name="top"></a>
-* [OS Version](#os)
+# Linux OS Optimizations<a name="top"></a>
 * [Date and Time](#time)
 * [RAM and Disk](#ram)
 * [SSH](#ssh)
@@ -10,11 +9,6 @@
 * [Office](#office)
 * [Development](#dev)
 
-## Check OS version <a name="os"></a> 
-```
-cat /etc/os-release # or
-hostnamectl status
-```
 ## Date and Time <a name="time"></a> 
 ### Change timezone:
 ```bash
@@ -32,8 +26,9 @@ tmpfs   /mnt/tmpfs.ramdisk  tmpfs  nodev,nosuid,nodiratime,size=500M 0  0
 
 ln -s /mnt/tmpfs.ramdisk $HOME/ram  # can be removed later on with rm ram
 ```
+
 Make terminal shortcut open in RAM disk:
-```bash
+```sh
 /usr/bin/gnome-terminal --working-directory="/home/user/ram" 
 xfce4-terminal --default-working-directory=/home/user/ram
 ```
@@ -64,6 +59,7 @@ xclip -sel clip < ~/.ssh/id_rsa.pub
 ```sh
 ss -lntup
 ```
+
 ## File Management <a name="file"></a> ([Up](#top))
 ### Midnight Commander
 ```bash
@@ -110,11 +106,14 @@ sudo apt install \
       libwine:i386 \
       fonts-wine
 ```
+
 ### Move file from subfolders to upper folder
 ```hash
 find -name *.mp4 -exec mv {} . \;
 ```
+
 ## Comms <a name="comms"></a> ([Up](#top))
+
 ### USB Tethering
 ```bash
 apt install network-manager
@@ -220,23 +219,28 @@ See:
 ```html
 https://askubuntu.com/questions/155679/how-to-enable-numlock-at-boot-time-for-login-screen
 ```
+
 ```bash
 sudo apt install numlockx
 sudo vi /etc/lightdm/lightdm.conf
 # add line:
 greeter-setup-script=/usr/bin/numlockx on
 ```
+
 Check installed packages (also use for uninstall):
 ```sh
 dpkg --get-selections | grep libre
-````
+```
+
 ### Keyboard shortcuts
 ```bash
 vi ~/.bash_aliases
 # add:
 alias r2='rm -rf *'
 ```
+
 Load new entries with bash or open new terminal window.
+
 #### Terminal shortcut
 For Ubuntu use below for opening at desired location:
 ```sh
@@ -262,7 +266,9 @@ sudo apt-get install libreoffice-calc
 # or
 sudo apt-get install libreoffice-impress
 ```
+
 ## Development <a name="dev"></a> ([Up](#top))
+
 ### Git
 Prerequisites: 
 ```bash
@@ -272,6 +278,7 @@ sudo apt-get install git
 # or
 sudo apt install git-all
 ```
+
 For GIT credential stores check: 
 ```html
 https://git-scm.com/book/en/v2/Git-Tools-Credential-Storage

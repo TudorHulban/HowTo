@@ -1,4 +1,4 @@
-# Debian: Minimal <a name="top"></a>
+# Debian Tuning<a name="top"></a>
 * [Download ISO](#download)
 * [Install Windows Manager](#lxqt)
 * [NEOVIM Customization](#vim)
@@ -10,6 +10,7 @@
 ```bash
 wget https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-10.3.0-amd64-netinst.iso
 ```
+
 Mandatory set mirror - mirror would enable all options for install. Check only system utilities and ssh server.
 
 ## Install Windows Manager <a name="lxqt"></a>  ([Up](#top))
@@ -27,6 +28,7 @@ vi .vimrc
 colo desert
 set number
 ```
+
 ## WINE <a name="wine"></a>  ([Up](#top))
 ```bash
 sudo dpkg --add-architecture i386 && sudo apt update
@@ -50,17 +52,21 @@ sudo systemctl disable bluetooth.service
 sudo systemctl status bluetooth.service
 ```
 ## Optimizations <a name="optim"></a>  ([Up](#top))
+
 ```bash
 apt install -y lxterminal gdebi galculator sudo xfburn soundconverter mc p7zip-full qpdfview qbittorrent geany
 apt autoremove -y termit lxtask nano
 # or
 apt purge lxlock
 ```
+
 If preferences not saved make sure file exists and user owns:
+
 ```vim
 ~/.config/lxterminal
 ~/.config/lxterminal/lxterminal.conf
 ```
+
 LXTerminal is a non-login shell. 
 The start-up script is ~/.bashrc, not ~/.bash_profile or ~/.profile.
 
