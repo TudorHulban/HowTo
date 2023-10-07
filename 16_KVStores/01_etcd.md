@@ -5,11 +5,11 @@ https://github.com/etcd-io/etcd/releases
 wget https://github.com/etcd-io/etcd/releases/download/v3.4.10/etcd-v3.4.10-linux-amd64.tar.gz
 ```
 ### Extracting
-```
+```sh
 tar xzvf etcd-v3.4.10-linux-amd64.tar.gz 
 ```
 ### Run
-```
+```sh
 cd etcd-v3.4.10-linux-amd64/
 ./etcd
 ```
