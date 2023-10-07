@@ -5,14 +5,15 @@ Information is mainly How to's for Deployment and DevOps.
 
 ## Sections
 
-### 1 - 10  General Linux OS
+###  1 - 10 General Linux OS
 ### 11 - 20 Virtualization Solutions
-### 21 - 30 Automation Solutions
-### 31 - 40 Cloud Solutions
-### 41 - 50 Databases
-### 51 - 60 Specific Hardware Configuration
-### 61 - 70 Softskills
-### 71 - 90 Others
+### 21 - 30 Automation Solutions and CI/CD 
+### 31 - 40 Kubernetes
+### 41 - 50 Cloud Solutions
+### 51 - 60 Databases
+### 71 - 80 Specific Hardware Configuration
+### 81 - 90 Softskills
+### 91 - 99 Others
 
 ## Resources
 
