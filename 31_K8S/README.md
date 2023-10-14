@@ -71,6 +71,7 @@ https://medium.com/google-cloud/kubernetes-routing-internal-services-through-fqd
 https://www.programmersought.com/article/92159771798/
 https://www.natarajmb.com/2022/06/kubernetes-debian/
 https://github.com/intel/cri-resource-manager/issues/655
+https://www.linode.com/docs/guides/build-a-cd-pipeline-with-lke/
 ```
 
 
