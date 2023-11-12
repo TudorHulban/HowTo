@@ -202,7 +202,7 @@ https://www.makeuseof.com/download-youtube-videos-yt-dlp-linux-terminal/
 ## Browser <a name="browser"></a> ([Up](#top))
 
 ### Slimjet
-Version 38.0.2.0 (based on Chromium 109.0.5414.74) (Official Build) (64-bit).
+Version 38.0.5.0 (Official Build) (64-bit).
 
 ### Brave
 ```bash
@@ -244,7 +244,7 @@ Load new entries with bash or open new terminal window.
 #### Terminal shortcut
 For Ubuntu use below for opening at desired location:
 ```sh
-gnome-terminal --working-directory=/your/path/here
+gnome-terminal --working-directory=/mnt/tmpfs.ramdisk
 ```
 ### Calculator
 ```bash
