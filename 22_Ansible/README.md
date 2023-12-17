@@ -44,7 +44,10 @@ remote-user-name ALL=(ALL:ALL) NOPASSWD:ALL
 check it is working with:
 
 ```sh
-ansible all -m ping -u user-connecting
+ansible all -m ping -u user-on-remote -b -k -K
+# -b for become, privilege escalation
+# -k to prompt for SSH password
+# -K to prompt for sudo password
 ```
 
 ### B. Install Ansible binaries
@@ -115,6 +118,13 @@ ansible --version
 ## On hosts to control (as root)
 
 Repeat steps **1**, **2**.
+
+For step 1, create ansible user:
+
+```sh
+ansible all -m user -a "name=ansible create_home=yes" -u user-on-remote -b -k -K
+```
+(works with ansible 2.10.8)
 
 ### D. Create SSH folder and files
 
