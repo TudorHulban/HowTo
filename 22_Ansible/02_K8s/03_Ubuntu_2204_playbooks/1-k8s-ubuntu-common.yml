@@ -5,7 +5,7 @@
   gather_facts: false
   
   vars:
-    dnsEntries: "\n192.168.1.55 k8s-master\n192.168.1.56 k8s-node1\n192.168.1.57 k8s-node2\n\n" 
+    dnsEntries: "\n192.168.1.189 k8s-master\n192.168.1.188 k8s-node1\n192.168.1.187 k8s-node2\n\n" 
     kernelModules: "overlay\nbr_netfilter\n"
     networkBridge: "net.bridge.bridge-nf-call-iptables = 1\nnet.ipv4.ip_forward = 1\nnet.bridge.bridge-nf-call-ip6tables = 1\n"
   

@@ -1,4 +1,5 @@
 ## Install
+
 ```
 curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
 chmod 700 get_helm.sh
@@ -11,6 +12,7 @@ helm create tchart
 # inspect
 tree tchart
 ```
+
 ```
 tchart/    
 ├── charts    
@@ -27,12 +29,15 @@ tchart/
 │       └── test-connection.yaml    
 └── values.yaml    
 ```
+
 ### Reset 
 Delete all template files or all files.
+
 ```
 rm -v  tchart/templates/* # or
 rm -rf templates/tests/ && rm templates/*.yaml && rm templates//NOTES.txt 
 ```
+
 Create Chart.yaml
 ```
 apiVersion: v1    
@@ -50,6 +55,7 @@ helm template tchart tchart
 ```sh
 helm list
 ```
+
 ### Delete deployments
 ```sh
 helm delete my-release

@@ -42,7 +42,6 @@ echo 'ansible ALL=(ALL) NOPASSWD:ALL' > /tmp/sudoers
 sudo cp /tmp/sudoers /etc/sudoers.d/ansible
 ```
 
-
 verify:
 ```sh
 sudo ls -l /root
@@ -136,7 +135,8 @@ sudo -H pip install --upgrade ansible
 ansible --version
 ```
 
-## On hosts to control (as root)
+## On hosts to control 
+(as root, checked on Ubuntu)
 
 Repeat steps **1**, **2**.
 
@@ -180,6 +180,12 @@ Verify:
 ansible all -m command -u ansible -b -a "ls -l /root"
 ```
 
+### Change shell to bash
+
+```sh
+ansible all -m command -u ansible -b -a "chsh -s /bin/bash ansible"
+```
+
 ### D. Create SSH folder and files
 
 ```sh
@@ -208,6 +214,7 @@ sudo apt-get install -y python3
 ## Resources
 
 ```html
+https://github.com/sandervanvugt/ansiblecvc
 https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-ansible-on-rocky-linux-8
 https://galaxy.ansible.com/
 https://www.safaribooksonline.com/library/view/ansible-up-and/9781491915318/ch04.html
