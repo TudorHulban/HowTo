@@ -2,7 +2,7 @@
 
 Installation commands for `apt` and `dnf` package managers.
 
-## On Ansible commander
+## On Ansible control host
 
 Prerequisites:
 
@@ -21,16 +21,31 @@ dnf install -y python3 python3-pip
 
 #### 1. Create user ansible, owner of installation
 
-```bash
+```sh
 sudo adduser ansible # with password ansible
 ```
 
 #### 2. Add ansible user in sudo group and do not request password
 
-```bash
+```sh
 sudo visudo # equivalent to sudo vi /etc/sudoers
 root    ALL=(ALL:ALL) ALL
 ansible ALL=(ALL:ALL) NOPASSWD:ALL
+```
+
+or
+
+```sh
+echo 'ansible ALL=(ALL) NOPASSWD:ALL' > /tmp/sudoers
+
+# locally
+sudo cp /tmp/sudoers /etc/sudoers.d/ansible
+```
+
+
+verify:
+```sh
+sudo ls -l /root
 ```
 
 or add a new file in `/etc/sudoers.d` ex.:
@@ -62,6 +77,12 @@ dnf install -y ansible
 # verify
 ansible --version
 ansible [core 2.14.2]
+```
+
+#### Install `sshpass`
+
+```sh
+sudo apt-get install sshpass
 ```
 
 ### C. Configure hosts to control
@@ -119,12 +140,45 @@ ansible --version
 
 Repeat steps **1**, **2**.
 
-For step 1, create ansible user:
+### Step 1 - create ansible user:
 
 ```sh
 ansible all -m user -a "name=ansible create_home=yes" -u user-on-remote -b -k -K
 ```
+
+set password (ansible):
+
+```sh
+ansible all -m shell -a "echo 'ansible:ansible' | chpasswd" -u user-on-remote -b -k -K
+```
 (works with ansible 2.10.8)
+
+copy SSH key:
+
+```sh
+ssh-copy-id IP-host-to-control
+```
+
+Verify:
+
+```sh
+ansible all -m command -a "id" -u ansible
+```
+
+### Step 2 - privilege escalation for user ansible
+
+```sh
+echo 'ansible ALL=(ALL) NOPASSWD:ALL' > /tmp/sudoers
+
+# remote
+ansible all -u user-on-remote -b -k -K -m copy -a "src=/tmp/sudoers dest=/etc/sudoers.d/ansible"
+```
+
+Verify:
+
+```sh
+ansible all -m command -u ansible -b -a "ls -l /root"
+```
 
 ### D. Create SSH folder and files
 
