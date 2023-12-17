@@ -186,6 +186,13 @@ ansible all -m command -u ansible -b -a "ls -l /root"
 ansible all -m command -u ansible -b -a "chsh -s /bin/bash ansible"
 ```
 
+### Change DNS
+
+```sh
+sudo vi /etc/systemd/resolved.conf
+# reboot after setting the values
+```
+
 ### D. Create SSH folder and files
 
 ```sh

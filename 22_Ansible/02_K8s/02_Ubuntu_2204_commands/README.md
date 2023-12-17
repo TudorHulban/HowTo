@@ -64,6 +64,7 @@ ansible all -u ansible -b -k -K -m command -a "sysctl --system"
 
 ```sh
 ansible all -u ansible -b -k -K -m command -a "apt update"
+ansible all -u ansible -b -k -K -m command -a "apt install -y containerd"
 ```
 
 ## Resources
