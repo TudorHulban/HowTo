@@ -58,7 +58,30 @@ spec:
           ports:
             - containerPort: 80
 ```
-### Others
+
+### Troubleshoot
+
+#### After hard shutdown
+
+On:
+
+```sh
+Error from server (Forbidden): nodes is forbidden: User "kubernetes-admin" cannot list resource "nodes" in API group "" at the cluster scope
+```
+
+Try:
+
+```sh
+kubeadm init phase bootstrap-token
+```
+
+See:
+
+```sh
+https://github.com/kubernetes/kubernetes/issues/89882
+```
+
+### Resources
 ```html
 https://www.tutorialspoint.com/kubernetes/index.htm
 https://www.sayem.org/k8s-on-lxd/
