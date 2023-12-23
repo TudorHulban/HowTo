@@ -133,6 +133,18 @@ Install Calico network addon:
 kubectl apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.26.4/manifests/calico.yaml
 ```
 
+### Join the cluster based on provided sha
+
+```sh
+kubeadm token create --print-join-command
+```
+
+Get nodes: 
+
+```sh
+kubectl get nodes -o wide
+```
+
 ## Resources
 
 ```html
