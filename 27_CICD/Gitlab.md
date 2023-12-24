@@ -28,6 +28,22 @@ or
 curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh | sudo bash
 sudo EXTERNAL_URL="http://192.168.1.91" apt-get install gitlab-ce
 ```
+
+### Login 
+
+URL
+
+```html
+http://install-IP/users/sign_in
+```
+
+Credentials:
+
+```sh
+user: root
+password: as per /etc/gitlab/initial_root_password
+```
+
 ## Troubleshooting
 Status:
 ```sh

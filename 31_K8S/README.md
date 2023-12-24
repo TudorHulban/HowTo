@@ -99,6 +99,7 @@ https://github.com/kubernetes/kubernetes/issues/89882
 
 ### Resources
 ```html
+https://www.callicoder.com/deploy-containerized-go-app-kubernetes/
 https://www.tutorialspoint.com/kubernetes/index.htm
 https://www.sayem.org/k8s-on-lxd/
 https://www.techrepublic.com/article/how-to-quickly-install-kubernetes-on-ubuntu/
