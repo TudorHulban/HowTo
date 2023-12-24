@@ -114,7 +114,7 @@ network:
         ens18:
             addresses: [192.168.1.189/24]
             nameservers:
-                addresses: [192.168.1.1]
+                addresses: [8.8.8.8]
             routes:
                 - to: default
                   via: 192.168.1.1
