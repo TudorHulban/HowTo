@@ -9,6 +9,8 @@ See commands with `alias`.
 ```sh
 alias ba='git branch -a'
 alias bb='git branch'
+alias bs='git status'
+
 alias dclean='docker rm -f `docker ps --no-trunc -aq` && docker images -q |xargs docker rmi -f'
 alias dprune='docker system prune -a --volumes'
 alias glo='git log --pretty=format:"%h - %an, %ar : %s" -10'
