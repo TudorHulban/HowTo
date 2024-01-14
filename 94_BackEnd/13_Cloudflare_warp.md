@@ -1,3 +1,5 @@
+# Cloudflare Warp Setup
+
 ```sh
 warp-cli register
 warp-cli connect
@@ -9,7 +11,7 @@ warp-cli disconnect
 warp-cli connect
 warp-cli account  # account type should not be free
 
-might be needed to finally connect:
+# might be needed to finally connect:
 
 warp-cli doh
 ```

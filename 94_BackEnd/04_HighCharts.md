@@ -1,5 +1,7 @@
 # HighCharts Server Side Rendering
+
 ## JSON
+
 ```json
 {
    "title":{
@@ -23,11 +25,15 @@
    ]
 }
 ```
+
 ## Create Chart
+
 ```bash
 highcharts-export-server -infile line.json -outfile a.png
 ```
+
 ## Documentation
+
 ```html
 https://www.highcharts.com/docs/export-module/render-charts-serverside
 ```

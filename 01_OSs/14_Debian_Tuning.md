@@ -1,4 +1,5 @@
 # Debian Tuning<a name="top"></a>
+
 * [Download ISO](#download)
 * [Install Windows Manager](#lxqt)
 * [NEOVIM Customization](#vim)
@@ -7,6 +8,7 @@
 * [Optimizations](#optim)
 
 ## Download <a name="download"></a>
+
 ```bash
 wget https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-10.3.0-amd64-netinst.iso
 ```
@@ -14,13 +16,16 @@ wget https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-10.3.0-amd
 Mandatory set mirror - mirror would enable all options for install. Check only system utilities and ssh server.
 
 ## Install Windows Manager <a name="lxqt"></a>  ([Up](#top))
+
 ```bash
 apt install lxqt
 # or for minimal
 apt install -y lxqt-core      # LXQT, display manager needed: apt install lightdm
 apt install -y lxde-core      # LXDE
 ```
+
 ## NEOVIM <a name="vim"></a>  ([Up](#top))
+
 ```bash
 apt install -y sudo neovim
 vi .vimrc  
@@ -30,20 +35,28 @@ set number
 ```
 
 ## WINE <a name="wine"></a>  ([Up](#top))
+
 ```bash
 sudo dpkg --add-architecture i386 && sudo apt update
 sudo apt install wine wine32 wine64 libwine libwine:i386 fonts-wine
 ```
+
 ### Check version
-```
+
+```sh
 wine --version
 ```
+
 ## Check services <a name="check"></a>  ([Up](#top))
+
 ### Per Run Level
+
 ```bash
 ls /etc/rc*.d
 ```
+
 ### Systemd
+
 ```bash
 service --status-all | grep '\[ + \]'
 # disable with
@@ -51,6 +64,7 @@ sudo systemctl disable bluetooth.service
 # verify with
 sudo systemctl status bluetooth.service
 ```
+
 ## Optimizations <a name="optim"></a>  ([Up](#top))
 
 ```bash

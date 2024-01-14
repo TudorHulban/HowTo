@@ -1,11 +1,15 @@
 ## MX Linux
+
 Create shell for the commands:
+
 ```bash
 vi ~/.bash_aliases
 # or
 touch ~/.bash_aliases
 ```
+
 See commands with `alias`.
+
 ```sh
 alias ba='git branch -a'
 alias bb='git branch'
@@ -25,7 +29,9 @@ alias r2='cd ~/ram && rm -rf *'
 alias ra='cd ~/ram'
 alias sec='gosec -no-fail ./... 2>&1 | tee ~/ram/sast-gosec.log'
 ```
+
 For root aliases should go in `~/.bashrc`.
 
 ## CentOS
+
 Aliases should go in `~/.bashrc`.

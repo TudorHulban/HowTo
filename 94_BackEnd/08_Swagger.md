@@ -1,16 +1,22 @@
-### Swagger Setup
-#### Using Docker Image
+# Swagger Setup
+
+## Using Docker Image
+
 ```sh
 docker pull swaggerapi/swagger-editor
 docker run -p 80:8080 swaggerapi/swagger-editor
 ```
-#### Using node
+
+## Using node
+
 ```sh
 npm install -g http-server
 git clone https://github.com/swagger-api/swagger-editor.git
 http-server -p 8080 swagger-editor
 ```
-### Example file
+
+## Example file
+
 ```yaml
 openapi: 3.0.0
 info:
@@ -44,8 +50,9 @@ paths:
                 items: 
                   type: string
 ```
-#### Resources
+
+## Resources
+
 ```html
 https://swagger.io/docs/specification/basic-structure/
 ```
-
