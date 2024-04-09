@@ -33,7 +33,7 @@ export PATH=$PATH:/usr/local/go/bin:~/go/bin # for test system: export PATH=$PAT
 From https://golang.org/dl/ .
 
 ```bash
-wget -O go-amd64.tar.gz https://go.dev/dl/go1.21.6.linux-amd64.tar.gz
+wget -O go-amd64.tar.gz https://go.dev/dl/go1.22.2.linux-amd64.tar.gz
 sudo tar -C /usr/local -xzf go-amd64.tar.gz
 # for test system local install: tar -xzf go-amd64.tar.gz
 ```
