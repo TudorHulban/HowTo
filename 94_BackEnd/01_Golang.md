@@ -126,6 +126,72 @@ echo "func main() {}" >> ${output_file}
 go mod init test 
 ```
 
+## Script for creating monorepo structure
+
+```sh
+#!/bin/bash
+#  helpers
+function createDoc () {
+touch $2
+echo $1 > $2
+}
+
+# folders
+output_top_folder="test"
+output_cmd="cmd"
+output_domain="domain"
+output_services="services"
+output_infra="infra"
+
+# files
+output_file="main.go"
+generic_doc="doc.go"
+makefile="Makefile"
+
+# create folder cmd
+mkdir ${output_top_folder}
+cd ${output_top_folder}
+mkdir ${output_cmd}
+cd ${output_cmd}
+
+touch ${output_file}
+echo "package main" > ${output_file}
+echo "" >> ${output_file}
+echo "func main() {}" >> ${output_file}
+
+cd ..
+
+# create folder domain
+mkdir ${output_domain}
+cd ${output_domain}
+
+createDoc "package domain" ${generic_doc}
+
+cd ..
+
+# create folder services
+mkdir ${output_services}
+cd ${output_services}
+
+createDoc "package services" ${generic_doc}
+
+cd ..
+
+# create folder infra
+mkdir ${output_infra}
+cd ${output_infra}
+
+createDoc "package infra" ${generic_doc}
+
+cd ..
+
+touch ${makefile}
+echo "test-tparse:" > ${makefile}
+printf '\t%s' "@go test -failfast -count=1 -p 1 ./... -cover -race -json | tparse -smallscreen" >> ${makefile}
+
+go mod init test 
+```
+
 ## Resources
 
 ```html
