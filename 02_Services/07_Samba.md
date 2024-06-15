@@ -1,6 +1,7 @@
 ## Install Samba
 ```sh
-sudo apt-get install samba
+sudo apt-get install samba # server
+sudo apt install smbclient # client
 # check
 sudo service smbd status
 ```
