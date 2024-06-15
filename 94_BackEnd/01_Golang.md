@@ -62,6 +62,12 @@ Verify:
 mount |grep /tmp
 ```
 
+## TParse
+
+```sh
+go install github.com/mfridman/tparse@latest
+```
+
 ## LiteIDE
 
 ```sh
@@ -70,13 +76,13 @@ wget https://github.com/visualfc/liteide/releases/download/x37.4/liteidex37.4.li
 
 ## Upgrade GO version
 
-### Remove previous version first.
+### Remove previous version first
 
 ```bash
 sudo rm -r /usr/local/go
 ```
 
-### Download and unzip new version.
+### Download and unzip new version
 
 ```bash
 tar -C $HOME -xzf <new version>
