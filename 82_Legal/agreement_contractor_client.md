@@ -4,11 +4,11 @@
 
 ### A. Contracting Parties
 
-Company - XXX, legal entity with headquarters in [address], registered under number xx/yyyyy/zzzz and having tax identification number EU 12345678 represented by [name] acting as [position] hereinafter reffered to as the Client
+Company - XXX, legal entity with headquarters in [address], registered under number xx/yyyyy/zzzz and having tax identification number EU 12345678 represented by [name] acting as [position] hereinafter referred to as the Client
 
 and
 
-Company - YYY, legal entity with headquarters in [address], registered under number  Jxx/yyyyy/zzzz and having tax identification number RO 12345678 represented by [name] acting as [position] hereinafter reffered to as the Contractor
+Company - YYY, legal entity with headquarters in [address], registered under number  Jxx/yyyyy/zzzz and having tax identification number RO 12345678 represented by [name] acting as [position] hereinafter referred to as the Contractor
 
 concluded this contractor agreement under the following conditions on which we agreed.
 
@@ -22,7 +22,7 @@ Limited to [x] months with a start date of [date start] and end date of [end dat
 
 ### D. Workplace
 
-Work will be performed 100% remote from a location in Romania. The Company should be notified by the Contractor of a change of location only if the new location is used for more than five (5) business days.
+Work will be performed 100% remote from a location in Romania. The Client should be notified by the Contractor of a change of location only if the new location is used for more than five (5) business days.
 
 ### E. Type of Work
 
@@ -96,7 +96,7 @@ or (e) information the Receiving Party develops independent of any information o
 
 The statement needs to have the approval of the Client. The Client approval is for the whole statement, the Client cannot issue an approval only for part of the hours.  
 
-After the statement is approved by the Client, the Contractor may send by email the invoice to The Client specified representative. Upon receival, the Client representative should respond to the email with an acknoledgment of receival.
+After the statement is approved by the Client, the Contractor may send by email the invoice to The Client specified representative. Upon receival, the Client representative should respond to the email with an acknowledgment of receival.
 After the acknowledgment of receival, The Client has 30 days to pay the invoice given the rate in Annex 2 was used for the charge of the exact amount of hours as in the statement.
 
 ## Section 6 - Disputes
@@ -126,3 +126,19 @@ Besides item 7.2 cases, in case the Contractor terminates the Agreement without 
 ## Annex 2 - Contractor hourly rate
 
 ### Hourly rate is x euros.
+
+
+## Signatures
+
+Client representative: xxxx
+
+
+
+Signature:
+
+
+Contractor representative: yyyy
+
+
+
+Signature:

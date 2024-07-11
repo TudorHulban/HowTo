@@ -4,11 +4,11 @@
 
 ### A. Contracting Parties
 
-Company - XXX, legal entity with headquarters in [address], registered under number xx/yyyyy/zzzz and having tax identification number EU 12345678 represented by [name] acting as [position] hereinafter reffered to as the Company
+Company - XXX, legal entity with headquarters in [address], registered under number xx/yyyyy/zzzz and having tax identification number EU 12345678 represented by [name] acting as [position] hereinafter referred to as the Company
 
 and
 
-Company - YYY, legal entity with headquarters in [address], registered under number  Jxx/yyyyy/zzzz and having tax identification number RO 12345678 represented by [name] acting as [position] hereinafter reffered to as the Contractor
+Company - YYY, legal entity with headquarters in [address], registered under number  Jxx/yyyyy/zzzz and having tax identification number RO 12345678 represented by [name] acting as [position] hereinafter referred to as the Contractor
 
 concluded this contractor agreement under the following conditions on which we agreed.
 
@@ -105,7 +105,7 @@ The flow to get this approval of the Client would be:
 a. The Contractor sends the statement by email to the Client representative (previously specified by The Company) and CCing The Company representative  
 b. In case the Client responds to the email to the Contractor and CCing the Company representative with an approval in the email body, the statement is considered approved. The Contractor can also forward the Client approval if the Company representative was not in the approval email.  
 
-After the statement is approved by the Client, the Contractor may send by email the invoice to The Company specified representative. Upon receival, the Company representative should respond to the email with an acknoledgment of receival.
+After the statement is approved by the Client, the Contractor may send by email the invoice to The Company specified representative. Upon receival, the Company representative should respond to the email with an acknowledgment of receival.
 After the acknowledgment of receival, the Company has 30 days to pay the invoice given the rate in Annex 2 was used for the charge of the exact amount of hours as in the statement.
 
 ## Section 6 - Disputes
@@ -135,3 +135,19 @@ Besides item 7.2 cases, in case the Contractor terminates the Agreement without 
 ## Annex 2 - Contractor hourly rate
 
 ### Hourly rate is x euros.
+
+
+## Signatures
+
+Client representative: xxxx
+
+
+
+Signature:
+
+
+Contractor representative: yyyy
+
+
+
+Signature:
