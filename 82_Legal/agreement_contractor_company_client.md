@@ -41,11 +41,11 @@ The discovery period is 5 business days.
 
 ### H. GDPR
 
-The Contractor hereby consents to the transmission of the personal data of the Contractor  by The Company to the Client to the extent that the said personal data is used by the Client only for the period of this Agreement and only for the scope of the realization of the work or duties specified in Annex 1.
+The Contractor hereby consents to the transmission of the personal data of the Contractor  by the Company to the Client to the extent that the said personal data is used by the Client only for the period of this Agreement and only for the scope of the realization of the work or duties specified in Annex 1.
 
 ### I. Force majeure
 
-1. Case of state of emergency or war
+1. Case of state of emergency or war.
 2. Neither Party shall be liable for any failure to perform under this Agreement when such failure is due to causes beyond that Party’s reasonable control, including, but not limited to, acts of state or governmental authorities, acts of terrorism, natural catastrophe, fire, storm, flood, earthquakes, accident, and prolonged shortage of energy.
 
 ### J. Miscellaneous
@@ -86,7 +86,7 @@ or (e) information the Receiving Party develops independent of any information o
 ## Section 4 - Conflict of Interest
 
 1. For the term of the Agreement and within a 12 month period after the Agreement termination, the Contractor shall not perform any contracted work for the Client, including being a direct employee.
-2. In the case the Company is aware of a contract or direct employee situation between the Contractor and the Client or Contractor representative and the Client, the Company is entitled to a compensation from the Cient in a maximum amount of 160 multiplied with the hourly rate from Annex 2.  
+2. In the case the Company is aware of a contract or direct employee situation between the Contractor and the Client or Contractor representative and the Client, the Company is entitled to a compensation from the Client in a maximum amount of 160 multiplied with the hourly rate from Annex 2.  
 The compensation is a one timer only for the relation between the Company and the Contractor.
 
 ## Section 5 - Payment Terms and Schedule
@@ -94,8 +94,8 @@ The compensation is a one timer only for the relation between the Company and th
 1. Bank holidays and days off are unpaid.
 2. The Contractor should provide an invoice and a statement with the hours worked for the invoiced period to the Company. The statement needs to include:
 
-- The Contractor name
-- The Company tracking number for the statement  
+- the Contractor name
+- the Company tracking number for the statement  
 - date  
 - performed activity  
 - hours per the activity
@@ -103,15 +103,15 @@ The compensation is a one timer only for the relation between the Company and th
 The statement needs to have the approval of the Client. The Client approval is for the whole statement, the Client cannot issue an approval only for part of the hours.  
 The flow to get this approval of the Client would be:  
 a. The Contractor sends the statement by email to the Client representative (previously specified by The Company) and CCing The Company representative  
-b. In case The Client responds to the email to the Contractor and CCing the Company representative with an approval in the email body, the statement is considered approved. The Contractor can also forward the Client approval if the Company representative was not in the approval email.  
+b. In case the Client responds to the email to the Contractor and CCing the Company representative with an approval in the email body, the statement is considered approved. The Contractor can also forward the Client approval if the Company representative was not in the approval email.  
 
-After the statement is approved by the Client, the Contractor may send by email the invoice to The Company specified representative. Upon receival The Company representative should respond to the email with an acknoledgment of receival.
-After the acknowledgment of receival, The Company has 30 days to pay the invoice given the rate in Annex 2 was used for the charge of the exact amount of hours as in the statement.
+After the statement is approved by the Client, the Contractor may send by email the invoice to The Company specified representative. Upon receival, the Company representative should respond to the email with an acknoledgment of receival.
+After the acknowledgment of receival, the Company has 30 days to pay the invoice given the rate in Annex 2 was used for the charge of the exact amount of hours as in the statement.
 
 ## Section 6 - Disputes
 
 1. Governing Law.The Parties shall make a good-faith effort to amicably settle by mutual agreement any dispute that may arise between them under this Agreement. The foregoing requirement will not preclude either Party from seeking injunctive relief as it deems necessary to protect its own interests. This Agreement will be construed and enforced in accordance with the laws of Romania.
-2. Disclosure of client confidential information entitles The Company to seek compensation given a written claim signed by the Client. This written claim should be shared with the Contractor before any legal action against the Contractor.
+2. Disclosure of the Client confidential information entitles The Company to seek compensation given a written claim signed by the Client. This written claim should be shared with the Contractor before any legal action against the Contractor.
 
 ## Section 7 - Termination of Agreement
 
@@ -122,9 +122,9 @@ b. if the approval for the statement with worked hours is not received within 5 
 c. if the Contractor does not receive the payment for the approved statement of hours within 30 days from the moment the invoice was emailed to the Company  
 d. in the discovery phase  
 e. if a GDPR issue is found by the Contractor and recognized by a GDPR authority  
-f. upon presenting to the Company of a email received from the Client in which the Contractor or its representative is requested to perform work on the Microsoft Windows operating system.  
-3. Besides item 7.2 cases, the Contractor should provide 30 days notice to the Company. In case the Contractor terminates the Agreement without a notice period, the Company may decide to not honor due payments to the Contractor.
-
+f. upon presenting to the Company of an email received from the Client in which the Contractor or its representative is requested to perform work on the Microsoft Windows operating system.  
+3. Besides item 7.2 cases, the Contractor should provide 30 days notice to the Company.
+Besides item 7.2 cases, in case the Contractor terminates the Agreement without the required notice period, the Company may decide to not honor due payments to the Contractor.
 
 
 ## Annex 1 - Contractor work and duties

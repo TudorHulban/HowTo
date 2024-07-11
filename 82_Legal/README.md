@@ -1,2 +1,5 @@
 # Legal
-legal documents for win win partnerships
+
+Legal documents for win win partnerships.  
+Contractor - Client agreement.  
+Contractor - Agency - Client agreement.
