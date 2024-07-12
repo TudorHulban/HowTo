@@ -6,7 +6,7 @@ https://192.168.1.6:8006/#v1:0:18:4::::::
 ```
 ## 2. Get container images with
 ```bash
-pveam available
+pveam available # pveam update first
 pveam download  local debian-11-standard_11.0-1_amd64.tar.gz # download container
 pveam download  local ubuntu-18.04-standard_18.04.1-1_amd64.tar.gz
 pveam download  local ubuntu-20.04-standard_20.04-1_amd64.tar.gz
