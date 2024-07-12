@@ -12,6 +12,7 @@ Works also for transfer to local host.
 ```bash
 scp user@targethost:/path/to/place/file /local-path/to/file
 ```
+Use `-r` for folders (recursive).
 ## Add SSH banner
 ### Enable banner in SSH configuration
 ```sh
