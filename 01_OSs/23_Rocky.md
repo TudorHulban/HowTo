@@ -22,7 +22,10 @@ vi  /etc/dnf/dnf.conf
 exclude=kernel*
 ```
 
-### 5. vs code install
+### 5. development tools
+see https://www.golinuxcloud.com/install-gcc-on-rocky-linux/
+
+### 6. vs code install
 ```sh
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
 sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
