@@ -91,7 +91,7 @@ tar -C $HOME -xzf <new version>
 ## Golangci linter
 
 ```sh
-# add to bashrc
+# if any issues temporary add to bashrc
 export GO111MODULE=off
 # binary will be $(go env GOPATH)/bin/golangci-lint
 curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.59.1
