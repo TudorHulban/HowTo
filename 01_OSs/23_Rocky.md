@@ -32,3 +32,9 @@ sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.m
 dnf check-update
 sudo dnf -y install code
 ```
+
+### 7. NTFS support
+```sh
+sudo dnf install epel-release
+sudo dnf install ntfs-3g
+```
