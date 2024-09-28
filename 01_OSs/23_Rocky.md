@@ -38,3 +38,6 @@ sudo dnf -y install code
 sudo dnf install epel-release
 sudo dnf install ntfs-3g
 ```
+
+### 8. SSH connection
+see https://linuxcapable.com/how-to-install-ssh-on-rocky-linux/
