@@ -12,6 +12,12 @@ https://www.tecmint.com/install-gui-desktop-rocky-linux-9/
 
 ### 3. fractional scaling
 ```sh
+gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']"
+```
+see https://www.omglinux.com/how-to-enable-fractional-scaling-fedora/
+
+if does not work:
+```sh
 sudo dnf install gnome-tweaks 
 ```
 
@@ -41,3 +47,6 @@ sudo dnf install ntfs-3g
 
 ### 8. SSH connection
 see https://linuxcapable.com/how-to-install-ssh-on-rocky-linux/
+
+### 9. Video codecs
+see https://computingforgeeks.com/install-use-ffmpeg-on-rocky-alma-9/
