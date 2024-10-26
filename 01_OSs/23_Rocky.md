@@ -50,3 +50,6 @@ see https://linuxcapable.com/how-to-install-ssh-on-rocky-linux/
 
 ### 9. Video codecs
 see https://computingforgeeks.com/install-use-ffmpeg-on-rocky-alma-9/
+
+### 10. Docker
+see https://reintech.io/blog/installing-docker-on-almalinux-9
