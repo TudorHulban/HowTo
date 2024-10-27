@@ -29,6 +29,10 @@ exclude=kernel*
 ```
 
 ### 5. development tools
+
+```sh
+sudo dnf group install "Development Tools"
+```
 see https://www.golinuxcloud.com/install-gcc-on-rocky-linux/
 
 ### 6. vs code install
