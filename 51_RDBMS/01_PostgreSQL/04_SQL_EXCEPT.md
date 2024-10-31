@@ -1,4 +1,5 @@
 # SQL: Except Example
+
 ```sql
 create table customers (
 id bigserial primary key,

@@ -1,13 +1,27 @@
 # SQLite : Install and first steps
+
 ## Install
+
 ```bash
 sudo apt-get install sqlite3 libsqlite3-dev
 ```
+
 ## Browser
+
+Install:
+
+```bash
+sudo apt install sqlitebrowser
+```
+
+see:
+
 ```html
 http://sqlitebrowser.org
 ```
+
 ## Use (Go)
+
 ```go
 package main
 
@@ -16,7 +30,9 @@ package main
         _ "github.com/mattn/go-sqlite3"
     )
   ```  
+
 ## Create Table
+
 ```sql
 DROP TABLE people;
  

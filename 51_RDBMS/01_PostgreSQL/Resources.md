@@ -1,12 +1,17 @@
-### With Docker
+# Install with Docker
+
 ```sh
 sudo docker run -d --name=co-postgres -p 5432:5432 -v postgres-volume:/var/lib/postgresql/data -e POSTGRES_PASSWORD=thepassword postgres
 ```
+
 ## Locks
+
 ```html
 https://www.netguru.com/blog/advisory-locks
 ```
+
 ### Resources
+
 ```html
 https://dbaclass.com/article/monitor-sql-queries-in-postgres-using-pg_stat_statements/
 https://linuxiac.com/postgresql-docker/
