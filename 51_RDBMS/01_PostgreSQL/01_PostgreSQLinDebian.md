@@ -63,7 +63,7 @@ sudo su - postgres
 ## 5. Start server
 
 ```bash
-sudo service postgresql restart
+sudo service postgresql-17 restart
 ```
 
 ## 6. Enable TCP/IP connections
