@@ -51,3 +51,7 @@ Verify:
 ```sh
 sudo -u postgres psql -h localhost -U postgres
 ```  
+
+## Connect
+
+See in Debian installation, section ## 6. Enable TCP/IP connections.  

@@ -60,7 +60,7 @@ sudo su - postgres
 /usr/lib/postgresql/9.6/bin/pg_ctl stop -D /var/lib/postgresql/9.6/main/
 ```
 
-## 5. Start server:
+## 5. Start server
 
 ```bash
 sudo service postgresql restart
@@ -69,19 +69,29 @@ sudo service postgresql restart
 ## 6. Enable TCP/IP connections
 
 ```bash
-vi /etc/postgresql/9.6/main/postgresql.conf 
+vi /var/lib/pgsql/17/data/postgresql.conf 
 # modify: 
 listen_addresses = '*'
+```
+
+### Alternate ports
+
+5433 - next logical choice, which is often unassigned by default.  
+5434-5440 - still in a range that’s likely open and unused.  
+5470-5499 - ports in this range are typically available on Linux systems.
+
+Restart service so new configuration taakes effect:
+
+```sh
+sudo systemctl restart postgresql-17
 ```
 
 ## 7. Add the IP to connect from
 
 ```bash
-vi /etc/postgresql/9.6/main/pg_hba.conf 
+vi /var/lib/pgsql/17/data/pg_hba.conf
 # add:
-host	all	all	192.168.1.8/32	md5
-# or
-host    all             all             192.168.1.0/24          password
+host    all             all             192.168.1.0/24          scram-sha-256
 ```
 
 Restart service:
