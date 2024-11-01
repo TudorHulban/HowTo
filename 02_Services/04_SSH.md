@@ -110,6 +110,37 @@ Restart service
 systemctl restart sshd
 ```
 
+## Relax host key checking
+
+### Temporary (single session)
+
+```sh
+ssh -o StrictHostKeyChecking=no user@host
+```
+
+### Permanent
+
+For user:
+
+```sh
+vi ~/.ssh/config  
+# add
+Host host-name
+    StrictHostKeyChecking no
+```
+
+Globally in:
+
+```yaml
+/etc/ssh/ssh_config
+```
+
+### Remove key
+
+```sh
+ssh-keygen -R host-name
+```
+
 ## Resources
 
 ```html
