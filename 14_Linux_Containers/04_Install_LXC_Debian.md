@@ -79,3 +79,9 @@ sudo lxc-copy -n c001 -N c002
 ```bash
 apt install inetutils-ping
 ```
+
+### Limit memory used
+
+```sh
+sudo lxc config set container-name limits.memory 256MB
+```
