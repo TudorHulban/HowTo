@@ -85,9 +85,9 @@ sudo lxc-attach -n <container name>
 sudo du -sh /var/lib/lxc/<container name>
 ```
 
-### Copy container 
+### Copy container  
 
-Must be stopped to be copied:
+Container must be stopped to be copied:
 
 ```sh
 sudo lxc-copy -n c001 -N c002
