@@ -1,4 +1,4 @@
-# Debian Tuning<a name="top"></a>
+# Debian Tuning <a name="top"></a>
 
 * [Download ISO](#download)
 * [Install Windows Manager](#lxqt)
@@ -85,12 +85,14 @@ LXTerminal is a non-login shell.
 The start-up script is ~/.bashrc, not ~/.bash_profile or ~/.profile.
 
 ### Check memory
-```
+
+```sh
 sudo dmidecode --type 17
 ```
 
 ## Create desktop entries  ([Up](#top))
-```
+
+```sh
 vi <shortcut>
 
 [Desktop Entry]
@@ -102,7 +104,9 @@ Exec=pcmanfm -n "/media/tudi/system/01_ToRead/Go_Books (from vault)"
 Name=Go
 GenericName=Go
 ```
+
 ## Static IP
+
 ```yaml
 auto ens18
 iface ens18  inet static
@@ -111,7 +115,9 @@ netmask 255.255.255.0
 gateway 192.168.1.1
 dns-nameservers 1.1.1.1
 ```
+
 ## Resources
-```
+
+```html
 https://techguides.yt/guides/secure-linux-server/
 ```

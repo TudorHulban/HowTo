@@ -31,7 +31,8 @@ sudo iptables -I FORWARD -o usb0 -s 192.168.0.0/16 -j ACCEPT
 sudo iptables -I INPUT -s 192.168.0.0/16 -j ACCEPT
 ```
 
-## 7. Configure connecting computers with default gateway as eth0 IP address.
+## 7. Configure connecting computers with default gateway as eth0 IP address
+
 Restart network service on connecting machines.  
 Test.
 

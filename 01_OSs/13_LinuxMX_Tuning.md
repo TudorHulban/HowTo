@@ -25,6 +25,7 @@ id:3:initdefault:
 ```
 
 Resources
+
 ```html
 https://ostechnix.com/check-runlevel-linux/
 ```
