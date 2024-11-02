@@ -1,10 +1,10 @@
 # MicroK8: Installation on Ubuntu VM
 ## Prerequisites
-```bash
+```sh
 sudo apt install snapd iptables
 ```
 ## Install MicroK8
-```bash
+```sh
 sudo snap install microk8s --classic --channel=1.18/stable
 ```
 Join **microk8s** created group
@@ -35,13 +35,13 @@ http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kube
 sudo snap install helm --classic
 ```
 ## Enable Services
-```bash
+```sh
 sudo microk8s.enable dns dashboard registry
 # check
 sudo microk8s.kubectl get services
 ```
 ## Start
-```bash
+```sh
 sudo microk8s start
 # inspect
 sudo microk8s inspect
@@ -49,16 +49,16 @@ sudo microk8s status
 ```
 ## Operations
 ### Get nodes
-```bash
+```sh
 microk8s.kubectl get nodes
 ```
 ### Namespaces
-```bash
+```sh
 microk8s.kubectl get namespace
 microk8s.kubectl delete namespace <Namespace name>
 ```
 ### Config
-```bash
+```sh
 microk8s.config
 ```
 ### Get pods
@@ -71,13 +71,13 @@ microk8s kubectl get all --all-namespaces
 ```
 ## Sample app 1
 ### Install
-```bash
+```sh
 microk8s.kubectl create deployment nginx --image=nginx
 microk8s.kubectl get deployments
 microk8s.kubectl get pods
 ```
 ### Delete
-```bash
+```sh
 microk8s.kubectl get deployment 
 microk8s.kubectl delete deployment <deployment to delete>
 ```
@@ -112,7 +112,7 @@ spec:
         - containerPort: 80
 ```
 ### Use
-```bash
+```sh
 microk8s.kubectl apply -f filename.yml
 ```
 ## Resources

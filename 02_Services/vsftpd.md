@@ -1,28 +1,28 @@
 # VSFTPD: Installation and first steps
 ## Mac:
-```bash
+```sh
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" < /dev/null 2> /dev/null
 brew install vsftpd
 ```
 Runs as root on mac. so:
-```bash
+```sh
 sudo chown root /usr/local/etc/vsftpd.conf
 ```
 Launch as service:
-```bash
+```sh
 sudo brew services start vsftpd
 sudo brew services stop vsftpd
 ```
 or just:
-```bash
+```sh
 sudo vsftpd
 ```
 remove:
-```bash
+```sh
 brew remove vsftpd
 ```
 ## Linux:
-```bash
+```sh
 sudo apt-get install vsftpd
 
 sudo vi /etc/vsftpd.conf

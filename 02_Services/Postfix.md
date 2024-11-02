@@ -1,13 +1,13 @@
 # Postfix: Installation
 ## Create container
 ## Set hostname to mail.example.com
-```bash
+```sh
 sudo /etc/hostname
 sudo /etc/hosts
 ```
 Reboot.
 ## Install postfix
-```bash
+```sh
 sudo apt-get update
 sudo apt install postfix
 ```

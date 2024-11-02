@@ -8,25 +8,25 @@
 
 Might not be needed.
 
-```bash
+```sh
 nmcli connection add type ethernet ifname usb0 ipv4.method shared con-name local
 ```
 
 ## 4. Enable IP forwarding.
 
-```bash
+```sh
 sudo sysctl -w net.ipv4.ip_forward=1
 ```
 
 ## 5. Enable masquerading on usb0.
 
-```bash
+```sh
 sudo iptables -t nat -A POSTROUTING -o usb0 -j MASQUERADE
 ```
 
 ## 6. Accept and forward traffic.
 
-```bash
+```sh
 sudo iptables -I FORWARD -o usb0 -s 192.168.0.0/16 -j ACCEPT
 sudo iptables -I INPUT -s 192.168.0.0/16 -j ACCEPT
 ```

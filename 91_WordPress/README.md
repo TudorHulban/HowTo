@@ -1,11 +1,11 @@
 # WordPress
 ## Docker Run
 Create sandbox:
-```bash
+```sh
 docker-compose up -d
 ```
 Clean with:
-```bash
+```sh
 docker-compose down
 ```
 Docker Compose file:

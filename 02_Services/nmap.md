@@ -1,4 +1,4 @@
 ##### Check Network Nodes
-```bash
+```sh
 nmap -sP 192.168.1.0/24
 ```

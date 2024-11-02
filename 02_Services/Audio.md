@@ -1,11 +1,17 @@
+# Linux audio support
+
 ## Audio File Converter
+
 ```html
 https://soundconverter.org/
 ```
-```bash
+
+```sh
 sudo apt install soundconverter
 ```
+
 ## Disc Burner
-```bash
+
+```sh
 sudo apt install xfburn
 ```

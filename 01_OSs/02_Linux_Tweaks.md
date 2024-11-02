@@ -15,19 +15,19 @@
 
 ## Extract Audio from video file <a name="video"></a> 
 
-```bash
+```sh
 ffmpeg -i videofile.mp4 -vn -acodec copy audiotrack.m4a
 ```
 
 ## X Type <a name="x"></a> ([Up](#top))
 
-```bash
+```sh
 ls /usr/bin/*session
 ```
 
 ## Grep <a name="grep"></a> ([Up](#top))
 
-```bash
+```sh
 grep -rnw '/path/to/somewhere/' -e 'pattern'
 # -r or -R is recursive,
 # -n is line number,
@@ -39,7 +39,7 @@ grep -rnw '/path/to/somewhere/' -e 'pattern'
 
 ### For SSD
 
-```bash
+```sh
 sudo smartctl -A /dev/sda | awk '/^241/ { print "GBW: "($10 * 1024) * 1.0e-5, "GB" } '
 ```
 
@@ -47,26 +47,26 @@ sudo smartctl -A /dev/sda | awk '/^241/ { print "GBW: "($10 * 1024) * 1.0e-5, "G
 
 Install utility:
 
-```bash
+```sh
 sudo apt install nvme-cli
 ```
 
 and check:
 
-```bash
+```sh
 nvme list
 nvme smart-log /dev/nvme0
 ```
 
 ## Lines of Code <a name="loc"></a> ([Up](#top))
 
-```bash
+```sh
 sudo apt install cloc
 ```
 
 Make script cloc-git and place in path, chmod +x:
 
-```bash
+```sh
 #!/usr/bin/env bash
 git clone --depth 1 "$1" temp-linecount-repo &&
   printf "('temp-linecount-repo' will be deleted automatically)\n\n\n" &&
@@ -76,13 +76,13 @@ git clone --depth 1 "$1" temp-linecount-repo &&
 
 Usage:
 
-```bash
+```sh
 cloc-git https://github.com/evalEmpire/perl5i.git
 ```
 
 ## Update MOTD <a name="motd"></a> ([Up](#top))
 
-```bash
+```sh
 cd /etc/update-motd.d
 sudo mkdir _scripts
 sudo mv needed scripts to _scripts
@@ -101,7 +101,7 @@ sudo smartctl -a /dev/sdx
 
 #### Create Partition
 
-```bash
+```sh
 lsblk   # to identify drive
 fdisk /dev/sdc
 # create new gpt label
@@ -110,14 +110,14 @@ fdisk /dev/sdc
 
 #### Format Partition
 
-```bash
+```sh
 sudo mkfs.ext4 -L datapartitionlabel /dev/sdX1
 sudo mkfs.vfat -F32 /dev/sdX1
 ```
 
 ## Permanently mount disk <a name="mount"></a> ([Up](#top))
 
-```bash
+```sh
 sudo lsblk --fs # get UUID
 sudo vi /etc/fstab
 # add partition, see https://en.wikipedia.org/wiki/Fstab
@@ -126,7 +126,7 @@ UUID=xxxxxxx /home/xxx/diskx ext4 defaults 0 2
 
 If mount folder does not exist it will be created. Save. reboot and verify with:
 
-```bash
+```sh
 df -h  # or
 sudo fdisk /dev/sdx  # and p
 sudo hdparm -I /dev/sdx
@@ -140,7 +140,7 @@ https://www.digitalocean.com/community/tutorials/how-to-partition-and-format-sto
 
 ## Prevent laptop going to sleep when docked <a name="dock"></a> ([Up](#top))
 
-```bash
+```sh
 sudo vi /etc/systemd/logind.conf
 HandleLidSwitch=ignore
 HandleLidSwitchDocked=ignore
@@ -150,7 +150,7 @@ sudo service systemd-logind restart
 
 ## Check all running services <a name="services"></a> ([Up](#top))
 
-```bash
+```sh
 service --status-all
 systemctl --type=service --state=active list-units
 ```

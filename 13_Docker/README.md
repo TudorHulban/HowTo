@@ -15,7 +15,7 @@
 * 64b OS
 * RAM disk (lower SSD wear)
 * Dependencies install. Not necessary on MX Linux.
-```bash
+```sh
 sudo apt update
 sudo apt -y install apt-transport-https ca-certificates curl gnupg2 software-properties-common
 ```
@@ -32,17 +32,17 @@ https://towardsdatascience.com/key-kubernetes-commands-741fe61fde8
 https://codebeautify.org/yaml-validator/
 ```
 ## Install - Add GPG Key <a name="key"></a> ([Up](#top))
-```bash
+```sh
 curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
 ```
 ## Install - Add Docker Repo <a name="repo"></a> ([Up](#top))
-```bash
+```sh
 sudo vi /etc/apt/sources.list
 # add at end of file: deb [arch=amd64] https://download.docker.com/linux/debian buster stable
 sudo apt update
 ```
 On MX Linux the file to update:
-```bash
+```sh
 cd /etc/apt/sources.list.d/
 sudo vi mx.list
 ```
@@ -52,11 +52,11 @@ https://allthings.how/how-to-install-docker-on-ubuntu-20-04-lts/
 ```
 ## Install - Docker <a name="idocker"></a> ([Up](#top))
 ### Install Docker Community Edition:
-```bash
+```sh
 sudo apt -y install docker-ce
 ```
 ### Install Docker Compose
-```bash
+```sh
 sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 docker-compose --version
@@ -68,7 +68,7 @@ docker info
 ```
 ### Make current user not use sudo
 Change will take place after full logout / log off.
-```bash
+```sh
 sudo usermod -aG docker $USER  # $USER is environment variable holding current user
  ```
 ### Move data folder to RAM disk
@@ -81,13 +81,13 @@ Set Docker data folder location by editing /etc/docker/daemon.json:
 }
 ```
 Reload cnfiguration:
-```bash
+```sh
 sudo systemctl daemon-reload
 sudo systemctl restart docker
 ```
 ## Getting Started <a name="start"></a> ([Up](#top))
 ### Start Docker
-```bash
+```sh
 # check first
 systemctl show --property ActiveState docker
 sudo dockerd &
@@ -96,7 +96,7 @@ sudo dockerd &
 ### Create docker file
 The implicit dockerfile name is Dockerfile.
 #### For HTTP testing
-```bash
+```sh
 vi Dockerfile
 # ex.
 # FROM basex/basexhttp:9.1
@@ -108,11 +108,11 @@ CMD ["cat", "/etc/os-release"]
 ```
 ## Docker Image <a name="image"></a> ([Up](#top))
 ### Create docker image based on a Docker file
-```bash
+```sh
 sudo docker build -t imagename .
 ```
 #### Check newly created image:
-```bash
+```sh
 docker images -a
 docker history <img ID>
 ```
@@ -121,7 +121,7 @@ docker history <img ID>
 docker image inspect imagename
 ```
 #### Delete image (untagged):
-```bash
+```sh
 docker images -q |xargs docker rmi -f
 # or
 docker rmi <img ID>
@@ -129,7 +129,7 @@ docker rmi <img ID>
 ## Docker Containers <a name="cont"></a> ([Up](#top))
 ### Create container based on image
 #### Create network using macvlan driver to connect from other host
-```bash
+```sh
 docker network create -d macvlan --subnet=192.168.1.0/24 --ip-range=192.168.1.128/25 --gateway=192.168.1.127 -o parent=enp4s0 macnet
 # list networks
 docker network ls
@@ -137,7 +137,7 @@ docker network ls
 docker network inspect <network name>
 ```
 #### Create container
-```bash
+```sh
 sudo docker run -d -p 5432:5432 --name container_name -it {image ID}
 # -i , interactive mode
 # -t , alocate pseudo TTY
@@ -148,12 +148,12 @@ sudo docker ps -a
 ```
 ### Container Operations
 #### List containers
-```bash
+```sh
 docker ps -a
 docker ps --format "table {{.ID}}\t{{.Status}}\t{{.Names}}"
 ```
 #### Start container
-```bash
+```sh
 docker start <container ID>
 # get logs
 docker logs <container ID>
@@ -163,33 +163,33 @@ docker logs <container ID>
 docker container logs <container ID>
 ```
 #### Stop container
-```bash
+```sh
 docker stop <container ID>
 ```
 #### Get container IP
-```bash
+```sh
 docker inspect <container ID> | grep IPAddress
 ```
 #### Remove container
-```bash
+```sh
 docker rm <container ID>  # -f (force) if container is active
 ```
 #### Execute command in container
-```bash
+```sh
 docker exec -it <container name> <command, ex. bash>
 ```
 #### Get container IP
-```bash
+```sh
 docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}'  container_name_or_id
 ```
 #### Attach to a container 
 Detach with ctrl + D. Container will stop at detach:
-```bash
+```sh
 docker attach <container ID>
 ```
 #### Clean Up
 ##### Delete all containers
-```bash
+```sh
 docker rm -f `docker ps --no-trunc -aq`
 ```
 ##### Delete Volumes
@@ -210,7 +210,7 @@ Notes:
 - -i , Keep STDIN open even if not attached 
 - https://docs.docker.com/engine/installation/linux/docker-ce/binaries/#prerequisites
 - add current user to docker group to run without sudo. logout and login to take effect:
-```bash
+```sh
 sudo usermod -aG docker <user_to_add>
 ```
 #### Port exposing
@@ -228,7 +228,7 @@ docker ps -q | xargs  docker stats --no-stream
 ```
 Masked docker service:<br/>
 Unmask 
-```bash
+```sh
 systemctl unmask docker.service
 systemctl unmask docker.socket
 systemctl start docker.service

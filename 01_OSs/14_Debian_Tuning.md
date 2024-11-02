@@ -9,7 +9,7 @@
 
 ## Download <a name="download"></a>
 
-```bash
+```sh
 wget https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-10.3.0-amd64-netinst.iso
 ```
 
@@ -17,7 +17,7 @@ Mandatory set mirror - mirror would enable all options for install. Check only s
 
 ## Install Windows Manager <a name="lxqt"></a>  ([Up](#top))
 
-```bash
+```sh
 apt install lxqt
 # or for minimal
 apt install -y lxqt-core      # LXQT, display manager needed: apt install lightdm
@@ -26,7 +26,7 @@ apt install -y lxde-core      # LXDE
 
 ## NEOVIM <a name="vim"></a>  ([Up](#top))
 
-```bash
+```sh
 apt install -y sudo neovim
 vi .vimrc  
 # for user and root (sudo), add:
@@ -36,7 +36,7 @@ set number
 
 ## WINE <a name="wine"></a>  ([Up](#top))
 
-```bash
+```sh
 sudo dpkg --add-architecture i386 && sudo apt update
 sudo apt install wine wine32 wine64 libwine libwine:i386 fonts-wine
 ```
@@ -51,13 +51,13 @@ wine --version
 
 ### Per Run Level
 
-```bash
+```sh
 ls /etc/rc*.d
 ```
 
 ### Systemd
 
-```bash
+```sh
 service --status-all | grep '\[ + \]'
 # disable with
 sudo systemctl disable bluetooth.service
@@ -67,7 +67,7 @@ sudo systemctl status bluetooth.service
 
 ## Optimizations <a name="optim"></a>  ([Up](#top))
 
-```bash
+```sh
 apt install -y lxterminal gdebi galculator sudo xfburn soundconverter mc p7zip-full qpdfview qbittorrent geany
 apt autoremove -y termit lxtask nano
 # or

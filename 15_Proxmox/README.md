@@ -5,7 +5,7 @@ Connect to with browser:
 https://192.168.1.6:8006/#v1:0:18:4::::::
 ```
 ## 2. Get container images with
-```bash
+```sh
 pveam available # pveam update first
 pveam download  local debian-11-standard_11.0-1_amd64.tar.gz # download container
 pveam download  local ubuntu-18.04-standard_18.04.1-1_amd64.tar.gz
@@ -14,31 +14,31 @@ pveam download  local centos-8-default_20191016_amd64.tar.xz
 pveam list local  # verify download
 ```
 In case needed, to remove local image:
-```bash
+```sh
 pveam remove local:vztmpl/alpine-3.7-default_20180913_amd64.tar.xz  
 ```
 ## 3. ISO images 
-```bash
+```sh
 cd /var/lib/vz/template/iso  # see https://pve.proxmox.com/wiki/Storage:_Directory
 ```
 ## 4. Transfer image or connect by SSH and download image directly.
-```bash
+```sh
 # on remote
 sudo chmod 777 /var/lib/vz/template/iso
 ```
-```bash
+```sh
 # on host with image
 scp debian-9.8.0-amd64-xfce-CD-1.iso nonrootUser@192.168.1.100:/var/lib/vz/template/iso
 ```
 Make sure to use ZFS and not SSD for created containers.
 Add ZFS pool from Datacenter / Storage / Add.
 ## 5. Configure timezone
-```bash
+```sh
 sudo dpkg-reconfigure tzdata
 ```
 ## 6. Move to no subscription repo
 ### PVE
-```bash
+```sh
 vi /etc/apt/sources.list.d/pve-enterprise.list # change to pve-no-subscription
 # change line to
 deb http://download.proxmox.com/debian/pve buster pve-no-subscription
@@ -59,13 +59,13 @@ Resources:
 https://www.caretech.io/2018/06/08/how-to-update-proxmox-without-buying-a-subscription/
 ```
 ## 7. Connect to container, attach to container from Proxmox shell:
-```bash
+```sh
 lxc-attach --name <container ID>
 # or
 pct enter <container ID>
 ```
 ## 8. Modify ssh configuration to allow root to connect or use SSH key
-```bash
+```sh
 vi /etc/ssh/sshd_config
 service ssh restart
 ```

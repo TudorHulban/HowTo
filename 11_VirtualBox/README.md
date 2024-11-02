@@ -1,6 +1,6 @@
 # Virtual Box 6.1: Install on Buster 10.3 and first steps
 ## Headless Install
-```bash
+```sh
 su -
 apt install build-essential dkms unzip wget sudo gdebi
 wget https://download.virtualbox.org/virtualbox/6.1.16/virtualbox-6.1_6.1.16-140961~Debian~buster_amd64.deb
@@ -13,7 +13,7 @@ apt install virtualbox-guest-utils virtualbox-guest-dkms
 gdebi virtualbox-6.1_6.1.2-135662~Debian~buster_amd64.deb 
 ```
 ### Check service status
-```bash
+```sh
  systemctl status vboxdrv
  ```
 ## Headless Manage
@@ -47,46 +47,46 @@ vboxmanage unregistervm "vm name" --delete
 ```
 ## Install Extension Pack
 Extension Pack is needed for Remote Display.
-```bash
+```sh
 wget https://download.virtualbox.org/virtualbox/6.1.2/Oracle_VM_VirtualBox_Extension_Pack-6.1.2.vbox-extpack
 ```
 Install.
- ```bash
+ ```sh
 VBoxManage extpack install <pack>
 ```
 Install rdesktop on host used for management.
-```bash
+```sh
 apt install rdesktop
 # to connect: rdesktop -a 16 -N 192.168.1.x:3389
 ```
 ## Install phpvirtualbox
- ```bash
+ ```sh
 apt install apache2 php php-mysql libapache2-mod-php php-soap php-xml
  ```
 Download
-```bash
+```sh
 wget https://github.com/phpvirtualbox/phpvirtualbox/archive/develop.zip
 ```
 Unzip
-```bash
+```sh
 unzip 5.2-1.zip
 ```
 Move to Apache folder
-```bash
+```sh
 mv phpvirtualbox-5.2-1/ /var/www/html/phpvirtualbox
 ```
 Copy configuration
-```bash
+```sh
 cp /var/www/html/phpvirtualbox/config.php-example /var/www/html/phpvirtualbox/config.php
 ```
 Set user owing VB process
-```bash
+```sh
 vi /var/www/html/phpvirtualbox/config.php
 # edit var $username = 'user';
 # edit var $password = 'pass';
 ```
 Create VB file
-```bash
+```sh
 vi /etc/default/virtualbox
 # add line with previously used user VBOXWEB_USER=user
 ```
@@ -103,7 +103,7 @@ Create in VM network settings a port forwarding with:<br/>
 - guest port: 22
 
 Connect from host:
-```bash
+```sh
 ssh -p 2222 USER@127.0.0.1
 ```
 ## Resources

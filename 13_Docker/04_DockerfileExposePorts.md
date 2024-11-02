@@ -1,6 +1,6 @@
 Example Dockerfile exposing port for SSH server.
 
-```bash
+```sh
 # see https://docs.docker.com/engine/examples/running_ssh_service/#build-an-eg_sshd-image
 FROM ubuntu:18.04
 

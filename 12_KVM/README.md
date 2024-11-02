@@ -1,6 +1,6 @@
 # KVM 
 ## Prerequisites
-```bash
+```sh
 egrep -c '(vmx|svm)' /proc/cpuinfo  # result should be greater than zero
 sudo kvm-ok   # check if system supports KVM virtualization
 
@@ -9,11 +9,11 @@ sudo apt install cpu-checker
 ```
 ## Installation on XUbuntu
 Package `virt-manager` needed also for starting `libvirt` service.
-```bash
+```sh
 sudo apt install -y qemu qemu-kvm libvirt-daemon libvirt-clients bridge-utils virt-manager
 ```
 Check if the virtualization daemon – libvritd-daemon – is running:
-```bash
+```sh
 sudo systemctl status libvirtd
 ```
 Add current user to the libvirtd group:
@@ -21,16 +21,16 @@ Add current user to the libvirtd group:
 sudo adduser `user name` libvirtd
 ```
 Check if the KVM modules are loaded:
-```bash
+```sh
 lsmod | grep -i kvm
 ```
 Enable `libvirt` service at boot:
-```bash
+```sh
 sudo systemctl enable --now libvirtd
 ```
 ## Create Virtual Machine
 ### CLI
-```bash
+```sh
 sudo virt-install --name=slitaz-vm \
 --vcpus=1 \
 --memory=1024 \
@@ -39,7 +39,7 @@ sudo virt-install --name=slitaz-vm \
 --os-variant=generic
 ```
 ### GUI
-```bash
+```sh
 sudo virt-manager
 ```
 

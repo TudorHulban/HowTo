@@ -9,21 +9,21 @@ https://dev.mysql.com/downloads/mysql/
 https://dev.mysql.com/get/Downloads/MySQL-8.0/mysql-server_8.0.11-1ubuntu18.04_amd64.deb-bundle.tar
 ```
 ## 2. Extract
-```bash
+```sh
 tar -xvf mysql-server_*.deb-bundle.tar
 ```
 ## 3. Install prerequisites
-```bash
+```sh
 sudo apt-get install libaio1 libsasl2-2 libnuma1 libmecab2 perl psmisc
 ```
 ## 4. Preconfigure
-```bash
+```sh
 sudo dpkg-preconfigure mysql-community-server_*.deb
 # leave root empty for unix socket authentication
 # use legacy connections for now
 ```
 ## 5. Install
-```bash
+```sh
 sudo dpkg -i mysql-common_8.0.11-1ubuntu18.04_amd64.deb
 sudo dpkg -i mysql-community-client-core_8.0.11-1ubuntu18.04_amd64.deb
 sudo dpkg -i mysql-community-client_8.0.11-1ubuntu18.04_amd64.deb
@@ -34,7 +34,7 @@ sudo dpkg -i mysql-community-server_8.0.11-1ubuntu18.04_amd64.deb
 ## 6. Check Installation
 - data directory: /var/lib/mysql
 - connect:
-```bash
+```sh
 sudo mysql -u root
 ```
 ## 7. Create database
@@ -48,7 +48,7 @@ GRANT ALL PRIVILEGES ON devops.* to develop@'192.168.1.%';
 /* reload privileges now: FLUSH PRIVILEGES; */
 ```
 On linux mint 18.3:
-```bash
+```sh
 sudo apt install mysql-server
 mysql -u root -p
 ```

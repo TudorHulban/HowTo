@@ -2,7 +2,7 @@
 
 ## Disable sleep time
 
-```bash
+```sh
 sudo systemsetup -setcomputersleep 60  # minutes
 sudo systemsetup -setcomputersleep Never
 ```

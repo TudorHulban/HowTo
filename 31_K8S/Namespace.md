@@ -13,11 +13,11 @@ Create configuration file:
 }
 ```
 Apply created file:
-```bash
+```sh
 kubectl create -f create_namespace.json 
 ```
 Verify newly created namespace:
-```bash
+```sh
 kubectl get namespace
 ```
 ### Resources

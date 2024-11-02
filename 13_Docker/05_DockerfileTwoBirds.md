@@ -1,6 +1,6 @@
 Example Dockerfile for TwoBirds JS.
 
-```bash
+```sh
 FROM electronuserland/builder:latest
 
 # verifications

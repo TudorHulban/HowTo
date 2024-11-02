@@ -4,7 +4,7 @@
 https://github.com/TudorHulban/Deploy2019/tree/master/01_OSs#ram-disk
 ```
 ## Monitor with smartmontools
-```bash
+```sh
 sudo apt-get install smartmontools 
 ```
 ## Resources

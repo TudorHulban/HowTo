@@ -1,5 +1,11 @@
 # Alma Linux 9.4
 
+## Change hostname
+
+```sh
+nmtui
+```
+
 ## Switch to static IP
 
 ```yaml
@@ -8,13 +14,19 @@ nmcli device
 # ex. enp3s0
 sudo nmcli connection modify enp3s0 ipv4.addresses 192.168.1.88/24
 sudo nmcli connection modify enp3s0 ipv4.gateway 192.168.1.1
-sudo nmcli connection modify enp3s0 ipv4.dns 192.168.1.1
+sudo nmcli connection modify enp3s0 ipv4.dns 100.100.1.1
+sudo nmcli connection modify enp3s0 ipv4.dns 100.100.0.1
 sudo nmcli connection modify enp3s0 ipv4.method manual
 sudo nmcli connection down enp3s0; nmcli connection up enp3s0
 sudo nmcli device show enp3s0
 ```
 
-Reboot.
+Reboot.  
+Check:
+
+```sh
+cat /etc/resolv.conf
+```
 
 ### Static IP switch resources
 

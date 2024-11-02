@@ -26,7 +26,7 @@ systemctl status sshd
 
 ## Generate SSH key
 
-```bash
+```sh
 ssh-keygen -t rsa -b 4096
 ```
 
@@ -34,13 +34,13 @@ ssh-keygen -t rsa -b 4096
 
 Run on source host, file to send to target host:
 
-```bash
+```sh
 scp file-to-send user@targethost:/path/to/place/file  # if custom port use -P port_number
 ```
 
 Works also for transfer to local host. 
 
-```bash
+```sh
 scp user@targethost:/path/to/place/file /local-path/to/file
 ```
 

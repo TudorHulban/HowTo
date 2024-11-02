@@ -1,6 +1,6 @@
 # MariaDB: Install and first steps
 ## Install
-```bash
+```sh
 sudo apt install -y mariadb-server
 ```
 ### With Docker
@@ -8,22 +8,22 @@ sudo apt install -y mariadb-server
 docker run --name mariadbtest -e MYSQL_ROOT_PASSWORD=passwd -p 3306:3306 -d docker.io/library/mariadb:10.4
 ```
 ## Get status
-```bash
+```sh
 systemctl status mariadb
 # sudo systemctl restart mariadb.service
 # sudo systemctl enable mariadb.service
 ```
 ## Get version
-```bash
+```sh
 mariadb --version
 ```
 ## Security Configuration (optional)
-```bash
+```sh
 sudo mysql_secure_installation
 ```
 By default, MariaDB on Ubuntu uses unix_socket to authenticate user login.
 Basically you can use username and password of the OS to log into MariaDB console:
-```bash
+```sh
 sudo mariadb -u root
 ```
 ## Create Database
@@ -51,16 +51,16 @@ SHOW VARIABLES;
 ```
 ## Allow remote connections
 a. update server configuration
-```bash
+```sh
 sudo vi /etc/mysql/mariadb.conf.d/50-server.cnf
 # change: bind-address = 127.0.0.1 to bind-address = 0.0.0.0
 ```
 Restart service:
-```bash
+```sh
 sudo systemctl restart mariadb.service
 ```
 b. check socket has opened:
-```bash
+```sh
 sudo apt-get install net-tools
 sudo netstat -anp | grep 3306
 ```

@@ -20,7 +20,7 @@ sudo apt install --reinstall build-essential
 
 Add environment variables for default bash shell in.
 
-```bash
+```sh
 vi $HOME/.bashrc
 export GOTMPDIR=/mnt/tmpfs.ramdisk
 export GOCACHE=/mnt/tmpfs.ramdisk/gocache # check size du -hs $(go env GOCACHE)
@@ -32,7 +32,7 @@ export PATH=$PATH:/usr/local/go/bin:~/go/bin # for test system: export PATH=$PAT
 
 From https://golang.org/dl/ .
 
-```bash
+```sh
 wget -O go-amd64.tar.gz https://go.dev/dl/go1.23.2.linux-amd64.tar.gz
 sudo tar -C /usr/local -xzf go-amd64.tar.gz
 # for test system local install: tar -xzf go-amd64.tar.gz
@@ -40,25 +40,25 @@ sudo tar -C /usr/local -xzf go-amd64.tar.gz
 
 Verify:
 
-```bash
+```sh
 go version
 ```
 
 For gotest to work enable execution on /tmp:
 
-```bash
+```sh
 sudo vi /etc/fstab
 ```
 
 Remove noexec from tmp. Save and remount tmp.
 
-```bash
+```sh
 sudo mount -o remount /tmp
 ```
 
 Verify:
 
-```bash
+```sh
 mount |grep /tmp
 ```
 
@@ -78,13 +78,13 @@ wget https://github.com/visualfc/liteide/releases/download/x37.4/liteidex37.4.li
 
 ### Remove previous version first
 
-```bash
+```sh
 sudo rm -r /usr/local/go
 ```
 
 ### Download and unzip new version
 
-```bash
+```sh
 tar -C $HOME -xzf <new version>
 ```
 
@@ -107,7 +107,7 @@ See:
 https://blog.golang.org/godoc-documenting-go-code
 ```
 
-```bash
+```sh
 go get golang.org/x/tools/cmd/godoc  
 # installs godoc in $HOME/go/bin, modify PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
 # package to browse needs to be in $HOME/go/src/package name

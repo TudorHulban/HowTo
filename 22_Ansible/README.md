@@ -68,7 +68,7 @@ ansible all -m ping -u user-on-remote -b -k -K
 
 Switch to ansible user, no password should be requested on sudo:
 
-```bash
+```sh
 sudo apt install ansible
 # or
 dnf install -y ansible
@@ -124,7 +124,7 @@ ssh-keygen   # no passphrase
 
 Create YAML file with actions. Run as `ansible` user:
 
-```bash
+```sh
 ansible-playbook file.yml
 ```
 

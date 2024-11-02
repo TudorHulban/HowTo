@@ -2,7 +2,7 @@
 
 ## Download
 
-```bash
+```sh
 wget https://github.com/visualfc/liteide/releases/download/x36.2/liteidex36.1.linux64-qt5.5.1.AppImage
 ```
 
@@ -12,14 +12,14 @@ wget https://github.com/visualfc/liteide/releases/download/x36.2/liteidex36.1.li
 
 Create desktop shortcut:
 
-```bash
+```sh
 vi ~/Desktop/liteide.desktop
 chmod +x ~/Desktop/liteide.desktop
 ```
 
 With contents:
 
-```bash
+```sh
 [Desktop Entry]
 Version=1.0
 Encoding=UTF-8
@@ -34,6 +34,6 @@ GenericName=IDE
 
 In case Go binary is not found create a soft link to Go binary in the folder where LiteIDE bin is (tested when not using AppImage0:
 
-```bash
+```sh
 ln -s $GOROOT/bin/go go
 ```

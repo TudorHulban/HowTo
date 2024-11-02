@@ -1,20 +1,20 @@
 # GOGS: Installation Steps
 ## Install git
-```bash
+```sh
 sudo apt-get update
 sudo apt install git
 ```
 ## Download Gogs
-```bash
+```sh
 wget https://gogs.io/docs/installation/install_from_binary
 ```
 ## Install Gogs
 ### Untar
-```bash
+```sh
 tar -xvf <archive>
 ```
 ### Run
-```bash
+```sh
 cd gogs
 ./gogs web
 ```

@@ -28,7 +28,7 @@
 
 ## Create Chart
 
-```bash
+```sh
 highcharts-export-server -infile line.json -outfile a.png
 ```
 

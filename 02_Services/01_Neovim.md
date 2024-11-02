@@ -10,7 +10,7 @@ Get binary version with `nvim --version`.
 
 ### Python support
 
-```bash
+```sh
 sudo apt-get install python-neovim
 sudo apt-get install python3-neovim
 ```
@@ -23,13 +23,13 @@ https://github.com/neovim/neovim/wiki/Installing-Neovim
 
 ## Check health
 
-```bash
+```sh
 :checkhealth
 ```
 
 ## Create user settings folders and files
 
-```bash
+```sh
 mkdir -p ~/.config/nvim/autoload
 touch ~/.config/nvim/init.vim
 ```
@@ -39,7 +39,7 @@ touch ~/.config/nvim/init.vim
 Git needed as dependency (sudo apt install git).<br/>
 If any issues with plugin install consider deleting plugin folder and reinstall.
 
-```bash
+```sh
 cd ~/.config/nvim/autoload
 wget https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
@@ -50,7 +50,7 @@ Use :PlugInstall and :PlugStatus to install and check on plugins.
 
 Tested on Debian.
 
-```bash
+```sh
 " Basic Settings "
 syntax on
 set cursorline
@@ -96,7 +96,7 @@ Add before plugin end Airline color schemes. Themes in `..../vim-airline-themes/
 
 Violet theme:
 
-```bash
+```sh
 " Airline (powerline) "
 let g:airline_powerline_fonts = 1
 let g:airline_theme='violet'
@@ -104,7 +104,7 @@ let g:airline_theme='violet'
 
 Dark theme:
 
-```bash
+```sh
 " Airline (powerline) "
 let g:airline_theme='codedark'
 ```
@@ -116,7 +116,7 @@ let g:airline_theme='codedark'
 Adding Ctrl+e shortcut.  
 Toggle panel with `Ctrl+w` or `Ctrl+w+h/l` for navigation.
 
-```bash
+```sh
 " Nerdtree – Tree File Explorer "
 nmap <C-e> :NERDTreeToggle<CR>
 let g:NERDTreeShowHidden = 1
@@ -152,7 +152,7 @@ Place downloads in `./local/share/fonts`, example of files to download:
 
 ### URL Highlighter
 
-```bash
+```sh
 " URL Highlighter "
 Plug 'itchyny/vim-highlighturl'
 ```
@@ -165,7 +165,7 @@ Plug 'itchyny/vim-highlighturl'
 
 Switch completion based on configured key.
 
-```bash
+```sh
 " Emmet "
 let g:user_emmet_expandabbr_key = ',,'
 Plug 'mattn/emmet-vim'
@@ -192,14 +192,14 @@ https://www.youtube.com/watch?v=ha7oyvhgP04
 Dependency: npm.  
 Simple install:
 
-```bash
+```sh
 " Prettier "
 Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 ```
 
 With selection of file types:
 
-```bash
+```sh
 " Prettier "
 let g:prettier#config#parser = 'babylon'
 Plug 'prettier/vim-prettier', {
@@ -214,7 +214,7 @@ https://github.com/prettier/vim-prettier
 ```
 ## Plugin configuration for Peppermint OS
 
-```bash
+```sh
 " Set plugin configuration "
 let g:VIM_PLUG_PATH =  './autoload/plug.vim'  
 let g:PLUGIN_HOME =  './nvim' 
@@ -222,7 +222,7 @@ let g:PLUGIN_HOME =  './nvim'
 
 ## Configuration under review
 
-```bash
+```sh
   call plug#begin(g:PLUGIN_HOME)
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } 
   Plug 'sheerun/vim-polyglot'
@@ -242,7 +242,7 @@ let g:PLUGIN_HOME =  './nvim'
 
 ## Vim Resources
 
-```bash
+```sh
 https://vimawesome.com/
 https://devtechnica.com/vim-neovim/best-neovim-plugins-for-software-development-in-2019
 https://www.gregjs.com/vim/2016/neovim-deoplete-jspc-ultisnips-and-tern-a-config-for-kickass-autocompletion/

@@ -1,6 +1,6 @@
 Dockerfile for PostgreSQL install.
 
-```bash
+```sh
 # pull base image.
 FROM ubuntu:18.04
 

@@ -6,7 +6,7 @@ See more detailed information in [Neovim](NEOVIM.md) setup.
 
 Configure settings in settings file:
 
-```bash
+```sh
 vi ~/.vimrc
 # add
 set number
@@ -17,7 +17,7 @@ Choose colorscheme installed by entering `:colorscheme` and browsing with TAB af
 
 ## Install plugin manager
 
-```bash
+```sh
 mkdir -p ~/.vim/autoload
 cd  ~/.vim/autoload
 wget https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -27,7 +27,7 @@ wget https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 Append to .vimrc:
 
-```bash
+```sh
 call plug#begin('~/.vim/plugged')
 " Install ansible plugin "
 Plug 'pearofducks/ansible-vim'
@@ -38,7 +38,7 @@ call plug#end()
 
 ### Plugins management
 
-```bash
+```sh
 :PlugStatus
 :PlugInstall
 :PlugUpdate
@@ -49,13 +49,13 @@ call plug#end()
 
 ### Delete multiple lines
 
-```bash
+```sh
 :[start_line_no],[end_line_no]d
 ```
 
 ### Delete all lines
 
-```bash
+```sh
 :1,$d
 ```
 

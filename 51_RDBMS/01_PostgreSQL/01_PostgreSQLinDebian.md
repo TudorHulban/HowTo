@@ -2,7 +2,7 @@
 
 ## 1. Check if PostgreSQL is already installed
 
-```bash
+```sh
 sudo which psql
 # or
 service postgresql status
@@ -10,7 +10,7 @@ service postgresql status
 
 ## 2. Add line for repo
 
-```bash
+```sh
 deb http://apt.postgresql.org/pub/repos/apt/ xenial-pgdg main
 sudo touch /etc/apt/sources.list.d/pgdg.list
 sudo vi /etc/apt/sources.list.d/pgdg.list
@@ -18,7 +18,7 @@ sudo vi /etc/apt/sources.list.d/pgdg.list
 
 For Debian 9.x:
 
-```bash
+```sh
 sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ stretch-pgdg main" >> /etc/apt/sources.list.d/pgdg.list'
 wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
 sudo apt-get install postgresql-11
@@ -26,7 +26,7 @@ sudo apt-get install postgresql-11
 
 ## 3. Install binaries
 
-```bash
+```sh
 wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
 sudo apt-get update
 sudo apt-get install postgresql-9.6 
@@ -35,13 +35,13 @@ sudo apt-get install postgresql-9.6
 
 Command would create user postgres and initial cluster using command:
 
-```bash
+```sh
 /usr/lib/postgresql/9.6/bin/initdb -D /var/lib/postgresql/9.6/main --auth-local peer --auth-host md5
 ```
 
 Configuration file in:
 
-```bash
+```sh
 /etc/postgresql/9.6/main/postgresql.conf 
 # log file in:
 /var/log/postgresql/postgresql-9.6-main.log
@@ -55,20 +55,20 @@ SELECT name, setting FROM pg_settings WHERE category = 'File Locations';
 
 ## 4. Stop server
 
-```bash
+```sh
 sudo su - postgres
 /usr/lib/postgresql/9.6/bin/pg_ctl stop -D /var/lib/postgresql/9.6/main/
 ```
 
 ## 5. Start server
 
-```bash
+```sh
 sudo service postgresql-17 restart
 ```
 
 ## 6. Enable TCP/IP connections
 
-```bash
+```sh
 vi /var/lib/pgsql/17/data/postgresql.conf 
 # modify: 
 listen_addresses = '*'
@@ -88,7 +88,7 @@ sudo systemctl restart postgresql-17
 
 ## 7. Add the IP to connect from
 
-```bash
+```sh
 vi /var/lib/pgsql/17/data/pg_hba.conf
 # add:
 host    all             all             192.168.1.0/24          scram-sha-256
@@ -96,13 +96,13 @@ host    all             all             192.168.1.0/24          scram-sha-256
 
 Restart service:
 
-```bash
+```sh
 sudo service postgresql restart
 ```
 
 ## 6. Change password of default user
 
-```bash
+```sh
 sudo su postgres
 psql
 ```
@@ -114,7 +114,7 @@ alter user postgres with password 'admin';
 
 ## 7. To remove cluster
 
-```bash
+```sh
 stop database server service
 delete cluster folder
 ```
@@ -153,31 +153,31 @@ select * from information_schema.tables where table_schema = 'public'
 
 ## 9. Remove PostgreSQL
 
-```bash
+```sh
 sudo apt-get --purge remove postgresql
 ```
 
 ## 1o. Docker image
 
-```bash
+```sh
 sudo docker pull postgres:10.1
 ```
 
 Check image id:
 
-```bash
+```sh
 sudo docker images
 ```
 
 Create container and map ports to host:
 
-```bash
+```sh
 sudo docker run -d -p 5432:5432 --name {container name} {image ID, 4 digits}
 ```
 
 ## 11. For client development
 
-```bash
+```sh
 # consider sudo apt-get remove libpq5
 sudo apt-get install libpq-dev
 ```

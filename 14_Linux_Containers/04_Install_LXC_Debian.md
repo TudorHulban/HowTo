@@ -1,17 +1,24 @@
-# Installation of LXC on Debian
+# Linux Containers Debian LXC support
+
 ## Install container packages
-```bash
+
+```sh
 sudo apt install lxc bridge-utils
 ```
+
 ## Create bridge interface
+
 ### Identify physical interface that will be used by the bridge
-```bash
+
+```sh
 ip route 
 # or
 sudo vi /etc/network/interfaces
 ```
+
 ### Create the bridge in /etc/network/interfaces
-```bash
+
+```sh
 # The primary network interface. Will be brought up by bridge
 iface ens18 inet manual
 
@@ -20,13 +27,16 @@ auto lxcbr0
 iface lxcbr0 inet dhcp
     bridge_ports ens18
 ```
+
 ### Restart network service to load new configuration
-```bash
+
+```sh
 sudo service networking restart
 ```
 
 ## Configure LXC process
-```bash
+
+```sh
 sudo vi /etc/default/lxc-net 
 
 USE_LXC_BRIDGE="true"
@@ -34,7 +44,8 @@ LXC_BRIDGE = "lxcbr0"
 ```
 
 ## Configure default container configuration
-```bash
+
+```sh
 sudo vi /etc/lxc/default.conf
 
 lxc.network.type = veth
@@ -44,39 +55,47 @@ lxc.network.hwaddr = 00:16:3e:xx:xx:xx
 ```
 
 Container configuration in:
-```bash
+
+```sh
 /var/lib/lxc/<container>/config
 ```
 
 ### Restart the LXC service
-```bash
+
+```sh
 sudo service lxc-net restart
 ```
 
 ## Create container
-```bash
+
+```sh
 sudo lxc-create -n <container name> -t debian -- -r stretch
 ```
 
 ### Attach as root to container
-```bash
+
+```sh
 sudo lxc-start -n <container name>
 sudo lxc-attach -n <container name>
 ```
 
 ### Occupied space by container
-```bash
+
+```sh
 sudo du -sh /var/lib/lxc/<container name>
 ```
 
 ### Copy container 
+
 Must be stopped to be copied:
-```bash
+
+```sh
 sudo lxc-copy -n c001 -N c002
 ```
 
 ### Tests in container
-```bash
+
+```sh
 apt install inetutils-ping
 ```
 

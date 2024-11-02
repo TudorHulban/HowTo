@@ -4,7 +4,7 @@
 
 Add environment variables for z shell in.
 
-```bash
+```sh
 alias l='ls -la'
 
 export GOPATH=$HOME/gocode
@@ -18,7 +18,7 @@ export PATH=$PATH:/usr/local/go/bin
 
 From https://golang.org/dl/ .
 
-```bash
+```sh
 cd /Downloads
 wget https://go.dev/dl/go1.17.4.darwin-amd64.pkg
 ```

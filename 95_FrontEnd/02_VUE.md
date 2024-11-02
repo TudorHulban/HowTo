@@ -1,10 +1,10 @@
 # Vue.JS: Installation and first steps
 ## Installation vue-cli:
-```bash
+```sh
 npm install -g @vue/cli
 ```
 ## Upgrade vue-cli:
-```bash
+```sh
 npm i -g vue-cli
 # or
 npm uninstall -g vue-cli
@@ -12,7 +12,7 @@ npm install -g @vue/cli
 ```
 ## FontAwesome
 ### Install
-```bash
+```sh
 npm install vue-awesome
 ```
 ### Use
@@ -28,7 +28,7 @@ Vue.component('v-icon', Icon)
 <v-icon name="camera"/>
 ```
 ## Create Project:
-```bash
+```sh
 vue create project_name
 # or
 vue create -p preset project_name
@@ -36,20 +36,20 @@ vue create -p preset project_name
 npm run serve
 ```
 ### Check webpack configuration
-```bash
+```sh
 cd project_name
 vue inspect
 ```
 ## Deployment
 See: https://cli.vuejs.org/guide/deployment.html.
-```bash
+```sh
 npm run build
 ```
 ## VS Code
 Install package for Vue and enable formatter on save in File / Preferences / Settings / Formatting.
 ### Disable double quotes error
 In .eslintrc.js, section rules add:
-```bash
+```sh
  quotes: 0
 ```
 ### Disable comma dangle error

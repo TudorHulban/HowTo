@@ -4,7 +4,7 @@
 
 As root:
 
-```bash
+```sh
 apk add postgresql
 /etc/init.d/postgresql start
 # connect
@@ -18,14 +18,14 @@ alter user postgres with password 'admin';
 
 In /etc/postgresql:
 
-```bash
+```sh
 # postgresql.conf, add listen_addresses = '*'
 # pg_hba.conf, add host    all             all             192.168.1.0/24          password
 ```
 
 Add service to current rc level:
 
-```bash
+```sh
 rc-update add postgresql
 # to verify configurations
 reboot
@@ -33,7 +33,7 @@ reboot
 
 Stop service:
 
-```bash
+```sh
 rc-service postgresql stop
 ```
 

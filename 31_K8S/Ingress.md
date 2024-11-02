@@ -1,20 +1,20 @@
 ## Install HAProxy Ingress Controller
 Using Helm add HAProxy repo:
-```bash
+```sh
 helm repo add haproxytech https://haproxytech.github.io/helm-charts
 helm repo update
 ```
 Create kubernetes configuration:
-```bash
+```sh
 [microk8s] kubectl config view --raw > ~/.kube/config
 ```
 Search and install charts:
-```bash
+```sh
 helm search repo haproxytech/
 helm install my-release haproxytech/<chart>
 ```
 Verify:
-```bash
+```sh
 kubectl get all
 ```
 

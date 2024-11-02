@@ -1,7 +1,7 @@
 ### Installation (WIP)
 #### Create container
 #### As root:
-```bash
+```sh
 apt install curl gnupg2 git-all
 echo "deb https://download.gocd.org /" | tee /etc/apt/sources.list.d/gocd.list
 curl https://download.gocd.org/GOCD-GPG-KEY.asc | apt-key add -
@@ -16,7 +16,7 @@ init 6
 http://host:8153/go
 ```
 #### Install gomatic
-```bash
+```sh
 apt install python3-pip
 pip3 install gomatic
 ```

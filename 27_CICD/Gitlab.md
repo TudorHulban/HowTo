@@ -11,11 +11,11 @@ sudo apt install default-jdk
 sudo apt install curl
 ```
 Install locales for PostgreSQL
-```bash
+```sh
 sudo apt-get install locales-all
 ```
 Set language variables
-```bash
+```sh
 export LC_ALL="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
 ```
@@ -96,6 +96,6 @@ sudo gitlab-ctl reconfigure
 ```
 #### Reset root password
 Takes some time to process.
-```bash
+```sh
 sudo gitlab-rake "gitlab:password:reset[root]"
 ```

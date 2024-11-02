@@ -3,15 +3,15 @@ Check
 https://devopscube.com/setup-etcd-cluster-linux/
 ```
 Download binary
-```bash
+```sh
 wget "https://github.com/coreos/etcd/releases/download/v3.3.18/etcd-v3.3.18-linux-amd64.tar.gz"
 ```
 Extract
-```bash
+```sh
 tar -xvf etcd-...
 ```
 Run binary
-```bash
+```sh
 cd etcd-...
 ./etcd
 ```

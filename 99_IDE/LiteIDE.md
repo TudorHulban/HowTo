@@ -1,5 +1,5 @@
 ### Desktop Icon
-```bash
+```sh
 [Desktop Entry]
 Name=LiteIDE
 Comment=Code Editing. Redefined.

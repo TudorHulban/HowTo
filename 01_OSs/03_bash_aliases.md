@@ -2,7 +2,7 @@
 
 Create shell for the commands:
 
-```bash
+```sh
 vi ~/.bash_aliases
 # or
 touch ~/.bash_aliases

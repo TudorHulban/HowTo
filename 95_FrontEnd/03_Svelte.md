@@ -1,15 +1,15 @@
 # Svelte: Installation and first steps
 ## Download predefined template
-```bash
+```sh
 npx degit sveltejs/template <new project name>
 ```
 ## Install required NPM packages
-```bash
+```sh
 cd <created folder>
 npm install
 ```
 ## Run Svelte in development mode
-```bash
+```sh
 npm run dev
 ```
 ## Svelte context

@@ -14,7 +14,7 @@ git push
 ```
 
 ## Revert to commit:
-```bash
+```sh
 git revert --no-commit 0766c053..HEAD
 git commit
 ```
@@ -23,7 +23,7 @@ git commit
 http://www.scootersoftware.com/download.php?zz=kb_linux_install
 ```
 ## Simple Compare
-```bash
+```sh
 git diff HEAD^ HEAD Makefile
 ```
 ## Dependencies access
