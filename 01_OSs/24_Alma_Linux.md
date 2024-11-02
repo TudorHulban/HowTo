@@ -21,3 +21,25 @@ Reboot.
 ```html
 https://www.server-world.info/en/note?os=AlmaLinux_9&p=initial_conf&f=3
 ```
+
+## Disable services
+
+List services:
+
+```sh
+systemctl list-units --type service | grep active
+systemctl list-units --type service | grep running
+```
+
+```sh
+sudo systemctl disable --now nis-domainname
+sudo systemctl disable --now kdump
+```
+
+### Resources service disable
+
+```html
+https://reintech.io/blog/managing-services-with-systemd-almalinux-9
+https://www.server-world.info/en/note?os=AlmaLinux_9&p=initial_conf&f=4
+https://wiki.crowncloud.net/tools/how_to_configure_static_network_on_windows_server?How_to_Reclaim_RAM_from_the_System_Reserve_with_AlmaLinux_9
+```
