@@ -31,3 +31,10 @@ ssh-keygen -y -f ~/.ssh/id_rsa.pem > ~/.ssh/id_rsa.pub
 ```sh
 cat ~/.ssh/id_rsa.pub
 ```
+
+## Resources
+
+```yaml
+https://tecadmin.net/generate-ssh-keys-in-pem-format/
+```
+

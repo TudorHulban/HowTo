@@ -26,6 +26,12 @@ sudo dnf install terraform -y
 terraform --version
 ```
 
+## Create folder to hold Terraform files
+
+```sh
+mkdir $HOME/tf-compute
+```
+
 ## Oracle Compute
 
 ```yaml
