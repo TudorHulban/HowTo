@@ -1,4 +1,4 @@
-# Linux Containers Debian LXC support
+# Linux Containers Alma Linux LXC support
 
 ## Set SELinux to Permissive Mode
 
@@ -92,4 +92,10 @@ sudo systemctl start lxc-net
 
 ```sh
 lxc-create --name mycontainer --template download -- --dist alpine --release 3.19 --arch amd64
+```
+
+## Resources
+
+```yaml
+https://www.claudiokuenzler.com/blog/1339/how-to-run-rocky-linux-9-lxc-container-fix-network-enable-epel-repositories
 ```
