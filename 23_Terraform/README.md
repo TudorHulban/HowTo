@@ -25,3 +25,15 @@ sudo dnf install terraform -y
 ```sh
 terraform --version
 ```
+
+## Oracle Compute
+
+```yaml
+https://github.com/oracle/terraform-provider-oci/tree/master/examples/compute/instance
+```
+
+## Resources
+
+```yaml
+https://www.youtube.com/watch?v=GIRjciGRDl4
+```

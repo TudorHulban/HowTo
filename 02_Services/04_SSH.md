@@ -38,7 +38,7 @@ Run on source host, file to send to target host:
 scp file-to-send user@targethost:/path/to/place/file  # if custom port use -P port_number
 ```
 
-Works also for transfer to local host. 
+Works also for transfer to local host.
 
 ```sh
 scp user@targethost:/path/to/place/file /local-path/to/file
