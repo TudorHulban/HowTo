@@ -33,11 +33,17 @@ sudo dnf install epel-release -y
 sudo dnf install bridge-utils -y
 ```
 
+Check physical network name to update below commands:
+
+```sh
+nmcli device  # got enp3s0
+```
+
 Create bridge:
 
 ```sh
 sudo nmcli con add ifname br0 type bridge con-name br0
-sudo nmcli connection add type bridge-slave ifname ens18 master br0
+sudo nmcli connection add type bridge-slave ifname enp3s0 master br0
 sudo nmcli connection modify br0 ipv4.method auto # or static for fixed IP
 sudo nmcli connection up br0 # activate
 ```
@@ -106,8 +112,8 @@ sudo vi /etc/lxc/default.conf
 ### User configuration
 
 ```sh
-mkdir -p /home/user/.config/lxc
-touch /home/user/.config/lxc/default.conf
+mkdir -p $HOME/.config/lxc
+vi $HOME/.config/lxc/default.conf
 ```
 
 create configuration
@@ -122,8 +128,8 @@ lxc.network.flags = up
 permissions
 
 ```sh
-chown -R tudi:tudi /home/tudi/.config/lxc
-chmod 644 /home/tudi/.config/lxc/default.conf
+chown -R tudi:tudi $HOME/.config/lxc
+chmod 644 $HOME/.config/lxc/default.conf
 ```
 
 ## Create container
