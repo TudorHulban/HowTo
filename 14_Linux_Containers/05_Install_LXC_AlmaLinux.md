@@ -133,6 +133,15 @@ sudo lxc-start container-template
 sudo lxc-attach container-template
 sudo lxc-copy -n container-template -N c1
 sudo lxc-start c1
+sudo lxc-info -n c1
+sudo lxc-stop -n c1
+```
+
+### List
+
+```sh
+sudo lxc-ls --fancy --stopped
+sudo lxc-ls --fancy --running
 ```
 
 ## Resources
@@ -141,4 +150,6 @@ sudo lxc-start c1
 https://www.answertopia.com/rocky-linux/creating-a-rocky-linux-kvm-networked-bridge-interface/
 https://www.claudiokuenzler.com/blog/1339/how-to-run-rocky-linux-9-lxc-container-fix-network-enable-epel-repositories
 https://www.redhat.com/en/blog/exploring-containers-lxc
+https://www.cyberciti.biz/faq/howto-forcefully-stop-and-kill-lxc-container-on-linux/
+https://www.cyberciti.biz/faq/how-to-find-out-information-about-lxc-cpu-memory-networking/
 ```
