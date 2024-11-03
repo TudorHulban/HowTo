@@ -69,6 +69,8 @@ sudo dnf install lxc -y
 
 ## Configure LXC process
 
+### LXC network
+
 ```sh
 sudo vi /etc/default/lxc-net 
 
@@ -95,10 +97,50 @@ journalctl -xe -u lxc-net.service
 sudo systemctl restart lxc.service lxc-net.service
 ```
 
-## Create container
+### Container configuration
+
+### Global configuration
 
 ```sh
-lxc-create --name mycontainer --template download -- --dist alpine --release 3.19 --arch amd64
+sudo vi /etc/lxc/default.conf
+```
+
+### User configuration
+
+```sh
+mkdir -p /home/user/.config/lxc
+touch /home/user/.config/lxc/default.conf
+```
+
+create configuration
+
+```sh
+lxc.include = /etc/lxc/default.conf
+lxc.network.type = veth
+lxc.network.link = br0
+lxc.network.flags = up
+```
+
+permissions
+
+```sh
+chown -R tudi:tudi /home/tudi/.config/lxc
+chmod 644 /home/tudi/.config/lxc/default.conf
+```
+
+## Create container
+
+### Local templates
+
+```sh
+sudo dnf install lxc-templates -y
+ls /usr/share/lxc/templates/
+```
+
+### Download template
+
+```sh
+sudo lxc-create -t download -n myContainer
 ```
 
 ## Resources
