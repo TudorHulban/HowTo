@@ -109,42 +109,30 @@ sudo systemctl restart lxc.service lxc-net.service
 sudo vi /etc/lxc/default.conf
 ```
 
-### User configuration
-
-```sh
-mkdir -p $HOME/.config/lxc
-vi $HOME/.config/lxc/default.conf
-```
-
-create configuration
-
-```sh
-lxc.include = /etc/lxc/default.conf
-lxc.network.type = veth
-lxc.network.link = br0
-lxc.network.flags = up
-```
-
-permissions
-
-```sh
-chown -R tudi:tudi $HOME/.config/lxc
-chmod 644 $HOME/.config/lxc/default.conf
-```
-
 ## Create container
 
 ### Local templates
 
 ```sh
-sudo dnf install lxc-templates -y
 ls /usr/share/lxc/templates/
 ```
 
 ### Download template
 
 ```sh
-sudo lxc-create -t download -n myContainer
+sudo dnf install lxc-templates -y
+ls /usr/share/lxc/templates/
+```
+
+### Create
+
+```sh
+sudo lxc-create -t download -n container-template
+sudo lxc-ls -f
+sudo lxc-start container-template
+sudo lxc-attach container-template
+sudo lxc-copy -n container-template -N c1
+sudo lxc-start c1
 ```
 
 ## Resources
