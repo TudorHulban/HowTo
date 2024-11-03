@@ -93,6 +93,12 @@ Container must be stopped to be copied:
 sudo lxc-copy -n c001 -N c002
 ```
 
+### Remove container
+
+```sh
+sudo lxc-destroy -n <container-name>
+```
+
 ### Tests in container
 
 ```sh

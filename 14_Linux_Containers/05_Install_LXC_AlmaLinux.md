@@ -18,9 +18,7 @@ getenforce
 ### OS Level
 
 ```sh
-sudo dnf install tar -y
-sudo dnf install iptables -y
-sudo dnf install dnsmasq -y
+sudo dnf install tar iptables dnsmasq -y
 ```
 
 ### EPEL Repository
