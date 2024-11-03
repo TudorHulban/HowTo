@@ -46,6 +46,7 @@ systemctl list-units --type service | grep running
 ```sh
 sudo systemctl disable --now nis-domainname
 sudo systemctl disable --now kdump
+sudo systemctl disable --now firewalld
 ```
 
 ### Resources service disable

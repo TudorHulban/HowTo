@@ -20,6 +20,7 @@ getenforce
 ```sh
 sudo dnf install tar -y
 sudo dnf install iptables -y
+sudo dnf install dnsmasq -y
 ```
 
 ### EPEL Repository
@@ -37,21 +38,26 @@ sudo dnf install bridge-utils -y
 Create bridge:
 
 ```sh
-sudo nmcli con add type bridge ifname lxcbr0
-sudo nmcli connection add type bridge-slave ifname ens18 master lxcbr0
-sudo nmcli connection modify bridge-lxcbr0 ipv4.method auto # or static for fixed IP
-sudo nmcli connection up bridge-lxcbr0
+sudo nmcli con add ifname br0 type bridge con-name br0
+sudo nmcli connection add type bridge-slave ifname ens18 master br0
+sudo nmcli connection modify br0 ipv4.method auto # or static for fixed IP
+sudo nmcli connection up br0 # activate
 ```
 
-Activate:
+Reboot.  
+
+For troubleshooting:
 
 ```sh
-sudo nmcli con up bridge-lxcbr0
+sudo nmcli con del br0
 ```
 
 Verify:
 
 ```sh
+nmcli device # should show bridge connected.
+
+nmcli con show
 sudo brctl show
 ```
 
@@ -67,7 +73,7 @@ sudo dnf install lxc -y
 sudo vi /etc/default/lxc-net 
 
 USE_LXC_BRIDGE="true"
-LXC_BRIDGE = "lxcbr0"
+LXC_BRIDGE = "br0"
 ```
 
 Verify configuration:
@@ -85,7 +91,8 @@ sudo systemctl status lxc-net
 Troubleshoot and start:
 
 ```sh
-sudo systemctl start lxc-net
+journalctl -xe -u lxc-net.service
+sudo systemctl restart lxc.service lxc-net.service
 ```
 
 ## Create container
@@ -97,5 +104,7 @@ lxc-create --name mycontainer --template download -- --dist alpine --release 3.1
 ## Resources
 
 ```yaml
+https://www.answertopia.com/rocky-linux/creating-a-rocky-linux-kvm-networked-bridge-interface/
 https://www.claudiokuenzler.com/blog/1339/how-to-run-rocky-linux-9-lxc-container-fix-network-enable-epel-repositories
+https://www.redhat.com/en/blog/exploring-containers-lxc
 ```
