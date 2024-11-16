@@ -37,3 +37,9 @@ sudo smartctl -A /dev/sda | awk '/^241/ { print "GBW: "($10 * 1024) * 1.0e-5, "G
 ```sh
 sudo dmidecode --type memory
 ```
+
+## 5. Check disks
+
+```sh
+lsblk -o NAME,FSTYPE,LABEL,MOUNTPOINT,SIZE,MODE
+```
