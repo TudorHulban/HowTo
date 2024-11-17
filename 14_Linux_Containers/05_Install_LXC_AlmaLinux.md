@@ -43,7 +43,7 @@ Create bridge:
 
 ```sh
 sudo nmcli con add ifname lxcbr0 type bridge con-name lxcbr0
-sudo nmcli connection add type bridge-slave ifname enp3s0 master lxcbr0
+sudo nmcli connection add type bridge-slave ifname enp4s0 master lxcbr0
 sudo nmcli connection modify lxcbr0 ipv4.method auto # or static for fixed IP
 sudo nmcli connection up lxcbr0 # activate
 ```
@@ -53,10 +53,14 @@ Reboot.
 For troubleshooting:
 
 ```sh
+sudo nmcli connection modify enp4s0 connection.master lxcbr0 connection.slave-type bridge
+sudo nmcli connection up enp4s0
+# or delete and start over
 sudo nmcli con del lxcbr0
 ```
 
-Verify:
+Verify:  
+Do not move forward if the bridge does not show connected as troubleshooting might be more difficult.
 
 ```sh
 nmcli device # should show bridge connected.
