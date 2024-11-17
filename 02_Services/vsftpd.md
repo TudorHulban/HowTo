@@ -43,4 +43,8 @@ Configuration only for insecure use:
 sudo vi /etc/pam.d/vsftpd
 # modify sense option to allow
 auth required pam_listfile.so item=user sense=allow file=/etc/vsftpd/ftpusers onerr=succeed
+
+sudo vi /etc/vsftpd/vsftpd.conf
+# comment or remove line if still not working after above
+userlist_enable=YES
 ```
