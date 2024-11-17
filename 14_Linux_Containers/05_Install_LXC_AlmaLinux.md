@@ -42,10 +42,10 @@ nmcli device  # got enp3s0
 Create bridge:
 
 ```sh
-sudo nmcli con add ifname br0 type bridge con-name br0
-sudo nmcli connection add type bridge-slave ifname enp3s0 master br0
-sudo nmcli connection modify br0 ipv4.method auto # or static for fixed IP
-sudo nmcli connection up br0 # activate
+sudo nmcli con add ifname lxcbr0 type bridge con-name lxcbr0
+sudo nmcli connection add type bridge-slave ifname enp3s0 master lxcbr0
+sudo nmcli connection modify lxcbr0 ipv4.method auto # or static for fixed IP
+sudo nmcli connection up lxcbr0 # activate
 ```
 
 Reboot.  
@@ -53,7 +53,7 @@ Reboot.
 For troubleshooting:
 
 ```sh
-sudo nmcli con del br0
+sudo nmcli con del lxcbr0
 ```
 
 Verify:
@@ -79,7 +79,7 @@ sudo dnf install lxc -y
 sudo vi /etc/default/lxc-net 
 
 USE_LXC_BRIDGE="true"
-LXC_BRIDGE = "br0"
+LXC_BRIDGE = "lxcbr0"
 ```
 
 Verify configuration:
