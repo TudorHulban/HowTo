@@ -6,6 +6,15 @@
 nmtui
 ```
 
+## Switch to dynamic IP
+
+```yaml
+nmcli device # identify device
+sudo nmcli connection modify enp3s0 ipv4.method auto
+sudo nmcli connection down enp3s0; sudo nmcli connection up enp3s0 # restart connection to apply changes
+nmcli device show enp3s0 # verify
+```
+
 ## Switch to static IP
 
 ```yaml
