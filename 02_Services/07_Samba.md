@@ -51,6 +51,14 @@ Samba does not use the system account password.
 sudo smbpasswd -a username
 ```
 
+## Troubleshoot 
+
+Check Samba port on server:
+
+```yaml
+nmap -p 445 <server-ip-address>
+```
+
 ## Resources
 ```
 https://tecadmin.net/mounting-samba-share-on-ubuntu/
