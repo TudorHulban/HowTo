@@ -48,7 +48,7 @@ sudo systemctl disable --now nis-domainname
 sudo systemctl disable --now kdump
 sudo systemctl disable --now firewalld
 sudo systemctl disable --now ModemManager
-sudo systemctl disable --now kdump # no printing
+sudo systemctl disable --now cups # no printing
 sudo systemctl disable avahi-daemon.socket avahi-daemon.service 
 sudo systemctl mask avahi-daemon.socket avahi-daemon.service 
 ```
