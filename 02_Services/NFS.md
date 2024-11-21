@@ -53,7 +53,7 @@ Verify configured shares are available:
 showmount -e <NFS server IP>
 ```
 
-### Run client
+## Run client
 
 Mount locally:
 
@@ -89,7 +89,13 @@ Create entry for host for easier referral:
 sudo vi /etc/hosts
 ```
 
-### Resources
+## Alma Linux support
+
+```html
+https://www.howtoforge.com/how-to-install-nfs-server-and-client-on-almalinux-9/
+```
+
+## Resources
 
 ```html
 https://askubuntu.com/questions/7117/which-to-use-nfs-or-samba
