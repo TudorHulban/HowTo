@@ -59,6 +59,12 @@ Check Samba port on server:
 nmap -p 445 <server-ip-address>
 ```
 
+List users:
+
+```yaml
+sudo pdbedit -L -v
+```
+
 ## Resources
 ```
 https://tecadmin.net/mounting-samba-share-on-ubuntu/
