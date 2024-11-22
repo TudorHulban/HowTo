@@ -15,6 +15,13 @@ sudo systemctl enable --now snapd.socket
 sudo ln -s /var/lib/snapd/snap /snap
 ```
 
+Add to configuration:  
+
+```yaml
+vi ~/.bashrc
+export PATH=$PATH:/snap/bin
+```
+
 ### Install VS Code
 
 ```yaml
@@ -34,23 +41,15 @@ With snap:
 
 ```yaml
 sudo snap install android-studio --classic
+sudo snap install androidsdk
+sudo snap install android-platform-tools
+sudo snap install android-adb --edge --devmode
 ```
 
-```sh
-wget https://dl.google.com/dl/android/studio/ide-zips/3.0.1.0/android-studio-ide-171.4443003-linux.zip
-unzip downloaded file
-sudo mv android-studio /usr/local
-# run
-./usr/local/android-studio/studio.sh
-```
-
-### Custom installation
-Install virtual device for emulator. Create link for x86 computers:
-In /Android/Sdl/tools/lib run:
-
-```sh
-ln -s emulator emulator-x86
-```
+Open Android studio, do not create project, instead go to SDK Manager.  
+Under SDK Tools should be installed:  
+Android SDK Command-line Tools  
+Android Emulator
 
 #### Install needed lbraries 
 
@@ -67,4 +66,10 @@ On new terminal:
 
 ```yaml
 flutter doctor -v
+```
+
+Accept licenses one by one (review each one):
+
+```yaml
+flutter doctor --android-licenses
 ```
