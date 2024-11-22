@@ -43,6 +43,14 @@ cat /etc/resolv.conf
 https://www.server-world.info/en/note?os=AlmaLinux_9&p=initial_conf&f=3
 ```
 
+## Enable services
+
+```yaml
+sudo dnf install openssh-server
+sudo systemctl start sshd
+sudo systemctl enable sshd
+```
+
 ## Disable services
 
 List services:
