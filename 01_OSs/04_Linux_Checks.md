@@ -41,5 +41,5 @@ sudo dmidecode --type memory
 ## 5. Check disks
 
 ```sh
-lsblk -o NAME,FSTYPE,LABEL,MOUNTPOINT,SIZE,MODE
+lsblk -o NAME,FSTYPE,LABEL,MOUNTPOINT,SIZE,MODEL
 ```
