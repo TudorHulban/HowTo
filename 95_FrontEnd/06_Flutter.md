@@ -42,8 +42,8 @@ With snap:
 ```yaml
 sudo snap install android-studio --classic
 sudo snap install androidsdk
-sudo snap install android-platform-tools
-sudo snap install android-adb --edge --devmode
+sudo snap install android-platform-tools # if needed, install from sdk manager
+sudo snap install android-adb --edge --devmode # might not be needed
 ```
 
 Open Android studio, do not create project, instead go to SDK Manager.  
