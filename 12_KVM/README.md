@@ -12,11 +12,24 @@ sudo kvm-ok   # check if system supports KVM virtualization
 sudo apt install cpu-checker
 ```
 
+### Host security - Set SELinux to Permissive Mode
+
+```sh
+sudo sed -i 's/^SELINUX=.*/SELINUX=permissive/g' /etc/selinux/config
+```
+
+Reboot.  
+Check:
+
+```sh
+getenforce
+```
+
 ### Host software dependencies
 
 ```sh
 sudo dnf install qemu-kvm libvirt -y
-sudo dnf install virt-install virt-viewer virt-top libguestfs-tools -y
+sudo dnf install virt-install libguestfs-tools -y
 sudo systemctl enable --now libvirtd
 ```
 
@@ -42,6 +55,21 @@ Check:
 ```sh
 check bridge network
 nmcli device
+```
+
+#### QEMU - add host bridge
+
+```sh
+# check if bridge file exists
+ls -l /etc/qemu/bridge.conf
+cat /etc/qemu/bridge.conf
+# create if needed
+sudo mkdir /etc/qemu
+echo "allow lxcbr0" | sudo tee -a /etc/qemu/bridge.conf
+# save to create file
+sudo chmod 644 /etc/qemu/bridge.conf
+# restart service
+sudo systemctl restart libvirtd
 ```
 
 ### Desktop Client
@@ -109,7 +137,8 @@ virsh list --all
 virsh shutdown name-vm
 virsh destroy name-vm
 # remove
-undefine name-vm
+virsh managedsave-remove name-vm # if error: Refusing to undefine while domain managed save image exists
+virsh undefine name-vm
 # edit
 virsh edit name-vm
 # dump configuration
@@ -150,22 +179,55 @@ Desktop connection:
 ss -tuln | grep 5900
 ```
 
+### Cannot attach bridge
+
+```sh
+sudo cat /var/log/audit/audit.log | grep denied
+```
+
+Detach bridge from network manager:
+
+```sh
+sudo nmcli connection modify lxcbr0 connection.autoconnect no
+sudo systemctl restart NetworkManager
+```
+
+
+### IPs not from LAN
+
+```sh
+virsh edit name-vm
+# look for interface section, change to
+<interface type='bridge'>
+  <source bridge='lxcbr0'/>
+  <model type='virtio'/>
+</interface>
+```
+
+Restart the VM to applu changes:
+
+```sh
+virsh destroy name-vm
+virsh start name-vm
+```
+
 ## Alma Linux Example
 
 ```sh
 # download
 wget https://almalinux.mirrors.orange.ro/9.4/live/x86_64/AlmaLinux-9.4-x86_64-Live-GNOME-Mini.iso
 # pre-create
-qemu-img create -f qcow2 $HOME/ram/vms/vm_alma.img 20G
+qemu-img create -f qcow2 $HOME/ram/vm_alma.img 20G
 # start installation
 virt-install \
 --name=alma-linux \
 --vcpus=4 \
 --memory=8192 \
 --cdrom=$HOME/diskx/AlmaLinux-9.4-x86_64-Live-GNOME-Mini.iso \
---disk path=$HOME/ram/vms/vm_alma.img \
---os-variant=generic \
---graphics vnc,listen=0.0.0.0,port=5900
+--disk path=$HOME/ram/vm_alma.img \
+--os-variant=linux2022 \
+--graphics vnc,listen=0.0.0.0,port=5900 \
+--network bridge=lxcbr0
 ```
 
 ## Resources
