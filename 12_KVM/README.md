@@ -159,8 +159,8 @@ wget https://almalinux.mirrors.orange.ro/9.4/live/x86_64/AlmaLinux-9.4-x86_64-Li
 qemu-img create -f qcow2 $HOME/ram/vms/vm_alma.img 20G
 # start installation
 virt-install \
---name=slitaz-vm \
---vcpus=1 \
+--name=alma-linux \
+--vcpus=4 \
 --memory=8192 \
 --cdrom=$HOME/diskx/AlmaLinux-9.4-x86_64-Live-GNOME-Mini.iso \
 --disk path=$HOME/ram/vms/vm_alma.img \
