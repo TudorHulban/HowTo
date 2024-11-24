@@ -1,4 +1,4 @@
-Example Dockerfile for TwoBirds JS.
+# Example Dockerfile for TwoBirds JS
 
 ```sh
 FROM electronuserland/builder:latest

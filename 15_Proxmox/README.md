@@ -1,10 +1,15 @@
 # PROXMOX: Install and first steps
+
 ## 1. Get Proxmox ISO. Install (needs UEFI)
+
 Connect to with browser:
+
 ```html
 https://192.168.1.6:8006/#v1:0:18:4::::::
 ```
+
 ## 2. Get container images with
+
 ```sh
 pveam available # pveam update first
 pveam download  local debian-11-standard_11.0-1_amd64.tar.gz # download container
@@ -13,11 +18,15 @@ pveam download  local ubuntu-20.04-standard_20.04-1_amd64.tar.gz
 pveam download  local centos-8-default_20191016_amd64.tar.xz
 pveam list local  # verify download
 ```
+
 In case needed, to remove local image:
+
 ```sh
 pveam remove local:vztmpl/alpine-3.7-default_20180913_amd64.tar.xz  
 ```
+
 ## 3. ISO images 
+
 ```sh
 cd /var/lib/vz/template/iso  # see https://pve.proxmox.com/wiki/Storage:_Directory
 ```
