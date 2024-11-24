@@ -68,7 +68,7 @@ wget http://mirror.slitaz.org/iso/rolling/slitaz-rolling.iso
 Pre-create image:
 
 ```sh
-qemu-img create -f qcow2 /home/tudi/ram/vms/vm_slitaz_1.img 3G
+qemu-img create -f qcow2 $HOME/ram/vms/vm_slitaz_1.img 3G
 ```
 
 Start the installation:
@@ -78,8 +78,8 @@ virt-install \
 --name=slitaz-vm \
 --vcpus=1 \
 --memory=1024 \
---cdrom=/home/tudi/ram/slitaz-rolling.iso \
---disk path=/home/tudi/ram/vms/vm_slitaz_1.img \
+--cdrom=$HOME/ram/slitaz-rolling.iso \
+--disk path=$HOME/ram/vms/vm_slitaz_1.img \
 --os-variant=generic \
 --graphics vnc,listen=0.0.0.0,port=5900
 ```
@@ -148,6 +148,24 @@ Desktop connection:
 
 ```sh
 ss -tuln | grep 5900
+```
+
+## Alma Linux Example
+
+```sh
+# download
+wget https://almalinux.mirrors.orange.ro/9.4/live/x86_64/AlmaLinux-9.4-x86_64-Live-GNOME-Mini.iso
+# pre-create
+qemu-img create -f qcow2 $HOME/ram/vms/vm_alma.img 20G
+# start installation
+virt-install \
+--name=slitaz-vm \
+--vcpus=1 \
+--memory=8192 \
+--cdrom=$HOME/diskx/AlmaLinux-9.4-x86_64-Live-GNOME-Mini.iso \
+--disk path=$HOME/ram/vms/vm_alma.img \
+--os-variant=generic \
+--graphics vnc,listen=0.0.0.0,port=5900
 ```
 
 ## Resources
