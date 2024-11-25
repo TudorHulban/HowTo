@@ -15,7 +15,9 @@ zgrep CONFIG_KVM /boot/config-$(uname -r) # if kernel contains KVM modules
 sudo apt install cpu-checker
 ```
 
-### Host security - Set SELinux to Permissive Mode
+### Host security
+
+#### Set SELinux to Permissive Mode - might not be needed
 
 ```sh
 sudo sed -i 's/^SELINUX=.*/SELINUX=permissive/g' /etc/selinux/config
@@ -28,11 +30,22 @@ Check:
 getenforce
 ```
 
+#### User rights
+
+```sh
+# add current user to the libvirtd group
+sudo usermod -aG libvirt $USER
+echo "export LIBVIRT_DEFAULT_URI='qemu:///system'" >> ~/.bashrc
+source ~/.bashrc
+# check connected instance
+virsh uri # should be qemu:///system
+```
+
 ### Host software dependencies
 
 ```sh
-sudo dnf install qemu-kvm libvirt virt-install -y
-sudo dnf install libguestfs-tools -y
+sudo dnf install qemu-kvm libvirt virt-install virt-viewer wget -y
+# sudo dnf install libguestfs-tools -y
 sudo systemctl enable --now libvirtd
 ```
 
@@ -43,13 +56,6 @@ lsmod | grep kvm
 lscpu | grep Virtualization
 sudo virt-host-validate qemu
 sudo systemctl status libvirtd
-```
-
-Add current user to the libvirtd group:
-
-```sh
-sudo adduser `user name` libvirtd
-sudo adduser $USER libvirtd
 ```
 
 ### Host network dependencies
@@ -246,6 +252,14 @@ Desktop connection:
 ss -tuln | grep 5900
 ```
 
+### Check IP
+
+```sh
+virsh domifaddr name-vm
+# mac
+virsh domiflist alma-linux
+```
+
 ### Cannot attach bridge
 
 ```sh
@@ -283,23 +297,24 @@ virsh start name-vm
 # download
 wget https://almalinux.mirrors.orange.ro/9.4/live/x86_64/AlmaLinux-9.4-x86_64-Live-GNOME-Mini.iso
 # pre-create
-qemu-img create -f qcow2 $HOME/ram/vm_alma.img 20G
+qemu-img create -f qcow2 $HOME/ram/vms/vm_alma.img 20G
 # start installation
 virt-install \
 --name=alma-linux \
 --vcpus=4 \
 --memory=8192 \
---cdrom=$HOME/diskx/AlmaLinux-9.4-x86_64-Live-GNOME-Mini.iso \
---disk path=$HOME/ram/vm_alma.img \
+--cdrom=/home/qemu/AlmaLinux-9.4-x86_64-Live-GNOME-Mini.iso \
+--disk path=/mnt/tmpfs.ramdisk/vms/vm_alma.img \
 --os-variant=linux2022 \
 --graphics vnc,listen=0.0.0.0,port=5900 \
---network bridge=lxcbr0
+--network bridge=vmbr0
 ```
 
 ## Resources
 
 ```html
 https://www.youtube.com/watch?v=LHJhFW7_8EI
+https://sysguides.com/kvm-guest-os-from-the-command-line
 https://linux.how2shout.com/how-to-install-kvm-on-almalinux-9-or-rocky-linux-9-to-create-vms/
 https://www.liquidweb.com/help-docs/install-kvm-on-linux-almalinux/
 https://www.tecmint.com/install-kvm-on-ubuntu/
