@@ -1,4 +1,4 @@
-# GO: Installation and First Steps
+# Golang - on Mac OS
 
 ## Environment variables
 

@@ -1,4 +1,4 @@
-# NATS: Install (WIP)
+# NATS - WIP
 
 ## Download
 

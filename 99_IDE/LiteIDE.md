@@ -1,4 +1,7 @@
-### Desktop Icon
+# IDE - LiteIDE
+
+Desktop Icon
+
 ```sh
 [Desktop Entry]
 Name=LiteIDE

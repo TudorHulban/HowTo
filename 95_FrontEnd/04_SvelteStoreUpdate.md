@@ -1,5 +1,7 @@
-# Svelte: Store Update
+# Svelte JS - Store Update
+
 ## App.svelte
+
 ```js
 <script>
   import { products } from "./store.js";
@@ -11,7 +13,9 @@
 {JSON.stringify($products)}
 <C1 />
 ```
+
 ## C1.svelte
+
 ```js
 <script>
   import { products } from "./store.js";
@@ -27,7 +31,9 @@
 <h4>---------</h4>
 <button on:click={decrement}>D</button>
 ```
+
 ## store.js
+
 ```js
 import { writable } from 'svelte/store';
 
@@ -56,5 +62,4 @@ function createProducts() {
   };
 }
 export let products = createProducts();
-
 ```

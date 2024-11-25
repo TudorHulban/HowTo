@@ -1,4 +1,4 @@
-# LiteIDE: Install
+# LiteIDE - Install
 
 ## Download
 

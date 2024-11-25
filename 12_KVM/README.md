@@ -7,6 +7,9 @@
 ```sh
 egrep -c '(vmx|svm)' /proc/cpuinfo  # result should be greater than zero
 sudo kvm-ok   # check if system supports KVM virtualization
+modinfo kvm | head
+lscpu | grep -i virtualization # for AMD: AMD-V
+zgrep CONFIG_KVM /boot/config-$(uname -r) # if kernel contains KVM modules
 
 # install if needed with below
 sudo apt install cpu-checker
@@ -28,8 +31,8 @@ getenforce
 ### Host software dependencies
 
 ```sh
-sudo dnf install qemu-kvm libvirt -y
-sudo dnf install virt-install libguestfs-tools -y
+sudo dnf install qemu-kvm libvirt virt-install -y
+sudo dnf install libguestfs-tools -y
 sudo systemctl enable --now libvirtd
 ```
 
@@ -38,7 +41,7 @@ Check:
 ```sh
 lsmod | grep kvm
 lscpu | grep Virtualization
-virt-host-validate
+sudo virt-host-validate qemu
 sudo systemctl status libvirtd
 ```
 
@@ -46,6 +49,7 @@ Add current user to the libvirtd group:
 
 ```sh
 sudo adduser `user name` libvirtd
+sudo adduser $USER libvirtd
 ```
 
 ### Host network dependencies
@@ -59,6 +63,60 @@ nmcli device
 
 #### QEMU - add host bridge
 
+Check curent network used by kvm:
+
+```sh
+sudo virsh net-list --all
+# export
+sudo virsh net-dumpxml default
+```
+
+Create bridge network:
+
+```sh
+sudo nmcli connection add type bridge con-name vmbr0 ifname vmbr0
+sudo nmcli connection add type ethernet slave-type bridge con-name 'Bridge VM' ifname enp3s0 master vmbr0
+# activate
+sudo nmcli connection up vmbr0
+# edit connection
+sudo nmcli connection modify vmbr0 connection.autoconnect-slaves 1
+# reactivate connection by rebooting or 
+sudo nmcli connection up vmbr0
+# verify
+nmcli device status
+```
+
+Create KVM bridge configuration:
+
+```sh
+vi nwbridge.xml
+# add
+<network>
+  <name>nwbridge</name>
+  <forward mode='bridge'/>
+  <bridge name='vmbr0'/>
+</network>
+# define nwbridge as a persistent virtual network
+sudo virsh net-define nwbridge.xml
+# activate the nwbridge and set it to autostart on boot
+sudo virsh net-start nwbridge
+sudo virsh net-autostart nwbridge
+# verify
+sudo virsh net-list --all
+```
+
+For any issues, to remove the created network bridge:
+
+```sh
+sudo virsh net-destroy nwbridge
+sudo virsh net-undefine nwbridge
+
+sudo nmcli connection up 'Wired connection 1'
+sudo nmcli connection down vmbr0
+sudo nmcli connection del vmbr0
+sudo nmcli connection del 'Bridge connection 1'
+```
+
 ```sh
 # check if bridge file exists
 ls -l /etc/qemu/bridge.conf
@@ -70,6 +128,15 @@ echo "allow lxcbr0" | sudo tee -a /etc/qemu/bridge.conf
 sudo chmod 644 /etc/qemu/bridge.conf
 # restart service
 sudo systemctl restart libvirtd
+```
+
+## Tune system
+
+```sh
+sudo dnf install tuned
+sudo tuned-adm profile virtual-host
+# check
+tuned-adm active
 ```
 
 ### Desktop Client
@@ -192,7 +259,6 @@ sudo nmcli connection modify lxcbr0 connection.autoconnect no
 sudo systemctl restart NetworkManager
 ```
 
-
 ### IPs not from LAN
 
 ```sh
@@ -233,11 +299,11 @@ virt-install \
 ## Resources
 
 ```html
+https://www.youtube.com/watch?v=LHJhFW7_8EI
 https://linux.how2shout.com/how-to-install-kvm-on-almalinux-9-or-rocky-linux-9-to-create-vms/
 https://www.liquidweb.com/help-docs/install-kvm-on-linux-almalinux/
 https://www.tecmint.com/install-kvm-on-ubuntu/
 https://linuxconfig.org/how-to-create-and-manage-kvm-virtual-machines-from-cli
 https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/virtualization_deployment_and_administration_guide/sect-guest_virtual_machine_installation_overview-creating_guests_with_virt_install
 https://www.golinuxcloud.com/virt-install-examples-kvm-virt-commands-linux/
-http://mirror.slitaz.org/iso/rolling/slitaz-rolling.iso
 ```

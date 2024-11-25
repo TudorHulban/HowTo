@@ -1,4 +1,4 @@
-# GO: Installation and First Steps
+# Golang - on Linux
 
 ## Prerequisites
 
@@ -8,7 +8,7 @@
  go install golang.org/x/tools/gopls@latest
 ```
 
-## For Linux Mint 21.3
+### For Linux Mint 21.3
 
 If any issues, try:
 
@@ -16,7 +16,7 @@ If any issues, try:
 sudo apt install --reinstall build-essential
 ```
 
-## Environment variables
+### Environment variables
 
 Add environment variables for default bash shell in.
 

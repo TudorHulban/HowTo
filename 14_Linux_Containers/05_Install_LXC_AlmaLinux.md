@@ -42,7 +42,7 @@ nmcli device  # got enp3s0
 Create bridge:
 
 ```sh
-sudo nmcli con add ifname lxcbr0 type bridge con-name lxcbr0
+sudo nmcli connection add type bridge con-name lxcbr0 ifname lxcbr0
 sudo nmcli connection add type bridge-slave ifname enp4s0 master lxcbr0
 sudo nmcli connection modify lxcbr0 ipv4.method auto # or static for fixed IP
 sudo nmcli connection up lxcbr0 # activate

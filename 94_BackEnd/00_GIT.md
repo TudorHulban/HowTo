@@ -1,4 +1,6 @@
-# GIT: Install
+# GIT
+
+Install
 
 ```sh
 sudo apt-get install git

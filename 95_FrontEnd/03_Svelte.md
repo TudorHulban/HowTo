@@ -1,19 +1,30 @@
-# Svelte: Installation and first steps
+# Svelte JS
+
+Installation and first steps
+
 ## Download predefined template
+
 ```sh
 npx degit sveltejs/template <new project name>
 ```
+
 ## Install required NPM packages
+
 ```sh
 cd <created folder>
 npm install
 ```
+
 ## Run Svelte in development mode
+
 ```sh
 npm run dev
 ```
+
 ## Svelte context
+
 App.svelte
+
 ```js
 <script>
   import { onMount } from "svelte";
@@ -28,7 +39,9 @@ App.svelte
 
 <C1 />
 ```
+
 C1.svelte
+
 ```js
 <script>
   import { onMount } from "svelte";
@@ -41,8 +54,11 @@ C1.svelte
 
 <h4>Context not available w/o C1 in DOM.</h4>
 ```
+
 ## Svelte store
+
 store.js
+
 ```js
 import { writable } from 'svelte/store';
 
@@ -61,7 +77,9 @@ function createProducts() {
 
 export let products = createProducts();
 ```
+
 App.svelte
+
 ```js
 <script>
   import { products } from "./store.js";
@@ -71,10 +89,13 @@ App.svelte
 
 {JSON.stringify($products)}
 ```
+
 ## Form submit
+
 Under Review.
 
 ## Resources
+
 ```html
 https://www.toptal.com/front-end/svelte-framework-guide?utm_campaign=Svelte%20Status&utm_medium=email&utm_source=Revue%20newsletter
 https://css-tricks.com/what-i-like-about-writing-styles-with-svelte/?utm_campaign=Svelte%20Status&utm_medium=email&utm_source=Revue%20newsletter

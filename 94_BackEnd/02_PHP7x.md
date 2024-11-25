@@ -1,4 +1,4 @@
-# PHP: Install
+# PHP
 
 ## 1. Prerequisites
 
