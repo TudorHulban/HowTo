@@ -303,6 +303,19 @@ virt-install \
 --graphics vnc,listen=0.0.0.0,port=5900
 ```
 
+## Generic example
+
+```sh
+virt-install \
+--name=linux \
+--vcpus=4 \
+--memory=8192 \
+--cdrom=/home/qemu/sparkylinux-7.5-x86_64-minimalgui.iso \
+--disk path=/mnt/tmpfs.ramdisk/vms/vm_linux.img,size=18 \
+--os-variant=linux2022 \
+--graphics vnc,listen=0.0.0.0,port=5900
+```
+
 ## Resources
 
 ```html

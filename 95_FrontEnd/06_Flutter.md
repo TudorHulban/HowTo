@@ -1,12 +1,14 @@
-# Flutter: Installation
+# Flutter - Installation
 
 ## Prerequisites
+
 OS: 8+ Gb RAM
 
 ### Install snap
 
 ```yaml
-sudo dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+sudo dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm -y
+# do not do update if running on RAM disk as it takes 1.5G+ space
 sudo dnf update -y
 
 sudo dnf install snapd -y
@@ -32,7 +34,7 @@ sudo snap install --classic code # or code-insiders
 
 ```yaml
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
-sudo dnf install ./google-chrome-stable_current_*.rpm
+sudo dnf install ./google-chrome-stable_current_*.rpm -y
 ```
 
 ### Install Android Studio
@@ -51,7 +53,7 @@ Under SDK Tools should be installed:
 Android SDK Command-line Tools  
 Android Emulator
 
-#### Install needed lbraries 
+#### Install needed lbraries
 
 For ubuntu:
 
