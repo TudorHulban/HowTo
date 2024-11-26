@@ -1,4 +1,4 @@
-# KVM
+# KVM - Alma Linux 9.4
 
 ## Prerequisites
 
@@ -168,10 +168,6 @@ wget http://mirror.slitaz.org/iso/rolling/slitaz-rolling.iso
 
 Pre-create image:
 
-```sh
-qemu-img create -f qcow2 $HOME/ram/vms/vm_slitaz_1.img 3G
-```
-
 Start the installation:
 
 ```sh
@@ -179,9 +175,9 @@ virt-install \
 --name=slitaz-vm \
 --vcpus=1 \
 --memory=1024 \
---cdrom=$HOME/ram/slitaz-rolling.iso \
---disk path=$HOME/ram/vms/vm_slitaz_1.img \
---os-variant=generic \
+--cdrom=/home/qemu/slitaz-rolling.iso \
+--disk path=/mnt/tmpfs.ramdisk/vms/vm_slitaz.img,size=3 \
+--os-variant=linux2022 \
 --graphics vnc,listen=0.0.0.0,port=5900
 ```
 
@@ -294,20 +290,17 @@ virsh start name-vm
 ## Alma Linux Example
 
 ```sh
-# download
+# download and move to qemu home folder
 wget https://almalinux.mirrors.orange.ro/9.4/live/x86_64/AlmaLinux-9.4-x86_64-Live-GNOME-Mini.iso
-# pre-create
-qemu-img create -f qcow2 $HOME/ram/vms/vm_alma.img 20G
 # start installation
 virt-install \
 --name=alma-linux \
 --vcpus=4 \
 --memory=8192 \
 --cdrom=/home/qemu/AlmaLinux-9.4-x86_64-Live-GNOME-Mini.iso \
---disk path=/mnt/tmpfs.ramdisk/vms/vm_alma.img \
+--disk path=/mnt/tmpfs.ramdisk/vms/vm_alma.img,size=18 \
 --os-variant=linux2022 \
---graphics vnc,listen=0.0.0.0,port=5900 \
---network bridge=vmbr0
+--graphics vnc,listen=0.0.0.0,port=5900
 ```
 
 ## Resources
