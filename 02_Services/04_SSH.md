@@ -125,8 +125,9 @@ For user:
 ```sh
 vi ~/.ssh/config  
 # add
-Host host-name
-    StrictHostKeyChecking no
+Host 192.168.1.*
+   StrictHostKeyChecking no
+   UserKnownHostsFile=/dev/null
 ```
 
 Globally in:
