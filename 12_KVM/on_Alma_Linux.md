@@ -140,10 +140,15 @@ sudo systemctl restart libvirtd
 
 ```sh
 sudo dnf install tuned
+# start
+sudo systemctl enable --now tuned
+# set profile
 sudo tuned-adm profile virtual-host
 # check
 tuned-adm active
 ```
+
+See: https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/8/html/monitoring_and_managing_system_status_and_performance/getting-started-with-tuned_monitoring-and-managing-system-status-and-performance#using-the-tuned-cpu-partitioning-profile-for-low-latency-tuning_getting-started-with-tuned.
 
 ### Desktop Client
 
