@@ -78,3 +78,9 @@ https://reintech.io/blog/managing-services-with-systemd-almalinux-9
 https://www.server-world.info/en/note?os=AlmaLinux_9&p=initial_conf&f=4
 https://wiki.crowncloud.net/tools/how_to_configure_static_network_on_windows_server?How_to_Reclaim_RAM_from_the_System_Reserve_with_AlmaLinux_9
 ```
+
+## Document Scaner
+
+```sh
+sudo dnf install simple-scan
+```
