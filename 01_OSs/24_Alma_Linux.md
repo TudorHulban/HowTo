@@ -84,3 +84,9 @@ https://wiki.crowncloud.net/tools/how_to_configure_static_network_on_windows_ser
 ```sh
 sudo dnf install simple-scan
 ```
+
+## Repair XFS drive
+
+```sh
+xfs_repair /dev/<sd device>
+```
