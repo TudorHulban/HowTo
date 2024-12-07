@@ -50,6 +50,8 @@ pam_service_name=vsftpd
 userlist_enable=YES
 # restart
 sudo service vsftpd restart
+# check
+sudo systemctl status vsftpd
 ```
 
 ### Allow root conection
