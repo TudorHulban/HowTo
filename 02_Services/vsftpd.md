@@ -28,10 +28,27 @@ brew remove vsftpd
 ## Linux:
 
 ```sh
-sudo apt-get install vsftpd
+sudo dnf install vsftpd
 
-sudo vi /etc/vsftpd.conf
-#write_enable=YES
+# backup original configuration
+sudo mv /etc/vsftpd/vsftpd.conf /etc/vsftpd/vsftpd.conf_orig
+# create new configuration
+sudo vi /etc/vsftpd/vsftpd.conf
+# add
+anonymous_enable=NO
+local_enable=YES
+write_enable=YES
+local_umask=022
+dirmessage_enable=YES
+xferlog_enable=YES
+connect_from_port_20=YES
+xferlog_std_format=YES
+listen=NO
+listen_ipv6=YES
+
+pam_service_name=vsftpd
+userlist_enable=YES
+# restart
 sudo service vsftpd restart
 ```
 
