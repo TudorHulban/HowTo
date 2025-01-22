@@ -79,6 +79,23 @@ https://www.server-world.info/en/note?os=AlmaLinux_9&p=initial_conf&f=4
 https://wiki.crowncloud.net/tools/how_to_configure_static_network_on_windows_server?How_to_Reclaim_RAM_from_the_System_Reserve_with_AlmaLinux_9
 ```
 
+Tweaks:
+
+```sh
+grubby --update-kernel=ALL --args="skew_tick=1"
+# reverse with
+grubby --update-kernel=ALL --args="skew_tick=0"
+# reboot for the change to take effect
+
+sudo systemctl disable --now irqbalance
+```
+
+### Resources tweaks
+
+```html
+https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_for_real_time/8/html-single/optimizing_rhel_8_for_real_time_for_low_latency_operation/index#proc_disabling-atime_minimizing-or-avoiding-system-slowdowns-due-to-journaling
+```
+
 ## Document Scaner
 
 ```sh
