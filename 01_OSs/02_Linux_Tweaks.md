@@ -161,6 +161,12 @@ systemctl --type=service --state=active list-units
 https://dev.to/javinpaul/10-simple-linux-tips-which-save-50-of-my-time-in-the-command-line-4moo?utm_source=digest_mailer&utm_medium=email&utm_campaign=digest_email
 ```
 
+### Frequency per each core
+
+```sh
+grep "cpu MHz" /proc/cpuinfo | awk -F: '{print $2}' | awk '{printf "Core %s: %.2f MHz\n", NR-1, $1}'
+```
+
 ### Remove IP Tables (5 - 15% more performance)
 
 ```sh
