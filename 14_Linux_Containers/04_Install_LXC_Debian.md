@@ -79,10 +79,12 @@ sudo lxc-start -n <container name>
 sudo lxc-attach -n <container name>
 ```
 
-### Occupied space by container
+### Container info
 
 ```sh
 sudo du -sh /var/lib/lxc/<container name>
+sudo lxc-info -n <container name>
+sudo ls /var/lib/lxc/container-name/rootfs/ # container file system
 ```
 
 ### Copy container  
