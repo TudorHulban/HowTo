@@ -107,3 +107,10 @@ sudo dnf install simple-scan
 ```sh
 xfs_repair /dev/<sd device>
 ```
+
+## Mount USB drive
+
+```sh
+sudo dnf install ntfs-3g
+sudo mount -t ntfs-3g /dev/sdXN /mnt/external  # ex. /dev/sdb1
+```
