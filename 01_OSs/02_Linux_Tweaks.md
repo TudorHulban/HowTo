@@ -90,6 +90,14 @@ sudo mv needed scripts to _scripts
 
 ## Add New hard drive to OS <a name="new"></a> ([Up](#top))
 
+### Mac OS compatibility
+
+Format as exFAT. Support in:
+
+```sh
+sudo dnf install exfatprogs
+```
+
 ### Check Disk
 
 ```sh
