@@ -1,0 +1,19 @@
+# Alpine 3.2
+
+## Linux support
+
+```sh
+sudo apk add lsof # ex. sudo lsof /mnt/media/
+sudo apk add util-linux # ex. lsblk
+sudo apk add exfatprogs # exFAT support
+```
+
+## Authorised keys
+
+```sh
+mkdir -p ~/.ssh
+chmod 700 ~/.ssh
+
+touch ~/.ssh/authorized_keys
+chmod 600 ~/.ssh/authorized_keys
+```
