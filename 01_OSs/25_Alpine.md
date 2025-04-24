@@ -17,3 +17,12 @@ chmod 700 ~/.ssh
 touch ~/.ssh/authorized_keys
 chmod 600 ~/.ssh/authorized_keys
 ```
+
+## RAM disk
+
+```sh
+mkdir /mnt/ramdisk # Create a mount point
+
+vi /etc/fstab
+tmpfs   /mnt/ramdisk   tmpfs   defaults,size=1G   0   0
+```
