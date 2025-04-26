@@ -26,3 +26,11 @@ mkdir /mnt/ramdisk # Create a mount point
 vi /etc/fstab
 tmpfs   /mnt/ramdisk   tmpfs   defaults,size=1G   0   0
 ```
+
+## History size
+
+```sh
+vi ~/.profile
+export HISTSIZE=100
+export HISTFILESIZE=100
+```
