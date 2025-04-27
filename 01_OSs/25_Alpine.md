@@ -27,6 +27,15 @@ vi /etc/fstab
 tmpfs   /mnt/ramdisk   tmpfs   defaults,size=1G   0   0
 ```
 
+## Mount exFAT USB drive
+
+```sh
+sudo sh -c 'echo fuse >> /etc/modules' # for future
+modprobe fuse
+mount /dev/sdXN /mnt/usb
+sudo umount /dev/sdxN
+```
+
 ## History size
 
 ```sh
