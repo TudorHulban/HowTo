@@ -1,6 +1,7 @@
 # Trisquel Tuning
 
 ## Remove SSH message MOTD
+
 ```sh
 sudo vi /etc/pam.d/sshd
 
@@ -12,6 +13,7 @@ sudo vi /etc/pam.d/sshd
 ## Set static IP
 
 ### Configure card
+
 With admin rights:
 
 ```sh
@@ -42,6 +44,7 @@ sudo netplan apply
 ```
 
 ## dnsmasq
+
 ### Install
 
 ```sh
@@ -50,16 +53,19 @@ apt-get install dnsmasq
 ```
 
 ### Run in debug mode first
-```
+
+```sh
 dnsmasq --no-daemon --log-queries
 ```
 
 ### Test configuration
-```
+
+```sh
 dnsmasq --test
 ```
 
 ### Resources
-```
+
+```sh
 https://wiki.debian.org/dnsmasq
 ```

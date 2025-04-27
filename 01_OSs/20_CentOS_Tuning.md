@@ -1,16 +1,21 @@
 # CentOS Tuning
 
 ## Static IP
+
 ```sh
 cd /etc/sysconfig/network-scripts
 ls
 ip addr
 ```
+
 If netwrok interface is called 'ens18' for example, rename the existing file:
+
 ```sh
 mv ifcfg-eth0 ifcfg-ens18
 ```
+
 Update the file as below:
+
 ```yaml
 [root@localhost network-scripts]# cat ifcfg-ens18 
 TYPE=Ethernet

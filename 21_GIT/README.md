@@ -1,11 +1,15 @@
-# GIT: Operations
+# GIT Operations
+
 ## Gitflow:
+
 ```html
 https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow
 ```
 
 ## Rebase
+
 Rebase `main` onto `feature`:
+
 ```sh
 git checkout feature
 git rebase main
@@ -14,27 +18,36 @@ git push
 ```
 
 ## Revert to commit:
+
 ```sh
 git revert --no-commit 0766c053..HEAD
 git commit
 ```
+
 ## Beyond Compare
+
 ```html
 http://www.scootersoftware.com/download.php?zz=kb_linux_install
 ```
+
 ## Simple Compare
+
 ```sh
 git diff HEAD^ HEAD Makefile
 ```
+
 ## Dependencies access
+
 In file `~/.gitconfig`:
+
 ```yaml
 [url "git@github.com:"]
         insteadOf = https://github.com/
 ```
 
 ## Resources
-```
+
+```html
 https://nitayneeman.com/posts/understanding-semantic-commit-messages-using-git-and-angular/
 https://www.toptal.com/front-end/guide-to-monorepos
 https://www.devroom.io/2009/10/26/how-to-create-and-apply-a-patch-with-git/

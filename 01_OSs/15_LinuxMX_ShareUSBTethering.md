@@ -12,7 +12,7 @@ Might not be needed.
 nmcli connection add type ethernet ifname usb0 ipv4.method shared con-name local
 ```
 
-## 4. Enable IP forwarding.
+## 4. Enable IP forwarding
 
 ```sh
 sudo sysctl -w net.ipv4.ip_forward=1

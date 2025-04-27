@@ -1,4 +1,4 @@
-## MX Linux
+# MX Linux
 
 Create shell for the commands:
 
