@@ -2,19 +2,38 @@
 
 ## For Windows ISO (UEFI boot BIOS)
 
-### Option A
+### Option Ventoy
+
+#### Installation
 
 ```sh
-# dependencies
-sudo dnf install git p7zip-plugins wget
+wget https://github.com/ventoy/Ventoy/releases/download/v1.0.95/ventoy-1.0.95-linux.tar.gz
 
-sudo dnf install python3-pip
-pip3 install WoeUSB-ng
+tar -xzf ventoy-1.0.95-linux.tar.gz
 
-sudo woeusb --target-filesystem NTFS --device path/to/windows.iso /dev/sdX
+cd ventoy-1.0.95
+
+# sdX is USB drive
+sudo ./Ventoy2Disk.sh -i /dev/sdX
 ```
 
-### Option B
+#### Copy Files
+
+```sh
+sudo mkdir -p /mnt/ventoy
+
+# mount USB to ventoy folder
+sudo mount /dev/sdX1 /mnt/ventoy
+
+# copy iso
+sudo cp /path/to/your/windows.iso /mnt/ventoy/
+
+sudo sync
+
+sudo umount /mnt/ventoy
+```
+
+### Option BootIso
 
 ```sh
 sudo apt install extlinux
