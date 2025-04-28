@@ -75,9 +75,5 @@ nameserver 8.8.8.8
 nameserver 1.1.1.1
 ```
 
-Restart network service to apply changes:
-
-```sh
-service networking restart
-```
+Reboot.
 
