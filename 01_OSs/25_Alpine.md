@@ -52,3 +52,32 @@ vi ~/.profile
 export HISTSIZE=100
 export HISTFILESIZE=100
 ```
+
+## Static IP
+
+```sh
+sudo vi /etc/network/interfaces
+
+# replace dhcp with
+auto eth0
+iface eth0 inet static
+    address 192.168.1.16/24
+    gateway 192.168.1.1
+    hostname alpine-linux
+```
+
+DNS:
+
+```sh
+sudo vi /etc/resolv.conf
+
+nameserver 8.8.8.8
+nameserver 1.1.1.1
+```
+
+Restart network service to apply changes:
+
+```sh
+service networking restart
+```
+
