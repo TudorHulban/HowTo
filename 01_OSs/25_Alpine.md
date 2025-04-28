@@ -8,6 +8,15 @@ sudo apk add util-linux # ex. lsblk
 sudo apk add exfatprogs # exFAT support
 ```
 
+### Add bash
+
+```sh
+sudo apk add bash
+
+# change to /bin/bash in
+vi /etc/passwd
+```
+
 ## Authorised keys
 
 ```sh
