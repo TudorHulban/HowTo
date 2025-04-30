@@ -39,6 +39,8 @@ smbstatus --shares
 
 ```sh
 sudo service smbd restart
+# alpine
+sudo service samba restart
 ```
 
 If it does not work, reboot.
