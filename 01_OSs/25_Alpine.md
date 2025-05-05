@@ -1,5 +1,9 @@
 # Alpine 3.2
 
+## Install
+
+Log in with `root` user and run `setup-alpine`.
+
 ## Linux support
 
 ```sh
