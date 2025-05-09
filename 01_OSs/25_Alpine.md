@@ -6,10 +6,30 @@ Log in with `root` user and run `setup-alpine`.
 
 ## Linux support
 
+Add community repo:
+
+```sh
+vi /etc/apk/repositories
+# uncomment community line
+```
+
 ```sh
 sudo apk add lsof # ex. sudo lsof /mnt/media/
 sudo apk add util-linux # ex. lsblk
 sudo apk add exfatprogs # exFAT support
+```
+
+### Vim
+
+```sh
+apk add vim
+echo 'alias vi=vim' >> ~/.bashrc
+```
+
+### Sudo
+
+```sh
+apk add sudo
 ```
 
 ### Add bash
