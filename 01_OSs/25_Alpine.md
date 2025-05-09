@@ -17,6 +17,7 @@ vi /etc/apk/repositories
 sudo apk add lsof # ex. sudo lsof /mnt/media/
 sudo apk add util-linux # ex. lsblk
 sudo apk add exfatprogs # exFAT support
+sudo apk add procps
 ```
 
 ### Vim
@@ -58,6 +59,7 @@ mkdir /mnt/ramdisk # Create a mount point
 
 vi /etc/fstab
 tmpfs   /mnt/ramdisk   tmpfs   defaults,size=1G   0   0
+ln -s /mnt/tmpfs.ramdisk $HOME/ram  # can be removed later on with rm ram
 ```
 
 ## Mount exFAT USB drive
