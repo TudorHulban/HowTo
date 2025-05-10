@@ -13,6 +13,9 @@ nmcli device # identify device
 sudo nmcli connection modify enp3s0 ipv4.method auto
 sudo nmcli connection down enp3s0; sudo nmcli connection up enp3s0 # restart connection to apply changes
 nmcli device show enp3s0 # verify
+
+# or
+sudo nmcli con mod enp3s0 ipv4.method manual ipv4.address 192.168.1.200/24 ipv4.gateway 192.168.1.1 ipv4.dns "8.8.8.8 1.1.1.1"
 ```
 
 ## Switch to static IP
