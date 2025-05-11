@@ -55,5 +55,6 @@ https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-10.1.0-amd64-ne
 ```sh
 sudo dd if=[path_to_iso] of=[path_to_usb]
 # example, use block size for faster time
-sudo dd if=/home/slick/Downloads/debian-10.1.0-amd64-netinst.iso of=/dev/sdb bs=2M status=progress
+# oflag=dsync bypasses the kernel's page cache for output
+sudo dd if=source.iso of=/dev/sdb bs=2M oflag=dsync status=progress 
 ```
