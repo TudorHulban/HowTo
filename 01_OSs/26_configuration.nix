@@ -14,6 +14,10 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  programs.bash.shellAliases = {
+  conf = "sudo vim /etc/nixos/configuration.nix";
+  };
+
   networking.hostName = "ge4300"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -26,12 +30,6 @@
   networking.bridges."lxcbr0" = {
     interfaces = [ ];
   };
-
-  environment.etc."lxc/default.conf".text = ''
-    lxc.net.0.type = veth
-    lxc.net.0.link = lxcbr0
-    lxc.net.0.flags = up
-  '';
 
   # Set your time zone.
   time.timeZone = "Europe/Bucharest";
@@ -49,8 +47,10 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+     lxc
      vim 
      wget
+     lsof
   ];
   environment.defaultPackages = with pkgs; [
    vim
@@ -77,8 +77,19 @@
       RemainAfterExit = true;
     };
   };
-
+  
+  # virtualization
+  environment.etc."lxc/default.conf".text = ''
+    lxc.net.0.type = veth
+    lxc.net.0.link = lxcbr0
+    lxc.net.0.flags = up
+  '';
   virtualisation.lxc.enable = true;
+  virtualisation.lxc.lxcfs.enable = true;
+  environment.etc."lxc/lxc.conf".text = ''
+    lxc.template.dir = /nix/store/az6libd3d3zl1bkbfxcrmc3zwykawvnq-lxc-6.0.3/share/lxc/templates
+  '';
+
   systemd.services.create-lxc-storage = {
     enable = true;
     description = "Create LXC ZFS storage pool";
@@ -89,6 +100,12 @@
       RemainAfterExit = true;
     };
   };
+  virtualisation.lxc.defaultConfig = ''
+    lxc.storage.backend = zfs
+    lxc.storage.zfs.pool = rpool/lxc
+    lxc.include = /usr/share/lxc/config/alpine.common.conf
+  '';
+  environment.variables.LXC_TEMPLATE_DIR = "/nix/store/<hash>-lxc-6.0.3/share/lxc/templates";
   
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
   system.stateVersion = "24.11"; # Did you read the comment?
