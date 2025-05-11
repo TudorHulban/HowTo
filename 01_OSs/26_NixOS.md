@@ -8,10 +8,13 @@ With `fdisk` for SATA or `gdisk` for NVME create and format partitions on boot d
 
 ```sh
 # A small EFI System Partition (/dev/sdX1, ~500MB, FAT32) if using UEFI.
+# gdisk type: ef00
 mkfs.fat -F 32 /dev/sdX1
 # A Swap partition (/dev/sdX2, size depends on RAM).
+# gdisk type: 8200
 mkswap /dev/sdX2
 # A Root partition (/dev/sdX3, remaining space, ext4 or other).
+# gdisk type: 8300
 mkfs.ext4 /dev/sdX3
 ```
 
