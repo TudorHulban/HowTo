@@ -55,9 +55,23 @@ vi /etc/fstab
 
 ### Decrease Swappiness
 
+Debian based:
+
 ```sh
 cat /proc/sys/vm/swappiness
 sudo sysctl vm.swappiness=1
+```
+
+Alma Linux (does not work in Proxmox container):
+
+```sh
+sudo vi /etc/sysctl.conf
+# add
+vm.swappiness = 10
+# apply
+sudo sysctl -p
+# verify
+cat /proc/sys/vm/swappiness
 ```
 
 #### Resources
