@@ -32,6 +32,11 @@ alias sec='gosec -no-fail ./... 2>&1 | tee ~/ram/sast-gosec.log'
 
 For root aliases should go in `~/.bashrc`.
 
-## CentOS
+## Redhat based distros
 
 Aliases should go in `~/.bashrc`.
+
+```sh
+echo "alias vi='vim'" | tee -a ~/.bashrc
+echo "alias l='ls -la'" | tee -a ~/.bashrc
+```
