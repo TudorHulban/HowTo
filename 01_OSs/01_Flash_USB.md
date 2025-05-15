@@ -33,6 +33,15 @@ sudo sync
 sudo umount /mnt/ventoy
 ```
 
+#### Clean deleted images
+
+1. Connect the Ventoy drive to a computer.
+2. Enable showing hidden files and folders in your operating system's file explorer settings.
+3. Navigate to the Ventoy partition on the drive.
+4. Look for hidden folders like .Trash-NNN (on Linux systems) or $RECYCLE.BIN (on Windows systems).
+5. Open these folders and permanently delete the image files you thought you had removed.
+6. Safely eject the Ventoy drive.
+
 ### Option BootIso
 
 ```sh
