@@ -4,6 +4,9 @@
 
 ```sh
 apt install nfs-common nfs-kernel-server
+# alpine
+apk add nfs-utils
+apk add nfs-utils-openrc
 ```
 
 ## Install client
@@ -39,12 +42,19 @@ touch /home/nfs/xxx
 ```sh
 vi /etc/exports
 /share-path 192.168.1.0 (rw,sync)
+
+# export
+exportfs -a
 ```
 
 Load configuration:
 
 ```sh
 service nfs-kernel-server restart
+# alpine
+sudo rc-service nfsmount start
+# add at boot
+rc-update add nfs default
 ```
 
 Verify configured shares are available:
