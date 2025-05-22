@@ -40,3 +40,23 @@ Aliases should go in `~/.bashrc`.
 echo "alias vi='vim'" | tee -a ~/.bashrc
 echo "alias l='ls -la'" | tee -a ~/.bashrc
 ```
+
+## Mac OS
+
+Switch to `bash`:
+
+```sh
+chsh -s /bin/bash
+# verify
+echo $0
+```
+
+Refer bash settings:
+
+```sh
+touch ~/.bash_profile
+# add
+if [ -f ~/.bashrc ]; then
+  . ~/.bashrc
+fi
+```
