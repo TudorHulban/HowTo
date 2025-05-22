@@ -20,6 +20,8 @@ From https://golang.org/dl/ .
 
 ```sh
 cd /Downloads
+curl -o ~/Downloads/go1.24.3.darwin-arm64.pkg https://go.dev/dl/go1.24.3.darwin-arm64.pkg
+
 wget https://go.dev/dl/go1.24.3.darwin-amd64.pkg
 wget https://go.dev/dl/go1.24.3.darwin-arm64.pkg
 ```
