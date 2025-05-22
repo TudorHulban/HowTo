@@ -2,14 +2,14 @@
 
 ## Environment variables
 
-Add environment variables for z shell in.
+Add environment variables for z shell in '~/.zshrc'.
 
 ```sh
 alias l='ls -la'
 
 export GOPATH=$HOME/gocode
 export GOROOT=/usr/local/go
-export WORK=$GOPATH/src/olx
+export WORK=$GOPATH/src
 
 export PATH=$PATH:/usr/local/go/bin
 ```
@@ -20,7 +20,8 @@ From https://golang.org/dl/ .
 
 ```sh
 cd /Downloads
-wget https://go.dev/dl/go1.17.4.darwin-amd64.pkg
+wget https://go.dev/dl/go1.24.3.darwin-amd64.pkg
+wget https://go.dev/dl/go1.24.3.darwin-arm64.pkg
 ```
 
 Open Finder and install the downloaded pkg file.
