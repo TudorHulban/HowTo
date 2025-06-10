@@ -102,6 +102,8 @@ touch $HOME/.ssh/config
   identitiesonly yes
 # git clone
 git clone specific_repo:xxx/yyy.git
+# any issues, verify
+ssh -T specific_repo
 ```
 
 ### Ports in use
