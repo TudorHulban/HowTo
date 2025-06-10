@@ -90,6 +90,20 @@ xclip -sel clip < ~/.ssh/id_rsa.pub
 ssh-keygen -t rsa -b 4096 -C "some@email.com" -f ~/.ssh/id_rsa_new_file
 ```
 
+### Git use of specific SSH key
+
+```sh
+touch $HOME/.ssh/config
+# add
+ host specific_repo
+  hostname github.com
+  user git                                                                                                     
+  identityfile ~/.ssh/id_rsa_new_file
+  identitiesonly yes
+# git clone
+git clone specific_repo:xxx/yyy.git
+```
+
 ### Ports in use
 
 ```sh
