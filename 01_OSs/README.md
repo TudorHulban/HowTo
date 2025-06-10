@@ -85,6 +85,9 @@ https://linuxhint.com/change_swap_size_ubuntu/
 ```sh
 ssh-keygen -t rsa -C "your.email@example.com" -b 4096
 xclip -sel clip < ~/.ssh/id_rsa.pub
+
+# for another SSH key
+ssh-keygen -t rsa -b 4096 -C "some@email.com" -f ~/.ssh/id_rsa_new_file
 ```
 
 ### Ports in use
