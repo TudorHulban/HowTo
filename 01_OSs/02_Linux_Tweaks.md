@@ -223,7 +223,9 @@ LS_COLORS=$LS_COLORS:'di=0;37:' ; export LS_COLORS
 ### Shortcut
 
 ```sh
-/usr/bin/gnome-terminal --working-directory="/home/tudi/ram" 
+/usr/bin/gnome-terminal --working-directory="/home/tudi/ram"
+# Rocky 10
+sh -c "ptyxis -x 'bash -c \"source ~/.bashrc && cd /mnt/tmpfs.ramdisk && exec bash\"'"
 ```
 
 ## Linux MX
