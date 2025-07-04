@@ -69,3 +69,42 @@ see https://computingforgeeks.com/install-use-ffmpeg-on-rocky-alma-9/
 ## 10. Docker
 
 see https://reintech.io/blog/installing-docker-on-almalinux-9
+
+## 11. Zoom (Rocky 10)
+
+Download generic Linux version.
+
+Untar to $HOME:
+
+```sh
+tar -xvJf zoom_x86_64.tar.xz -C ~/opt
+```
+
+Get icon to zoom folder:
+
+```sh
+wget https://st1.zoom.us/zoom.ico
+```
+
+Create desktop entry in `~/.local/share/applications/`:
+
+```yaml
+[Desktop Entry]
+Name=Zoom
+Comment=Zoom Video Conference
+Exec=/home/$USER/opt/zoom/ZoomLauncher %U
+Icon=/home/$USER/opt/zoom/zoom.ico
+Terminal=false
+Type=Application
+Categories=Network;VideoConference;
+MimeType=x-scheme-handler/zoommtg;x-scheme-handler/zoomphonecall;x-scheme-handler/zoomus;
+StartupWMClass=zoom
+```
+
+Register MIME types
+
+```sh
+xdg-mime default zoom.desktop x-scheme-handler/zoommtg
+xdg-mime default zoom.desktop x-scheme-handler/zoomphonecall
+xdg-mime default zoom.desktop x-scheme-handler/zoomus
+```
