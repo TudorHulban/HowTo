@@ -108,3 +108,9 @@ xdg-mime default zoom.desktop x-scheme-handler/zoommtg
 xdg-mime default zoom.desktop x-scheme-handler/zoomphonecall
 xdg-mime default zoom.desktop x-scheme-handler/zoomus
 ```
+
+## 12. gcc 
+
+```sh
+sudo dnf install gcc -y
+```
