@@ -103,3 +103,51 @@ nameserver 1.1.1.1
 
 Reboot.
 
+## Samba
+
+### Install
+
+```sh
+sudo apk add samba
+
+# enable and start services
+sudo rc-update add samba
+sudo service samba start
+```
+
+### Configure
+
+```sh
+sudo vi /etc/samba/smb.conf
+
+[downloads]
+   path = /home/tudi/Downloads
+   valid users = tudi
+   guest ok = no
+   writable = yes
+   printable = no
+   browseable = yes
+   create mask = 0770
+```
+
+#### Test configuration
+
+```sh
+testparm
+```
+
+### Add user
+
+```sh
+sudo smbpasswd -a samba-user
+```
+
+### Restart Samba
+
+Restart so new configuration is loaded.
+
+```sh
+sudo service samba restart
+```
+
+
