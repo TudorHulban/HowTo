@@ -13,6 +13,14 @@
 * [Other Tweaks](#other)
 * [Terminal Colors](#colors)
 
+## Change password overriding PAM settings
+
+Belwo method skips PAM entirely and writes directly to /etc/shadow.
+
+```sh
+echo "username:new-password" | sudo chpasswd
+```
+
 ## Extract Audio from video file <a name="video"></a> 
 
 ```sh
