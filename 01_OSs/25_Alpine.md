@@ -52,6 +52,12 @@ touch ~/.ssh/authorized_keys
 chmod 600 ~/.ssh/authorized_keys
 ```
 
+### Add key
+
+```sh
+echo "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA..." >> ~/.ssh/authorized_keys
+```
+
 ## RAM disk
 
 ```sh
