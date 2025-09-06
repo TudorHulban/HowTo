@@ -15,7 +15,7 @@
 
 ## Change password overriding PAM settings
 
-Belwo method skips PAM entirely and writes directly to /etc/shadow.
+Below method skips PAM entirely and writes directly to /etc/shadow.
 
 ```sh
 echo "username:new-password" | sudo chpasswd
@@ -270,6 +270,33 @@ for i in *; do
     echo "New file: $new"
     mv "$i" "$new"
 done
+```
+
+## Nautilus scripts
+
+### Create the Scripts Folder
+
+```sh
+mkdir -p ~/.local/share/nautilus/scripts
+```
+
+### Create the Script
+
+```sh
+vi ~/.local/share/nautilus/scripts/Extract_RAR_Here
+
+# add
+
+#!/bin/bash
+for FILE in "$@"; do
+    unrar x "$FILE" "$(dirname "$FILE")"
+done
+```
+
+### Make script executable
+
+```sh
+chmod +x ~/.local/share/nautilus/scripts/Extract_RAR_Here
 ```
 
 ## Resources
