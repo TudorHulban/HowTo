@@ -47,27 +47,41 @@ sudo dpkg-reconfigure tzdata
 ```
 ## 6. Move to no subscription repo
 ### PVE
+
+Version 9:
+
+```sh
+rm /etc/apt/sources.list.d/pve-enterprise.sources
+rm /etc/apt/sources.list.d/ceph.sources
+```
+below verion 9:
+
 ```sh
 vi /etc/apt/sources.list.d/pve-enterprise.list # change to pve-no-subscription
 # change line to
 deb http://download.proxmox.com/debian/pve buster pve-no-subscription
 ```
 ### Ceph
-```
+
+```sh
 vi /etc/apt/sources.list.d/ceph.list
 # add
 deb https://enterprise.proxmox.com/debian/ceph-quincy bookworm enterprise
 ```
 ### To upgrade
-```
+
+```sh
 apt-get update
 apt-get dist-upgrade
 ```
+
 Resources:
 ```html
 https://www.caretech.io/2018/06/08/how-to-update-proxmox-without-buying-a-subscription/
 ```
+
 ## 7. Connect to container, attach to container from Proxmox shell:
+
 ```sh
 lxc-attach --name <container ID>
 # or
