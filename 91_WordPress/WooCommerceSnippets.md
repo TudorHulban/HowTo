@@ -1,8 +1,11 @@
-## WordPress Snippets
+# WordPress Snippets
+
 Use plugin `Code Snippets` (`https://wordpress.org/plugins/code-snippets/`) or manually update `functions.php`.
 
-### Make postal code optional
+## Make postal code optional
+
 In (child theme) in file ../wordpress/wp-content/themes/astra/functions.php add at last:
+
 ```php
 // Make zip/postcode field optional
 add_filter( 'woocommerce_default_address_fields' , 'optional_postcode_checkout' );
@@ -12,9 +15,11 @@ return $p_fields;
 }
 ```
 
-### Show only Free Shipping 
-Below shows only free shipping method when available.<br/>
-../wordpress/wp-content/themes/astra/functions.php add at last:
+## Show only Free Shipping
+
+Below shows only free shipping method when available.  
+`../wordpress/wp-content/themes/astra/functions.php` add at last:
+
 ```php
 // Only show all free shipping rates when available
 function only_show_free_shipping_rate_when_available( $rates, $package ) {
@@ -43,12 +48,14 @@ return $rates;
 add_action( 'woocommerce_package_rates', 'only_show_free_shipping_rate_when_available', 10, 2 );
 ```
 
-#### Resources
-```
+## Resources free shipping
+
+```html
 https://wordpress.org/support/topic/free-flat-rate-shipping/
 ```
 
 ### Show product already in cart
+
 ```php
 // Change button for single products
  
@@ -78,14 +85,18 @@ function already_in_cart_archive_product( $label, $product ) {
    return $label;
 }
 ```
-#### Resources
-```
+
+#### Resources show product
+
+```html
 https://wpsimplehacks.com/how-to-show-product-already-in-cart/
 ```
 
 ### BOGO
-Buy one get one free.<br/>
+
+Buy one get one free.  
 Visibility on gifted is hidden.
+
 ```php
 add_action( 'template_redirect', 'bbloomer_add_gift_if_id_in_cart' );
  
@@ -112,12 +123,15 @@ function bbloomer_add_gift_if_id_in_cart() {
    if ( $product_gifted_in_cart ) WC()->cart->remove_cart_item( $product_gifted_in_cart );
 }
 ```
-#### Resources
-```
+
+#### Resources BOGO
+
+```html
 https://www.businessbloomer.com/woocommerce-buy-1-product-add-free-product-cart-programmatically/
 ```
 
 ### Show out of stock in search
+
 ```php
 // display an 'Out of Stock' label on archive pages
 add_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_stock', 10 );
@@ -127,29 +141,38 @@ function woocommerce_template_loop_stock() {
         echo '<p class="stock out-of-stock">Out of Stock</p>';
 }
 ```
-#### Resources
-```
+
+#### Resources out of stock
+
+```html
 https://wisdmlabs.com/blog/woocommerce-add-out-of-stock-label-on-shop-page/
 ```
 
 ### Find Products
+
 ```sql
 SELECT * FROM `wp_posts` WHERE `post_type` = "product"
 ```
-#### Resources
-```
+
+#### Resources find products
+
+```html
 https://wp-staging.com/in-which-database-table-is-woocommerce-storing-products/
 ```
 
 ### Kadence - no zoom on image on product page
+
 Customize -> Additional CSS
+
 ```css
 /* Turn of zoom pointer in woocommerce product */
 .woocommerce div.product div.images .woocommerce-product-gallery__wrapper {
     pointer-events: none;
 }
 ```
+
 #### Resources
-```
+
+```html
 https://ideaspot.com.au/blog/kadence-woocommerce-tutorial/
 ```

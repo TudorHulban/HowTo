@@ -27,7 +27,7 @@ npm install vue-awesome
 
 ### Use
 
-#### In main.js:
+#### In main.js
 
 ```js
 import 'vue-awesome/icons'
@@ -35,14 +35,14 @@ import Icon from 'vue-awesome/components/Icon'
 Vue.component('v-icon', Icon)
 ```
 
-#### In xxx.vue:
+#### In xxx.vue
 
 ```js
 <template>
 <v-icon name="camera"/>
 ```
 
-## Create Project:
+## Create Project
 
 ```sh
 vue create project_name

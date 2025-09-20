@@ -1,3 +1,5 @@
+# Shipment tracking
+
 ```php
 // For displaying in Order page columns.
 
@@ -100,7 +102,8 @@ function tracking_on_thankyou_page( $order_id ){  ?>
 <?php }
 ```
 
-### Resources
-```
+## Resources
+
+```html
 https://wpsimplehacks.com/how-to-add-shipment-tracking-to-woocommerce/
 ```

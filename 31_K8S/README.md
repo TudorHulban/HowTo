@@ -1,21 +1,29 @@
 # K8s: Installation and first steps
+
 ## Install K8s in LXC
-```
+
+```sh
 https://github.com/corneliusweig/kubernetes-lxd
 ```
+
 ### MiniKube
+
 ```html
 https://linuxhint.com/install-minikube-ubuntu/
 ```
 
 ## Resources
+
 ### Cheat Sheet
+
 ```html
 https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
 https://kubernetes.io/docs/reference/kubectl/cheatsheet/
 ```
+
 ### Example of Kubernetes deployment manifest file
-```
+
+```sh
 apiVersion: apps/v1beta1
 kind: Deployment # it is a deployment
 metadata:
@@ -98,6 +106,7 @@ https://github.com/kubernetes/kubernetes/issues/89882
 ```
 
 ### Resources
+
 ```html
 https://www.callicoder.com/deploy-containerized-go-app-kubernetes/
 https://www.tutorialspoint.com/kubernetes/index.htm
@@ -113,5 +122,3 @@ https://www.natarajmb.com/2022/06/kubernetes-debian/
 https://github.com/intel/cri-resource-manager/issues/655
 https://www.linode.com/docs/guides/build-a-cd-pipeline-with-lke/
 ```
-
-

@@ -1,4 +1,5 @@
-## gcloud install
+# gcloud install
+
 ```sh
 sudo apt-get install apt-transport-https ca-certificates gnupg
 
@@ -8,11 +9,15 @@ curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
 
 sudo apt-get update && sudo apt-get install google-cloud-cli
 ```
-### gke authorization plugin
+
+## gke authorization plugin
+
 ```sh
 sudo apt-get install google-cloud-sdk-gke-gcloud-auth-plugin
 ```
-### check installed components
+
+## check installed components
+
 ```sh
 gcloud components list
 ```

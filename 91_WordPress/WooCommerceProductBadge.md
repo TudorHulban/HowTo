@@ -1,5 +1,7 @@
 # Product Badge
+
 ## Based on product ID
+
 ```php
 add_action( 'woocommerce_before_shop_loop_item_title', 'best_badge', 3 );
           
@@ -18,6 +20,7 @@ function best_badge() {
 ```
 
 CSS - Ribbon Style
+
 ```css
 .woocommerce ul.products li.product .new-badge.onsale {
 	background: #ffcc00;
@@ -61,6 +64,7 @@ min-width: 60px;
 ```
 
 CSS - Circle Style
+
 ```css
 .woocommerce ul.products li.product .new-badge.onsale {
 	background: #ffcc00;
@@ -83,6 +87,7 @@ CSS - Circle Style
 ```
 
 CSS - Simple
+
 ```css
 .woocommerce ul.products li.product .new-badge.onsale {
 	background: #ffcc00;
@@ -104,6 +109,7 @@ min-width: 60px;
 ```
 
 ## Resources
-```
+
+```html
 https://wpsimplehacks.com/how-to-display-new-badge-on-woocommerce-recent-products/
 ```

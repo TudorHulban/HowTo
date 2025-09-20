@@ -33,9 +33,8 @@ http://localhost:3000/install
 
 ## Configure
 
-### Create RDBMS for persistance.
+### Create RDBMS for persistance
 
 Add IP for Gogs server in pg_hba.conf in /etc/postgresl/9.6/main.
 
 ### Sync server to one NTP
-
