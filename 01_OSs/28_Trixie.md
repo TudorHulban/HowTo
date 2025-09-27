@@ -23,6 +23,7 @@ Install also 32 bit support for the windows target installers:
 sudo dpkg --add-architecture i386
 sudo apt update
 sudo apt install libwine:i386
+sudo apt-get install wine32:i386
 ```
 
 ### Installers run
@@ -30,13 +31,13 @@ sudo apt install libwine:i386
 Run on host that connects to the VM running Debian.
 
 ```sh
-xhost +SI:localuser:tudi
+xhost +SI:localuser:local-user-name
 ```
 
 Connect with X capabilities to the VM running Debian:
 
 ```sh
-ssh -X user@debian-vm-ip
+ssh -X remote-user-name@debian-vm-ip
 ```
 
 Create a 32 bit wine installer:
@@ -51,7 +52,13 @@ Run the app installer with the wine 32 installer:
 WINEPREFIX=~/wine-installer wine app-setup.exe
 ```
 
-### Reaper app run
+## Reaper app run
+
+Download:
+
+```sh
+wget https://www.reaper.fm/files/7.x/reaper747_x64-install.exe
+```
 
 Create wine hybrid installer (32 and 64 bit)
 
@@ -69,6 +76,8 @@ echo 'alias reaper="WINEPREFIX=$HOME/wine-hybrid wine '\''C:\Program Files\REAPE
 source ~/.bashrc
 ```
 
+## VSTs
+
 ### Create VST folder
 
 Inside the wine hybrid environment:
@@ -76,4 +85,10 @@ Inside the wine hybrid environment:
 ```sh
 mkdir -p ~/wine-hybrid/drive_c/vst
 cd ~/wine-hybrid/drive_c/vst
+```
+
+### Download free VST
+
+```sh
+wget https://tal-software.com/downloads/plugins/install_TAL-Reverb-4.zip
 ```
