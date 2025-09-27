@@ -40,7 +40,7 @@ Connect with X capabilities to the VM running Debian:
 ssh -X remote-user-name@debian-vm-ip
 ```
 
-Create a 32 bit wine installer:
+Create a 32 bit wine installer as below if `wine app.exe` did not work:
 
 ```sh
 WINEARCH=win32 WINEPREFIX=~/wine-installer winecfg
@@ -58,6 +58,8 @@ Download:
 
 ```sh
 wget https://www.reaper.fm/files/7.x/reaper747_x64-install.exe
+# or
+wget https://www.reaper.fm/files/5.x/reaper599_x64-install.exe
 ```
 
 Create wine hybrid installer (32 and 64 bit)
