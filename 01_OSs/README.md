@@ -303,7 +303,22 @@ If any issues related to Python:
 sudo ln -s /usr/bin/python3 /usr/bin/python
 ```
 
-Resources
+#### List all formats
+
+```sh
+yt-dlp -F url
+# and download
+yt-dlp -f 140 url
+```
+
+#### Best audio
+
+```sh
+yt-dlp -f bestaudio url
+yt-dlp -f "bestaudio[ext=m4a]/bestaudio" url
+```
+
+#### Youtube downloader resources
 
 ```html
 https://www.makeuseof.com/download-youtube-videos-yt-dlp-linux-terminal/
