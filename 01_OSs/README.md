@@ -318,6 +318,21 @@ yt-dlp -f bestaudio url
 yt-dlp -f "bestaudio[ext=m4a]/bestaudio" url
 ```
 
+#### Convert to wav
+
+```sh
+sudo apt install ffmpeg
+ffmpeg -i "input.opus" -vn -acodec pcm_s16le -ar 48000 -ac 2 "output.wav"
+```
+
+Or with alias, just run once the function.
+
+```sh
+echo 'convertwav() { ffmpeg -i "$1" -vn -acodec pcm_s16le -ar 48000 -ac 2 "$2"; }' >> ~/.bashrc
+# and alias
+alias convertwav='f(){ ffmpeg -i "$1" -vn -acodec pcm_s16le -ar 48000 -ac 2 "${1%.*}.wav"; }; f'
+```
+
 #### Youtube downloader resources
 
 ```html
