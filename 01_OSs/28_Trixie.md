@@ -9,6 +9,22 @@ sudo apt update
 sudo apt install cinnamon-core
 ```
 
+### Enable autologin
+
+```sh
+# check display manager, should be LightDM
+systemctl status display-manager
+
+# if yes, edit the configuration
+sudo vi /etc/lightdm/lightdm.conf
+
+# add to seat section (no spaces in the line!)
+[Seat:*]
+# other lines
+autologin-user=user-name
+autologin-user-timeout=0
+```
+
 ## Install wine 64
 
 ```sh
