@@ -192,12 +192,6 @@ find -name *.mp4 -exec mv {} . \;
 apt install network-manager
 ```
 
-#### Resources
-
-```yaml
-https://brave.com/linux/
-```
-
 ### Firefox ESR
 
 ```sh
@@ -259,7 +253,7 @@ vi ~/.config/mpv/mpv.conf
 autofit-smaller=1024x768
 ```
 
-### Color picker 
+### Color picker  
 
 ```sh
 sudo apt-get install gpick
@@ -354,6 +348,15 @@ echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable ma
 sudo apt update
 sudo apt install brave-browser
 ```
+
+Update
+
+```sh
+dnf info brave-browser # check if new version
+sudo dnf update brave-browser
+```
+
+More at https://brave.com/linux/ .
 
 ## Office <a name="office"></a> ([Up](#top))
 
