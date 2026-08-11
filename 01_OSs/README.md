@@ -312,6 +312,14 @@ yt-dlp -f bestaudio url
 yt-dlp -f "bestaudio[ext=m4a]/bestaudio" url
 ```
 
+#### Extract opus lossless
+
+```sh
+ffmpeg -i "source.webm" -vn -c:a copy "target.opus"
+```
+
+Use kid3 to add in tag2 the picture tag and import the image file.
+
 #### Convert to wav
 
 ```sh
