@@ -301,8 +301,10 @@ sudo ln -s /usr/bin/python3 /usr/bin/python
 
 ```sh
 yt-dlp -F url
+
 # and download
 yt-dlp -f 140 url
+yt-dlp --cookies-from-browser brave -f 140 url
 ```
 
 #### Best audio
